@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{lipsum}
+\usepackage{mdframed}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{glossaries}
+% \usepackage[spanish]{babel}
+\usepackage[sorting=none]{biblatex}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{csquotes}
+\usepackage{pdfpages}
+\usepackage{booktabs,multirow}
+\usepackage{listings}
+\usepackage{dirtree}
+\usepackage{eurosym}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{a4paper}
+\graphicspath{{img/}}
+\addbibresource{bibliography.bib}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\setlength{\belowcaptionskip}{5pt} 
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\fancyhf{}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+\lfoot{\thepage}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+\lhead{PROYECTO FIN DE GRADO}
+
+\titleformat{\section}
+{\rmfamily\Large\raggedleft\uppercase}{\thesection.}{0.1cm}{}[{\titlerule[0.5pt]}]
+\titleformat{\subsection}
+    {\rmfamily\large\uppercase}{\thesubsection.}{0.1cm}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.9}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Diseño de un STACK Tecnológico para un equipo de IA basado en MLOPs }
+\author{Asier Villar}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Components %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\listequationsname}{\Large{Índice de ecuaciones}}
+\newcommand{\myequations}[1]{
+    \addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}
+}
+\newcommand{\blankpage}{% comando pagina vuota
+    \clearpage
+    \null
+    \thispagestyle{empty}%
+    \clearpage
+}
+
+\newcommand{\equationNote}[2]{
+    \begin{align} \label{#2} \ensuremath{#1} \end{align} 
+    \myequations{#2} \centering \small \textit{#2} \normalsize \justify 
+}
+
+\newlistof{myequations}{equ}{\listequationsname}
+\setlength{\cftmyequationsnumwidth}{2.3em}
+\setlength{\cftmyequationsindent}{1.5em}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \pagenumbering{roman}
+    \includepdf[pages={1}]{frontpage.pdf}
+    \includepdf[pages={1}]{frontpage.pdf}
+    \input{pages/summary.tex} 
+    \input{pages/index.tex} 
+
+    \pagenumbering{arabic}
+    \input{pages/introduction.tex}
+    \input{pages/stateofart.tex}
+    \input{pages/scope_objetives.tex}
+    \input{pages/methodology/index.tex} 
+    \input{pages/conclusion.tex} 
+    \pagebreak 
+    \printbibliography[title=Bibliografía]
+    \pagebreak
+\end{document}
