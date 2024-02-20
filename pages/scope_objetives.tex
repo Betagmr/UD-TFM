@@ -1,46 +1,85 @@
-\section{Objetivos y alcance}
+\section{Objetivos, alcance y Antecedentes}
 En esta sección se introducen los objetivos en los que va consistir el
 proyecto, habiéndose realizado una division entre el principal y los
 secundarios. Ademas de ello, se presentan los elementos que forman el alcance,
-asi como se comentaran otros que no forman parte de este.
+asi como se comentan otros que no forman parte de este.
 
 \subsection{Objetivos generales}
 El objetivo principal del proyecto es diseñar e implementar un estándar tecnológico y 
-operacional que cubra todas las necesidades de un equipo de data science. Este estándar
-deberá permitir la implementación de prácticas modernas de MLOps, CI/CD y metodologías
-ágiles, facilitando la transición y reduciendo la complejidad asociada. A continuación,
-se detallan los objetivos específicos que guiarán el desarrollo:
+operacional que cubra las necesidades más comunes dentro de un equipo de \textit{data science}. Se 
+busca agilizar los tiempos de desarrollo y estandarizar los procesos, con el fin de
+facilitar la colaboración entre investigadores y la reutilización del conocimiento. A
+continuación, se detallan los objetivos específicos que guiarán el desarrollo:
 
 \begin{itemize}
-    \item \textbf{Identificación de necesidades:} Antes de comenzar con el proceso de
-    diseño, se debe realizar un análisis de las necesidades del equipo para poder
-    identificar que requisitos debe cumplir el stack tecnológico.
-    \item \textbf{Investigación del estado del arte:} Una vez identificadas las necesidades
-    del equipo, se debe realizar una investigación exhaustiva de las tecnologías, herramientas
-    y plataformas que se encuentran disponibles en el mercado.
-    \item \textbf{Diseño del estándar tecnológico:} Una vez realizada la investigación, se procederá
-    a diseñar el estándar tecnológico que mejor se adapte a las necesidades del equipo. Este diseño
-    busca ser simple pero efectivo, permitiendo una transición suave y una reducción de la
-    complejidad asociada.
-    \item \textbf{Definición de las fases de desarrollo:} Las diferentes fases que se siguen
-    dentro del desarrollo del proyecto an de estar bien definidas, permitiendo una comprensión
-    clara y evitando posibles malentendidos o confusiones durante su ejecución.
-    \item \textbf{Despliegue de la infraestructura:} Acorde al diseño realizado, se procederá
-    a desplegar la infraestructura necesaria para el funcionamiento correcto de los diferentes
-    flujos de trabajo.
-    \item \textbf{Creación de documentación:} El proyecto debe ir acompañado de una documentación
-    clara que permita a cualquier miembro del equipo transicionar de manera efectiva.
+    \item \textbf{Agilizar el proceso inicial de proyectos:} Optimizar las primeras etapas 
+    de los proyectos, identificando y eliminando aquellos procesos repetitivos que no aportan
+    valor y que puedan retrasar su puesta en marcha. 
+    \item \textbf{Facilitar la colaboración entre investigadores:} Implementar herramientas y 
+    métodos que fomenten una cooperación fluida y efectiva entre los miembros del equipo de 
+    investigación, con el fin de potenciar la sinergia y aprovechar al máximo el conocimiento 
+    colectivo.
+    \item \textbf{Definir procesos mediante buenas prácticas:} Establecer un marco de trabajo 
+    basado en buenas prácticas de gestión de proyectos, con el objetivo de estandarizar los 
+    procesos y garantizar su eficiencia y calidad.
+    \item \textbf{Automatizar el desarrollo de modelos robustos:} Investigar y aplicar 
+    técnicas que contribuyan al desarrollo automático de modelos de aprendizaje automático,
+    con el fin de reducir el tiempo y el esfuerzo necesarios para obtener resultados de calidad.
+    \item \textbf{Promover la reutilización del conocimiento:} Desarrollar mecanismos y herramientas 
+    que faciliten la captura, organización y difusión del conocimiento generado durante el desarrollo 
+    de los proyectos, con el propósito de fomentar su reutilización en futuras investigaciones y 
+    actividades relacionadas.
 \end{itemize}
+
+El cumplimiento de estos objetivos se espera que no solo mejore la eficiencia y la calidad de los 
+proyectos, sino que también contribuya a la creación de un entorno de trabajo más colaborativo y
+enriquecedor para los miembros del equipo de investigación.
 
 \subsection{Alcance}
 En esta sección se definen los límites del proyecto, estableciendo lo que está
 incluido y excluido dentro mismo. Se describirá de manera detallada las
 actividades que forman parte del desarrollo final, así como aquellos elementos
-que no están incluidos en el alcance del proyecto. Esta sección es fundamental
-para tener una comprensión clara y evitar posibles malentendidos o confusiones
-durante su ejecución.
+que no están incluidos en el alcance del proyecto. Aunque el enfoque de este 
+proyecto podría aplicarse a una amplia variedad de problemas en el ámbito del 
+aprendizaje automático, en el contexto de este TFM nos centraremos en tres de 
+los casos más comunes dentro del marco de las series temporales: Forecasting, 
+Clasificación y Detección de Anomalías. A continuación, se detallan las 
+actividades que forman parte del alcance del proyecto.
 
 \subsubsection{Dentro del alcance}
+\begin{itemize}
+    \item \textbf{Plantillas de proyectos base:} Desarrollar plantillas para 
+    los tres problemas de series temporales comentados anteriormente. Estas plantillas 
+    servirán como punto de partida para proyectos específicos dentro de cada uno de estos dominios
+    y definirán desde el principio una estructura y un conjunto de herramientas comunes. Además,
+    se incluirán ejemplos de código y documentación que faciliten su uso y comprensión.
+    \item \textbf{Componentes esenciales:} Identificar y almacenar los componentes 
+    esenciales de cada proyecto, incluyendo modelos, algoritmos, métricas de evaluación y
+    preprocesamiento de datos. Estos componentes se almacenarán y documentarán de forma
+    que puedan ser reutilizados en futuros proyectos, facilitando la transferencia de conocimiento.
+    \item \textbf{Integración de sistemas externos:} Se incluirá la configuración de sistemas 
+    externos, como plataformas MLOPs o herramientas de visualización, con las plantillas 
+    de proyectos base. Esto permitirá una integración más fluida y rápida de estos sistemas con 
+    los proyectos, facilitando el flujo de datos y la visualización de resultados.
+    \item \textbf{Proceso de AutoML:} Diseñará y ejecutar procesos de AutoML 
+    (Machine Learning Automatizado) que demostrará cómo se pueden combinar los conocimientos 
+    adquiridos de todos los proyectos para desarrollar un sistema de aprendizaje automático 
+    automatizado. Este proceso utilizará las plantillas y componentes esenciales almacenados 
+    para generar modelos de forma automática.
+\end{itemize}
+
 \subsubsection{Fuera del alcance}
+\begin{itemize}
+    \item \textbf{Desarrollo de modelos específicos:} Aunque se incluirán ejemplos de
+    modelos y algoritmos, el desarrollo de modelos específicos para problemas concretos
+    no forma parte del alcance de este proyecto. Se espera que los modelos desarrollados
+    sean generales y puedan ser adaptados a problemas específicos por los usuarios.
+    \item \textbf{Despliegue de modelos:} EL despliegue de modelos en producción no forma
+    parte del alcance de este proyecto. Se espera que los modelos desarrollados puedan ser
+    desplegados en sistemas de producción, pero no se incluirá en este proyecto. El enfoque
+    se centrará exclusivamente en el desarrollo de los mismos.
+\end{itemize}
+
+\subsection{Antecedentes}
 
 \pagebreak
