@@ -25,6 +25,7 @@
 \usepackage{listings}
 \usepackage{dirtree}
 \usepackage{eurosym}
+\usepackage{tikz}
 \usepackage{indentfirst}
 
 
@@ -54,6 +55,7 @@
 {\rmfamily\Large\raggedleft\uppercase}{\thesection.}{0.1cm}{}[{\titlerule[0.5pt]}]
 \titleformat{\subsection}
     {\rmfamily\large\uppercase}{\thesubsection.}{0.1cm}{}
+\def\check{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepgfplotslibrary{colorbrewer}
