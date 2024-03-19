@@ -31,17 +31,17 @@ sistema de autenticación sea común para todos ellos.
     \caption{Vista general del proyecto}\label{fig:internal-server}
 \end{figure}
 
-\subsubsection{Plataformas integradas}
+\subsubsection{selección de plataformas}
 Previo a la elección de las plataformas integradas, se realizó una evaluación
 a nivel de equipo para determinar las necesidades que se debían cubrir. Se
 identificaron las siguientes funcionalidades fundamentales:
 
 \begin{itemize}
-    \item F1: Versionado y almacenamiento de dataset.
-    \item F2: Monitorización de experimentos.
-    \item F3: Almacenamiento de modelos de inteligencia artificial.
-    \item F4: Integración de métricas en datasets y visualización de resultados.
-    \item F5: Exploración de datasets.
+    \item \textbf{F1:} Versionado y almacenamiento de dataset.
+    \item \textbf{F2:} Monitorización de experimentos.
+    \item \textbf{F3:} Almacenamiento de modelos de inteligencia artificial.
+    \item \textbf{F4:} Integración de métricas en datasets y visualización de resultados.
+    \item \textbf{F5:} Exploración de datasets.
 \end{itemize}
 
 Una vez identificadas las necesidades, se consensuó un criterio de selección
@@ -108,13 +108,30 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
     herramienta para poder trabajar con ella.
     \item \textbf{Kedro:} TODO:
     \item \textbf{ZenML:} TODO:
-    \item \textbf{Rath:} TODO:
-    \item \textbf{Apache Superset:} TODO:
-    \item \textbf{Grafana:} TODO:
+    \item \textbf{Rath:} herramienta de exploración de datasets que permite una exploración semi-automática
+    de datasets. Muy fácil de utilizar, ya que cuenta con un modo copilot que te sugiere diferentes gráficos
+    y estadísticas en función de los datos que estés explorando. Además, no requiere de ninguna configuración
+    previa, ya que se puede utilizar directamente desde el navegador.
+    \item \textbf{Apache Superset:} Apache Superset es una plataforma de visualización de datos de código abierto 
+    que ofrece una amplia gama de características para explorar y visualizar datos de manera interactiva. Con una 
+    interfaz intuitiva y basada en web, Superset permite a los usuarios crear paneles de control, gráficos y tablas 
+    dinámicas con facilidad. Además, ofrece integraciones con diversas fuentes de datos y admite la creación de 
+    paneles de control en tiempo real. Una de las fortalezas de Apache Superset es su comunidad activa y en constante 
+    crecimiento, lo que garantiza un soporte sólido y una mejora continua de la plataforma. Sin embargo, la integración
+    con el resto de herramientas es limitada, ya que el propio Superset requiere de un formato de datos concreto para
+    poder subir los datos a la plataforma, lo que puede dificultar su integración y generar duplicidad en cuanto a los
+    datos almacenados, ya que se necesitaría una copia de los datos en el formato que requiere Superset. Nuestro objetivo
+    es que esta herramienta agilice el proceso de exploración de datos, por lo que no es una opción viable por el momento.
+    \item \textbf{Grafana:} Grafana es una plataforma de análisis y visualización de métricas de código abierto que 
+    se ha convertido en una opción popular para monitorear sistemas y aplicaciones. Con una amplia gama de complementos 
+    y paneles personalizables, Grafana permite a los usuarios crear cuadros de mando y gráficos altamente personalizados 
+    para visualizar datos de diferentes fuentes. Además, ofrece características avanzadas como alertas, anotaciones y 
+    exploración de datos en tiempo real. Grafana es altamente modular y extensible, lo que facilita su integración con 
+    diversas tecnologías y sistemas de monitoreo. El problema de Grafana es el mismo que el de Superset, ya que requiere
+    de un formato de datos concreto para poder subir los datos a la plataforma, lo que puede dificultar su integración y
+    generar duplicidad en cuanto a los datos almacenados. Además, de su curva de aprendizaje, que es bastante pronunciada.
 \end{itemize}
 
-Para finalizar con la evaluación, se ha realizado una tabla comparativa que muestra
-las funcionalidades y criterios que cumple cada una de ellas de forma resumida.
 \begin{table}[ht]
     \centering 
     \begin{tabular}{lccccccccc}  
@@ -143,7 +160,67 @@ las funcionalidades y criterios que cumple cada una de ellas de forma resumida.
     \label{tab:comparative-table} 
 \end{table}
 
+Para finalizar con la evaluación, se puede observar en la tabla \ref*{tab:comparative-table} 
+una comparativa que muestra
+las funcionalidades y criterios que cumple cada una de ellas de forma resumida.
+De acuerdo con la evaluación realizada, se ha decidido integrar ClearML y Rath
+en la infraestructura como las plataformas finales. ClearML cubre la mayoría de
+las necesidades fundamentales identificadas, ya que ofrece soluciones para la
+mayoría de casos de uso, mientras que Rath complementa con la exploración de
+datasets de forma sencilla e intuitiva.  
 
-\subsubsection{Herramientas de desarrollo}
 \subsubsection{Seguridad y priviacidad}
+La seguridad y la privacidad de los datos son aspectos fundamentales dentro
+de un entorno de trabajo empresarial, donde la confidencialidad de los datos
+es una prioridad para la empresa. Por ello, ya que ClearML y Rath no cuentan
+con un sistema de autenticación robusto, se ha decidido implementar un sistema
+de autenticación utilizando Keycloak, que es una solución de código abierto
+para la gestión de acceso. Keycloak permite a los usuarios autenticarse con
+cuentas de usuario gestionadas por la empresa, lo que garantiza que solo los
+usuarios autorizados puedan acceder a los datos. Además, ofrece integraciones
+con diferentes proveedores de identidad, lo que facilita la gestión de
+usuarios y la integración con otras herramientas.\medskip
+
+Debido a que tanto ClearML como Rath no tienen integraciones directas con
+Keycloak, se ha decidido utilizar Nginx como proxy inverso para redirigir
+las peticiones a los servicios de ClearML y Rath. De esta forma, se puede
+utilizar Keycloak para autenticar a los usuarios y garantizar la seguridad
+y la privacidad de los datos. La figura \ref{fig:internal-server} muestra
+cómo se ha integrado Keycloak en la infraestructura, así como las conexiones
+entre los diferentes servicios y el proxy inverso. En el momento actual, se
+ha implementado un sistema de autenticación básico, pero se espera que en el
+futuro este sistema se sincronice con el sistema de autenticación de Tecnalia
+para una mayor comodidad por parte de los usuarios.
+
 \subsubsection{Despligue Automatizado}
+Para la automatización del despliegue de la infraestructura se ha utilizado
+GitLab CI, que es una herramienta de integración y despliegue continuo que
+permite automatizar el proceso de despliegue de aplicaciones. GitLab CI
+permite definir un conjunto de pasos que se ejecutarán cada vez que se
+realice un cambio en el repositorio, lo que facilita el despliegue de
+aplicaciones y la gestión de la infraestructura.\medskip
+
+Para poder utilizar GitLab CI, es necesario primero definir un runner, que
+es un agente que se encarga de ejecutar los pasos definidos en el archivo
+de configuración. En este caso, el runner se ha desplegado en el servidor
+lo que permite ejecutar los diferentes flujos en el mismo entorno. Además,
+otro aspecto a tener en cuenta es que por seguridad, se ha configurado el
+sistema con variables de entorno que enmascaran las credenciales de acceso
+a los diferentes servicios, lo que garantiza que las credenciales no se
+almacenen en el repositorio. En cuanto a las pipelines, se han definido 
+tres diferentes flujos para automatizar cada uno de los procesos de 
+instalación y actualización:
+
+\begin{itemize}
+    \item \textbf{Instalación de Keycloak:} Se encarga de instalar Keycloak
+    en el servidor junto con la base de datos. Este flujo se ejecutará si no
+    se ha instalado Keycloak previamente.
+    \item \textbf{Instalación de ClearML:} Se encarga de instalar ClearML y Rath
+    en el servidor. Además, también se encarga de configurar el proxy inverso
+    para redirigir las peticiones a los servicios de ClearML y Rath. Este flujo
+    se ejecutará si no se ha instalado ClearML previamente.
+    \item \textbf{Despliegue de infraestructura:} Se encarga de actualizar el
+    servidor a los nuevos cambios realizados en el repositorio. Este flujo se
+    lanza cada vez que detecta un cambio en el repositorio, pero requiere de
+    una aprobación manual para ejecutarse.
+\end{itemize}
