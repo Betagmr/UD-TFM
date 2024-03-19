@@ -31,7 +31,7 @@ sistema de autenticación sea común para todos ellos.
     \caption{Vista general del proyecto}\label{fig:internal-server}
 \end{figure}
 
-\subsubsection{selección de plataformas}
+\subsubsection{Selección de plataformas}
 Previo a la elección de las plataformas integradas, se realizó una evaluación
 a nivel de equipo para determinar las necesidades que se debían cubrir. Se
 identificaron las siguientes funcionalidades fundamentales:
@@ -212,10 +212,10 @@ tres diferentes flujos para automatizar cada uno de los procesos de
 instalación y actualización:
 
 \begin{itemize}
-    \item \textbf{Instalación de Keycloak:} Se encarga de instalar Keycloak
+    \item \textbf{Instalación de autenticación:} Se encarga de instalar Keycloak
     en el servidor junto con la base de datos. Este flujo se ejecutará si no
     se ha instalado Keycloak previamente.
-    \item \textbf{Instalación de ClearML:} Se encarga de instalar ClearML y Rath
+    \item \textbf{Instalación de infraestructura:} Se encarga de instalar ClearML y Rath
     en el servidor. Además, también se encarga de configurar el proxy inverso
     para redirigir las peticiones a los servicios de ClearML y Rath. Este flujo
     se ejecutará si no se ha instalado ClearML previamente.
@@ -223,4 +223,32 @@ instalación y actualización:
     servidor a los nuevos cambios realizados en el repositorio. Este flujo se
     lanza cada vez que detecta un cambio en el repositorio, pero requiere de
     una aprobación manual para ejecutarse.
+\end{itemize}
+
+La idea de estos flujos es que se puedan ejecutar de forma independiente
+y que en caso de que se necesite realizar un cambio en la infraestructura,
+se pueda lanzar el flujo en otro servidor para instalar la infraestructura
+de forma automática. Además, facilita el trabajo en local, ya que una vez
+automatizado el despliegue, los cambios en local se pueden probar lanzar
+directamente en el servidor.
+
+\subsubsection{Problemas durante el Despliegue}
+A continuación se detallan la lista de problemas que se han encontrado durante
+el despliegue de la infraestructura y las soluciones que se han aplicado para
+resolverlos. Estos soluciones se detallan con el fin de que puedan ser de utilidad
+para futuros despliegues o como registro para mejoras futuras.
+
+\begin{itemize}
+    \item \textbf{Clearml no es compatible con servidores no IPv6.} Por defecto,
+    ClearML utiliza direcciones IPv4 e IPv6 para comunicarse con el servidor. Sin
+    embargo, en el servidor interno de la empresa no está habilitado el soporte
+    para direcciones IPv6, lo que provoca que ClearML no pueda comunicarse con el
+    servidor. Internamente, ClearML utiliza una configuración de Nginx para esta
+    comunicación, pero no es posible modificarla directamente ya que el contenedor de
+    Docker lanza un script en bash que sobrescribe la configuración de Nginx y luego lanza
+    el servidor. La solución a este problema es sobrescribe una variable interna llamada
+    \textit{DISABLE\_NGINX\_IPV6} dentro del contenedor de Webserver de ClearML. Este
+    error es común pero no está documentado en la documentación oficial, la solución
+    es una propuesta personal que ha sido descubierta mediante la lectura del código.
+    \item \textbf{ClearML no renderiza correctamente en el navegador.}
 \end{itemize}
