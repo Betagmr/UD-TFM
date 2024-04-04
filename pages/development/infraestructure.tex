@@ -250,5 +250,12 @@ para futuros despliegues o como registro para mejoras futuras.
     \textit{DISABLE\_NGINX\_IPV6} dentro del contenedor de Webserver de ClearML. Este
     error es común pero no está documentado en la documentación oficial, la solución
     es una propuesta personal que ha sido descubierta mediante la lectura del código.
-    \item \textbf{ClearML no renderiza correctamente en el navegador.}
+    \item \textbf{ClearML no renderiza correctamente en el navegador.} Otro de los problemas
+    que encontramos al desplegar ClearMl es que el servidor interno de la empresa no
+    era capaz de servir archivos estáticos de un tamaño superior a 3.5MB. Esto provocaba
+    que la interfaz de usuario de ClearML no se renderizara correctamente los gráficos,
+    ya que internamente utiliza plotly para la visualización de los mismos. La solución
+    a este problema fue recompilar la libreria de plotly por nuestra cuenta incluyendo
+    solamente los gráficos que necesitamos, de esta forma reducimos el tamaño de los
+    archivos estáticos y conseguimos que la interfaz de usuario se renderizara correctamente.
 \end{itemize}

@@ -1,6 +1,205 @@
 \subsection{Catalogo de componentes}
+El catalogo de componentes y plantillas es una herramienta de gestión
+de conocimiento que permite a los integrantes de un equipo compartir,
+reutilizar y colaborar en la creación de estándares para una mayor
+eficiencia en el desarrollo de modelos de IA. Los componentes son
+elementos que representan pequeñas funcionalidades dentro de un
+proyecto que pueden ser reutilizados de una forma sencilla. Las plantillas 
+por otro lado son estructuras más complejas que agrupan varios componentes, 
+configuraciones y reglas de negocio para crear un modelo dentro de una 
+temática específica por cada una de ellas. A todos estos elementos los hemos
+denominado bajo el nombre de STAC (Simple Tecnalia AI Components).\medskip
+
 \subsubsection{Adaptación del diseño atómico}
+La metodología de diseño atómico es una técnica que se basa en la
+creación de componentes, que se pueden reutilizar en diferentes partes
+de un proyecto. En el desarrollo de modelos de IA se puede adaptar
+esta técnica para crear componentes que representen funcionalidades
+específicas, como el preprocesamiento de datos, la selección de
+características, la evaluación de modelos, entre otros.\medskip
+
+Como hemos mencionado anteriormente, los componentes se dividen
+a su vez en multitud de categorías (atómicos, moleculares, organismos, plantillas, etc.)
+esta división tiene sentido dentro de su concepción original pero
+en el caso de los modelos de IA, la división de los componentes se puede hacer
+de una forma más sencilla, ya que en el caso de la investigación en IA, una
+abstracción más sencilla puede ser más útil para los investigadores. Es por
+ello que se propone una división de los componentes en tres categorías:
+
+\begin{itemize}
+    \item \textbf{Componentes atómicos:} son los componentes más sencillos
+    que representan una funcionalidad específica.
+    \item \textbf{Componentes compuestos:} estos componentes agrupan
+    varios componentes atómicos para realizar una funcionalidad más
+    compleja.
+    \item \textbf{Plantillas:} estructuras de proyectos completan que buscan
+    solucionar un problema específico utilizando una técnica concreta. Están
+    formadas a su vez por componentes compuestos y atómicos. Además, las
+    plantillas también agrupan configuraciones, reglas de negocio y
+    diversas integraciones con otros sistemas.
+\end{itemize}
+
+Todos los componentes y plantillas se almacenan en un repositorio
+compartido, donde los integrantes del equipo pueden colaborar en la
+creación de nuevos componentes y plantillas, así como en la mejora de
+los existentes.
+
 \subsubsection{Estructura del sistema de componentes}
-\subsubsection{Componentes esenciales}
+La arquitectura que se ha decidido implementar para el sistema de componentes
+es conocida como monorepo multi-paquete. Un monorepo es una práctica de 
+desarrollo de software donde todos los proyectos relacionados 
+se almacenan en un único repositorio de código fuente. Esto significa que en 
+lugar de tener múltiples repositorios para cada uno de los componentes, todo se 
+mantienen en un único lugar. Por otro lado, que sea multi-paquete significa que
+que los diferentes elementos del monorepo se organizan mediante paquetes de
+software, lo que facilita su distribución de forma independiente. Este tipo de 
+arquitectura cuenta con varias ventajas, entre las que se encuentran:
+
+\begin{itemize}
+    \item \textbf{Facilidad de gestión:} Tener todo en un solo lugar simplifica la gestión 
+    del código, las dependencias y las versiones. No es necesario alternar entre
+    diferentes repositorios para hacer cambios o resolver problemas.
+    \item \textbf{Consistencia:} Todos los proyectos dentro del monorepo pueden seguir 
+    las mismas convenciones, estructura de carpetas, y configuraciones, 
+    lo que garantiza una mayor consistencia en el código. Esto permite que el código
+    sea más fácil de mantener a largo plazo.
+\end{itemize}
+
+Uno de los principales problemas que puede surgir al utilizar un monorepo es la
+complejidad que puede acarrear la organización de las diferentes carpetas, ya
+que al tener todo en un solo lugar, la cantidad de archivos puede llegar
+a ser muy grande y contar con un nivel de anidamiento muy profundo. Para evitar este
+problema, se ha decidido tomar una estructura de carpetas basada en 
+\textit{Screaming architecture}, una arquitectura de software que busca anteponer la
+lógica de negocio sobre las partes técnicas del sistema. En este caso, nuestra lógica de
+negocio se relaciona en torno a el problema que se busca resolver, es decir los diferentes 
+conjuntos de problemas de las series temporales.\medskip
+
+La figura \ref{fig:screaming-arch} muestra un ejemplo simplificado de la estructura
+de carpetas del proyecto. Por cada uno de los diferentes problemas, se ha creado una 
+carpeta principal, que a su vez contiene diferentes subcarpetas que agrupan los 
+diferentes componentes dentro de cada una de las temáticas (procesamiento, modelo, métricas). 
+En caso de que se necesite añadir un nuevo componente, simplemente se crea una nueva
+carpeta dentro de la temática correspondiente. Por ejemplo, tomando la temática preprocesamiento de datos
+dentro de clasificación, se buscaría la carpeta \textit{Data-Processing} dentro
+\textit{TimeSeries-Classification} y en caso de no existir, se crearía una nueva carpeta, y dentro de ella 
+se añadiría el nuevo componente. \medskip
+
+Lo que se consigue con este enfoque es que cada uno de los diferentes problemas cuente con una 
+estructura similar pero que a su vez tengan la posibilidad de incluir temáticas propia. En la
+figura \ref{fig:screaming-arch} se puede ver como cada uno de los problemas cuenta con componentes
+de procesamiento de datos, pero que a su vez, hay algunos de ellos que cuentan con componentes
+específicos de modelos o métricas. Esto se puede deber a que cada uno de los problemas tiene
+una necesidades específicas o que no se han encontrado componentes que se puedan reutilizar
+en este momento.
+
+\begin{figure}[ht]
+    \dirtree{%
+        .1 /components.
+        .2 /TimeSeries-Forecasting.
+        .3 /Data-Ingestion.
+        .4 ingestion-component-1.
+        .4 ingestion-component-2.
+        .3 /Data-Processing.
+        .4 processing-component-1.
+        .3 /Models.
+        .4 model-component-1.
+        .2 /TimeSeries-Classification.
+        .3 /Data-Processing.
+        .4 processing-component-2.
+        .3 /Metrics.
+        .4 metric-component-1.
+        .2 /TimeSeries-AnomalyDetection.
+        .3 /Data-Processing.
+        .4 processing-component-3.
+    }
+    \caption{Ejemplo de estructura de carpetas basada en Screaming Architecture.}
+    \label{fig:screaming-arch}
+\end{figure}
+
+\subsubsection{Empaquetado de componentes}
+La idea de los componentes es que sean fácilmente integrables en cualquier
+proyecto de una forma sencilla. Para ello, se ha decidido empaquetar cada
+componente de forma independiente y distribuirlos dentro de un repositorio
+privado, de forma que se puedan instalar utilizando pip o cualquier otro 
+gestor de paquetes como poetry.\medskip
+
+Dentro de nuestro caso de uso, queremos tener la posibilidad de instalar
+solo aquellos componentes que necesitemos en cada momento, sin tener que
+descargarnos todo el contenido del repositorio. Esto es especialmente 
+importante ya que las dependencias de las librerías de IA pueden llegar a
+ser muy pesadas. A su vez, también se quiere que todos nuestros componentes
+hereden del mismo nombre de paquete, para que se puedan utilizar de una forma
+transparente a la hora de importarlos en un proyecto. Es decir, si tenemos por
+ejemplo un componentes de ingesta de datos llamado \textit{get\_data} y otro de 
+visualización que imprime una gráfica llamado \textit{show\_graph}, la forma de 
+importarlo en un proyecto sería la siguiente:
+
+\begin{verbatim}
+    $ pip install stac-show-graph stac-get-data
+
+    >> from stac.visualization.show_graph import show_graph
+    >> from stac.data_ingestion.get_data import get_data
+    >> data = get_data()
+    >> show_graph(data)
+\end{verbatim}
+
+Para conseguir este efecto es necesario compendrer como funciona el empaquetado
+de librerías en Python. En Python, un paquete es una carpeta que contiene por lo menos
+un archivo \textit{\_\_init\_\_.py} y un \textit{pyproject.toml} o \textit{setup.py} . 
+La forma en la que python se importan los paquetes es a través de un sistema de rutas, 
+donde se toma la ruta hacia el paquete desde el directorio raíz del proyecto. En la
+figura \ref{fig:min-package} se puede ver como es el contenido de cada componente.
+
+\begin{figure}[ht]
+    \dirtree{%
+        .1 /component-name.
+        .2 pyproject.toml.
+        .2 /stac/component-category.
+        .3 \_\_init\_\_.py.
+    }
+    \caption{Estructura mínima de un componente empaquetado.}
+    \label{fig:min-package}
+\end{figure}
+
+Esta estructura se puede repetir para cada uno de los componentes que se quieran
+añadir al repositorio. No obstante, y aprovechando que cada componente está separada
+en un proyecto independiente, se pueden añadir más utilidades como tests, documentación
+o ejemplos de uso. Como estamos utilizando poetry para gestionar las dependencias, y
+las configuraciones globales del proyecto, también se van a añadir sus archivos correspondientes. 
+
+\begin{figure}[ht]
+    \dirtree{%
+        .1 /component-name.
+        .2 README.md.
+        .2 pyproject.toml.
+        .2 poetry.lock.
+        .2 Makefile.
+        .2 /tests.
+        .2 /stac/component-category.
+        .3 \_\_init\_\_.py.
+    }
+    \caption{Estructura final de un componente empaquetado.}
+    \label{fig:real-package}
+\end{figure}
+
+Este empaquetado puede parecer tedioso si se tiene que hacer manualmente, pero en
+futuras secciones veremos como se puede automatizar este proceso para que sea lo más
+sencillo posible. Es muy importante que la estructura sea la descrita para optimizar
+la experiencia de desarrollo de los integrantes del equipo.
+
 \subsubsection{Sistema de plantillas}
-\subsubsection{Integración Continua y Despliegue Continuo}
+La herramienta que hemos utilizado para la creación de plantillas es Cookiecutter.
+Cookiecutter es una utilidad para la generación de proyectos que te permite inicializar
+un proyecto a partir de plantillas predefinidas. Funciona siguiendo un principio 
+básico: en lugar de empezar un nuevo proyecto desde cero y tener que configurar 
+todo manualmente, puedes usar una plantilla predefinida que ya incluya la estructura 
+de directorios, archivos básicos, configuraciones iniciales, y cualquier otro 
+componente necesario para tu proyecto.\medskip
+
+Esto es especialmente útil en entornos donde necesitas crear múltiples proyectos 
+con una estructura similar donde puede haber proyectos con requisitos comunes, 
+como la configuración de un marco de trabajo específico, estructura de directorios 
+estándar, o incluso configuraciones de pruebas y documentación.\medskip
+
+\subsubsection{Integración continua y despliegue continuo}

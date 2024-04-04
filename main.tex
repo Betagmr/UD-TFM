@@ -27,6 +27,7 @@
 \usepackage{eurosym}
 \usepackage{tikz}
 \usepackage{indentfirst}
+\usepackage{xpatch}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,6 +84,35 @@
     \begin{align} \label{#2} \ensuremath{#1} \end{align} 
     \myequations{#2} \centering \small \textit{#2} \normalsize \justify 
 }
+
+% DirTree patch
+\newlength{\upBranch} % shift up the text  lines <<<<
+\setlength{\upBranch}{0.7ex} % 
+
+\newlength{\tolineSpace} % blank space bellow text  lines  <<<
+\setlength{\tolineSpace}{1mm}%
+\makeatletter
+
+\xpatchcmd{\dirtree} % root
+{\vbox{\@nameuse{DT@body@1}}}
+{\raisebox{-\tolineSpace}{\vbox{\@nameuse{DT@body@1}}}}
+{}{}    
+
+\xpatchcmd{\dirtree} % below space
+{\advance\dimen\z@ by-\@nameuse{DT@lastlevel@\the\DT@countiv}\relax}
+{\advance\dimen\z@ by-\tolineSpace \advance\dimen\z@ by-\@nameuse{DT@lastlevel@\the\DT@countiv}\relax}
+{}{}
+    
+\xpatchcmd{\dirtree}% shift up the text  lines
+{\kern\DT@sep\box\z@\endgraf}
+{\kern\DT@sep\raisebox{-\upBranch}{\box\z@}\endgraf}
+{}{}    
+
+\makeatother
+
+\DTsetlength{1em}{1em}{0em}{0.4pt}{0.4pt}
+\setlength{\DTbaselineskip}{16pt} %minimum size for  \large
+\renewcommand{\DTstyle}{\rmfamily\large}
 
 \newlistof{myequations}{equ}{\listequationsname}
 \setlength{\cftmyequationsnumwidth}{2.3em}
