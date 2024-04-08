@@ -144,10 +144,10 @@ importarlo en un proyecto sería la siguiente:
     >> show_graph(data)
 \end{verbatim}
 
-Para conseguir este efecto es necesario compendrer como funciona el empaquetado
-de librerías en Python. En Python, un paquete es una carpeta que contiene por lo menos
-un archivo \textit{\_\_init\_\_.py} y un \textit{pyproject.toml} o \textit{setup.py} . 
-La forma en la que python se importan los paquetes es a través de un sistema de rutas, 
+Para conseguir este efecto es necesario comprender como funciona el empaquetado
+de librerías en Python. En Python, un paquete es una carpeta que contiene, por lo menos,
+un archivo \textit{\_\_init\_\_.py} y un \textit{pyproject.toml} o \textit{setup.py}. 
+La forma en la que se importan los paquetes es a través de un sistema de rutas por archivos, 
 donde se toma la ruta hacia el paquete desde el directorio raíz del proyecto. En la
 figura \ref{fig:min-package} se puede ver como es el contenido de cada componente.
 
@@ -200,6 +200,71 @@ componente necesario para tu proyecto.\medskip
 Esto es especialmente útil en entornos donde necesitas crear múltiples proyectos 
 con una estructura similar donde puede haber proyectos con requisitos comunes, 
 como la configuración de un marco de trabajo específico, estructura de directorios 
-estándar, o incluso configuraciones de pruebas y documentación.\medskip
+estándar, o incluso configuraciones de pruebas y documentación. Además, en nuestro
+caso son especialmente útiles ya que contamos con dos situaciones en las que tener
+una plantilla puede ser muy útil:
+
+\begin{itemize}
+    \item \textbf{Creación de plantillas para problemas específicos:} este es el caso
+    principal de el uso de plantillas. Cada una de las plantillas se crea para resolver
+    un problema específico con una técnica concreta. Por ejemplo, una plantilla para
+    clasificación de series temporales con redes neuronales recurrentes.
+    \item \textbf{Creación de nuevos componentes:} en caso de que se quiera añadir
+    un nuevo componente al repositorio, se puede utilizar una plantilla que contenga
+    la estructura de carpetas y los archivos necesarios para empaquetar el componente.
+    Como hemos mencionado anteriormente, esto puede ser especialmente engorroso si no
+    se tiene una plantilla que te ayude a automatizar el proceso.
+\end{itemize}
+
+La razón por la elección de Cookiecutter es por su facilidad de uso, ya que
+al utilizar el sistema de plantillas Jinja2, se pueden añadir variables a los
+archivos de la plantilla que se sustituirán por valores concretos al inicializar
+el proyecto. Este sistema de plantillas es muy conocido especialmente ente los
+desarrolladores de Python, ya que es ampliamente utilizado por otros frameworks
+como Django. Además, Cookiecutter cuenta con una gran cantidad de plantillas
+predefinidas que se pueden utilizar de forma gratuita, lo que puede ser muy útil
+a la hora de incorporar las primeras plantillas al repositorio.
+
+Estas plantillas se almacenan de la misma forma que podemos ver en la figura
+\label{fig:screaming-arch} pero sustituyendo los componentes por las plantillas.
+En principio, la estructura de las plantillas puede variar en gran medida entre
+ellas, ya que cada una de ella busca resolver un problema específico. No obstante,
+hay una serie de directrices obligatorias que se deben seguir para garantizar el
+correcto funcionamiento de las plantillas:
+
+\begin{itemize}
+    \item \textbf{Automatización de instalación y lanzamiento:} todas las plantillas
+    deben contar con un makefile que permita la instalación de las dependencias y
+    el lanzamiento de la aplicación de forma sencilla. Por convención, el comando
+    de instalación se llamará \textit{make install} y el de lanzamiento \textit{make train}.
+    Es muy importante que estos comandos estén presentes en todas las plantillas para
+    garantizar que con solo dos comandos y sin necesidad de consultar la documentación
+    especifica de cada plantilla se pueda poner en marcha el proyecto en concreto.
+\end{itemize}
 
 \subsubsection{Integración continua y despliegue continuo}
+Dentro de equipos de trabajo donde hay un número elevado de integrantes, es
+importante no solo tener una buena organización del código, sino también
+contar con un sistema de CI/CD que asegure los diferentes procesos. En nuestro
+caso es especialmente critico ya que los componentes son utilizados por
+diferentes personas en diferentes proyectos, por lo que un fallo en uno de
+los componentes puede afectar a un gran número de proyectos.\medskip
+
+Para la implementación se ha utilizado GitLab CI, con una distribución de 
+tres fases: \textit{test}, \textit{docs} y \textit{deploy}. En la fase de test
+se ejecutan los test de cada uno de los componentes, en la fase de docs se
+extraen todos los archivos de documentación y se genera una pagina web estática
+con toda la documentación del proyecto, y en la fase de deploy hace una comprobación
+de que paquetes es necesario desplegar y en caso de que haya cambios, se despliegan
+las nuevas versiones de los paquetes, aclarar que se mantienen las versiones anteriores
+para evitar problemas de compatibilidad.
+
+Estas fases se ejecutan en diferentes momentos, al estar la rama principal bloqueada
+por defecto, es necesario crear una rama con las nuevas funcionalidades y/o modificaciones
+y hacer una petición de merge a la rama principal. En este momento se ejecutan las fases
+de test y docs, para comprobar que no hay errores en el código y que la documentación
+se puede generar correctamente, aunque esta última no se despliega hasta que se haya
+aceptado la petición de merge. En caso de que se acepte la petición de merge, se ejecuta
+la fase de deploy. Existen usuarios que excepcionalmente pueden realizar modificaciones
+sobre la rama principal, pero solo en caso de que sea necesario y no como una práctica
+habitual. 
