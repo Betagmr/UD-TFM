@@ -12,15 +12,15 @@ denominado bajo el nombre de STAC (Simple Tecnalia AI Components).\medskip
 
 \subsubsection{Adaptación del diseño atómico}
 La metodología de diseño atómico es una técnica que se basa en la
-creación de componentes, que se pueden reutilizar en diferentes partes
-de un proyecto. En el desarrollo de modelos de IA se puede adaptar
+creación de componentes que puedan ser reutilizados en diferentes partes
+de un proyecto. En el desarrollo de modelos de IA el posible adaptar
 esta técnica para crear componentes que representen funcionalidades
 específicas, como el preprocesamiento de datos, la selección de
 características, la evaluación de modelos, entre otros.\medskip
 
-Como hemos mencionado anteriormente, los componentes se dividen
+Como se ha mencionado anteriormente, los componentes se dividen
 a su vez en multitud de categorías (atómicos, moleculares, organismos, plantillas, etc.)
-esta división tiene sentido dentro de su concepción original pero
+esta división tiene sentido dentro de su concepción original pero,
 en el caso de los modelos de IA, la división de los componentes se puede hacer
 de una forma más sencilla, ya que en el caso de la investigación en IA, una
 abstracción más sencilla puede ser más útil para los investigadores. Es por
@@ -148,21 +148,27 @@ Para conseguir este efecto es necesario comprender como funciona el empaquetado
 de librerías en Python. En Python, un paquete es una carpeta que contiene, por lo menos,
 un archivo \textit{\_\_init\_\_.py} y un \textit{pyproject.toml} o \textit{setup.py}. 
 La forma en la que se importan los paquetes es a través de un sistema de rutas por archivos, 
-donde se toma la ruta hacia el paquete desde el directorio raíz del proyecto. En la
-figura \ref{fig:min-package} se puede ver como es el contenido de cada componente.
+donde se toma la ruta hacia el paquete desde el directorio raíz del proyecto. En este caso,
+si queremos que todos nuestros componentes se importen desde \textit{stac}, es necesario que
+el código de cada uno se encuentre dentro de una carpeta llamada \textit{stac}, que a su vez
+contenga una carpeta con el nombre de la categoría del componente sin ningún \textit{\_\_init\_\_.py} 
+en su interior, ya que no queremos que se comporte como un paquete sino como una ruta.
+Dentro de esta, ya si se crear una carpeta con el nombre del componente y dentro de esta
+se añadirá el código del componente. En la figura \ref{fig:min-package} se puede ver 
+como es el contenido de cada componente y la estructura de carpetas que se debe seguir.
 
 \begin{figure}[ht]
     \dirtree{%
         .1 /component-name.
         .2 pyproject.toml.
-        .2 /stac/component-category.
+        .2 /stac/component-category/component-name.
         .3 \_\_init\_\_.py.
     }
     \caption{Estructura mínima de un componente empaquetado.}
     \label{fig:min-package}
 \end{figure}
 
-Esta estructura se puede repetir para cada uno de los componentes que se quieran
+Esta estructura se tiene que repetir para cada uno de los componentes que se quieran
 añadir al repositorio. No obstante, y aprovechando que cada componente está separada
 en un proyecto independiente, se pueden añadir más utilidades como tests, documentación
 o ejemplos de uso. Como estamos utilizando poetry para gestionar las dependencias, y
@@ -176,7 +182,7 @@ las configuraciones globales del proyecto, también se van a añadir sus archivo
         .2 poetry.lock.
         .2 Makefile.
         .2 /tests.
-        .2 /stac/component-category.
+        .2 /stac/component-category/component-name.
         .3 \_\_init\_\_.py.
     }
     \caption{Estructura final de un componente empaquetado.}
@@ -201,7 +207,7 @@ Esto es especialmente útil en entornos donde necesitas crear múltiples proyect
 con una estructura similar donde puede haber proyectos con requisitos comunes, 
 como la configuración de un marco de trabajo específico, estructura de directorios 
 estándar, o incluso configuraciones de pruebas y documentación. Además, en nuestro
-caso son especialmente útiles ya que contamos con dos situaciones en las que tener
+caso son especialmente útiles ya que contamos con tres situaciones en las que tener
 una plantilla puede ser muy útil:
 
 \begin{itemize}
@@ -214,6 +220,11 @@ una plantilla puede ser muy útil:
     la estructura de carpetas y los archivos necesarios para empaquetar el componente.
     Como hemos mencionado anteriormente, esto puede ser especialmente engorroso si no
     se tiene una plantilla que te ayude a automatizar el proceso.
+    \item \textbf{Creación de nuevas plantillas:} la estructura base de las plantillas
+    al igual que los componentes es fácilmente reutilizable, ya que ciertos archivos de
+    configuración o de documentación se pueden reutilizar en diferentes plantillas. Por
+    lo que se pueden crear plantillas que contengan estos archivos y asi automatizar el
+    proceso de creación de nuevas plantillas. 
 \end{itemize}
 
 La razón por la elección de Cookiecutter es por su facilidad de uso, ya que

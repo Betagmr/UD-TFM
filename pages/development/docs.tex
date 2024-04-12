@@ -51,12 +51,48 @@ también se centren en aspectos enfocados a la IA y el aprendizaje
 automático, como por ejemplo guías sobre cómo solucionar problemas
 relacionados con el día a día de la empresa.
 
+\subsubsection{Sistema de búsqueda y organización de documentación}
+El poder encontrar información de forma rápida y sencilla es crucial
+en un proyecto de estas características, ya que la documentación
+puede llegar a crecer significativamente y ser difícil encontrar
+la información necesaria. Una de las ventajas de Astro con Starlight
+es que proporciona de forma automatizada un sistema de búsqueda 
+que permite realizar búsquedas en base a palabras clave. 
+
+El sistema que utiliza por detrás se llama Pagefind, el cual es gratuito 
+y de código abierto. Pagefind es un motor de búsqueda de documentos
+que entre sus características incluye no solo la búsqueda por palabras
+clave sino también el filtrado de resultados mediante etiquetas. Esta 
+funcionalidad es clave y permiten encontrar la información de forma más precisa. 
+Para poder indexar los documentos, Pagefind necesita que estos cuenten con
+unas etiquetas especiales que le permitan identificar que cierto documento
+pertenece a una categoría en concreto. En este sentido, ciertas páginas
+de la documentación cuenta con una sección llamada \textit{Tags} en la que
+se incluyen las etiquetas correspondientes.
+
+% TODO: Añadir imagen del sistema de búsqueda
+% TODO: Añadir imagen de los tags
+
 \subsubsection{Construcción automática de documentación}
 Como se ha mencionado anteriormente, cada componente y plantilla 
 viene con su propia documentación, la cual se genera dentro de su
-respectiva carpeta mediante un archivo Readme.md. 
+respectiva carpeta mediante un archivo Readme.md. La decision de 
+que cada componente tenga su documentación en su propia carpeta
+es para facilitar la experiencia de desarrollo ya que todos los
+elementos de cada componente se encuentran en un mismo lugar y no
+es necesario buscar en diferentes carpetas para encontrar la
+información necesaria.
+
+Esto pese a ser una ventaja, también genera un problema a la hora de
+generar la documentación, ya que es necesario un sistema que sea
+capaz de recorrer todas las carpetas, extraer los archivos Readme.md
+y Readme.mdx de cada una de ellas y generar la respectiva página
+de documentación. Para solucionar este problema, se ha creado un
+script de bash que recorre las carpetas que contienen componentes o
+plantillas y copia estos archivos en una carpeta con el nombre de
+su carpeta original con el fin de evitar problemas de colisiones
+entre los nombres de los diferentes archivos. Una vez hecho esto,
+se ejecuta el comando astro build y se sube la documentación a la
+plataforma de GitLab Pages.
 
 \subsubsection{Documentación de componentes y plantillas}
-
-\subsubsection{Sistema de búsqueda y organización de documentación}
-

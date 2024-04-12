@@ -107,7 +107,20 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
     de configuración, integraciones manuales dentro del código y un dominio completo de los comandos de la
     herramienta para poder trabajar con ella.
     \item \textbf{Kedro:} TODO:
-    \item \textbf{ZenML:} TODO:
+    \item \textbf{ZenML:} ZenMl es una plataforma de código abierto encargado de la orquestación de pipelines en
+    proyectos de aprendizaje automático. Ofrece una experiencia de desarrollo cómoda y modular, que facilita
+    la reutilización de código. Además, ZenML cuenta con integraciones para las platformas de almacenamiento
+    mas populares, como AWS y Google Cloud. A diferencia de ClearMl y MLflow, este no está enfocado en la
+    gestión de experimentos ya que no es una plataforma MLOps, aunque si que ofrece conexiones con estas
+    para poder redireccionar nuestros experimentos. La documentación es clara y podemos encontrar diversos repositorios 
+    con ejemplos de uso o integración con otras herramientas. El problema de esta radica principalmente
+    en el hecho de que al no ser una plataforma MLOps, no ofrece funcionalidades relacionadas con la gestión
+    o versionado de datasets, lo que es un punto negativo para nuestro caso de uso. Otro de los problemas
+    es que las plataformas con las que ofrece integración no comparten las mismas credenciales dentro de su capa
+    gratuita, lo que dificulta en gran medida su uso. Además, dentro de la capa gratuita estas plataformas 
+    funcionan de forma independiente, lo que vuelve muy complicado el trabajo con ellas.
+    Por último, la funcionalidad de orquestación de pipelines también viene incluida en ClearML, por lo que
+    no aporta ninguna funcionalidad adicional que no este cubierta.
     \item \textbf{Rath:} herramienta de exploración de datasets que permite una exploración semi-automática
     de datasets. Muy fácil de utilizar, ya que cuenta con un modo copilot que te sugiere diferentes gráficos
     y estadísticas en función de los datos que estés explorando. Además, no requiere de ninguna configuración
@@ -148,7 +161,7 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
         MLflow           & --     & \check & \check & --     & --     && \check & \check & \check \\
         ClearML          & \check & \check & \check & \check & --     && \check & \check & \check \\
         DVC              & \check & \check & \check & \check & --     && --     & \check & --     \\ 
-        Kedro            & --     & --     & --     & --     & --     && --     & --     & --     \\  
+        Kedro            & --     & \check & \check & --     & --     && \check & \check & \check \\  
         ZenML            & --     & --     & --     & --     & --     && --     & --     & --     \\ 
         Rath             & --     & --     & --     & --     & \check && \check & --     & \check \\ 
         Apache Superset  & \check & --     & --     & \check & --     && --     & --     & \check \\ 
