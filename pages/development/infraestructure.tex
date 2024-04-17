@@ -84,17 +84,15 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
     plataforma varía en función de la tarea que se quiera realizar, pero en general, es una plataforma que no
     ata al usuario a su ella. La documentación se queda corta en cuestión de claridad y ejemplos, lo que puede
     dificultar la adopción de la plataforma por parte de los miembros del equipo.
-    \item \textbf{ClearML:} ClearML al igual que MLflow, es una plataforma MLOps de código abierto que ofrece
-    las mismas funcionalidades que MLflow en relación a la gestión a la gestión de experimentos, pero con la
-    diferencias, que este si cuenta con funcionalidades relacionadas con la gestión, evaluación o versionado de
-    datasets. ClearML también es compatible con la mayor parte de librerías populares aunque no tantas ni tan
-    variadas como MLflow, pero ofrece una API que permite de la integración de estas de forma manual. La
-    dependencia sobre la plataforma es mínima, ya que con pocos cambios se pueden lanzar experimentos sobre
-    un código base. La documentación es clara y ofrece ejemplos en formato tanto de texto como de video, con
-    proyectos sencillos y claros que permiten entender rápidamente el funcionamiento de la plataforma. El 
-    principal punto débil de ClearML es que no cuenta con una gran comunidad, lo que puede dificultar a
-    la hora de encontrar soluciones a ciertas problemáticas. Otro de sus puntos débiles es que por defecto
-    no cuenta con un sistema de autenticación robusto, lo que te obliga a implementar uno por tu cuenta.
+    \item \textbf{ClearML:}Similar a MLflow, ClearML es una plataforma MLOps de código abierto que ofrece funcionalidades para la 
+    gestión de experimentos, pero con la ventaja de incluir herramientas para la gestión, evaluación y 
+    versionado de datasets. La dependencia sobre la plataforma es mínima, ya que con pocos cambios se pueden 
+    lanzar experimentos y adicionalmente permite el lanzamiento de pipelines, gestión de alertas, orquestación de modelos 
+    y generación de puntos de acceso para modelos ya desplegados. Aunque es compatible con muchas bibliotecas populares su comunidad 
+    es más limitada, lo que puede dificultar a la hora de encontrar soluciones a ciertas problemáticas.
+    La documentación es clara y ofrece ejemplos en formato tanto en formato de blog como de video, facilitando la 
+    comprensión. Sin embargo, carece de un sólido sistema de autenticación por defecto, lo que requiere una
+    implementación adicional para proteger correctamente la aplicación web.
     \item \textbf{Data Version Controller (DVC):} DVC y DVC Studio son dos herramientas de código abierto que
     están diseñadas para manejar grandes volúmenes de datos, modelos y experimentos. DVC
     se centra en el versionado y almacenamiento de datasets, mientras que DVC Studio se centra en la
@@ -109,18 +107,18 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
     \item \textbf{Kedro:} TODO:
     \item \textbf{ZenML:} ZenMl es una plataforma de código abierto encargado de la orquestación de pipelines en
     proyectos de aprendizaje automático. Ofrece una experiencia de desarrollo cómoda y modular, que facilita
-    la reutilización de código. Además, ZenML cuenta con integraciones para las platformas de almacenamiento
+    la reutilización de código. Además, cuenta con integraciones para las platformas de almacenamiento
     mas populares, como AWS y Google Cloud. A diferencia de ClearMl y MLflow, este no está enfocado en la
-    gestión de experimentos ya que no es una plataforma MLOps, aunque si que ofrece conexiones con estas
+    gestión de experimentos ya que no es una plataforma MLOps, aunque si que ofrece conexiones con esta última
     para poder redireccionar nuestros experimentos. La documentación es clara y podemos encontrar diversos repositorios 
     con ejemplos de uso o integración con otras herramientas. El problema de esta radica principalmente
     en el hecho de que al no ser una plataforma MLOps, no ofrece funcionalidades relacionadas con la gestión
     o versionado de datasets, lo que es un punto negativo para nuestro caso de uso. Otro de los problemas
-    es que las plataformas con las que ofrece integración no comparten las mismas credenciales dentro de su capa
+    es que las plataformas que integra no comparten las mismas credenciales dentro de su capa
     gratuita, lo que dificulta en gran medida su uso. Además, dentro de la capa gratuita estas plataformas 
-    funcionan de forma independiente, lo que vuelve muy complicado el trabajo con ellas.
-    Por último, la funcionalidad de orquestación de pipelines también viene incluida en ClearML, por lo que
-    no aporta ninguna funcionalidad adicional que no este cubierta.
+    funcionan de forma independiente, lo que vuelve muy complicado el trabajo con ellas. Ademas, la funcionalidad 
+    de orquestación de pipelines también viene incluida en ClearML, por lo que no aporta ninguna funcionalidad 
+    adicional que no este cubierta.
     \item \textbf{Rath:} herramienta de exploración de datasets que permite una exploración semi-automática
     de datasets. Muy fácil de utilizar, ya que cuenta con un modo copilot que te sugiere diferentes gráficos
     y estadísticas en función de los datos que estés explorando. Además, no requiere de ninguna configuración
@@ -161,8 +159,8 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
         MLflow           & --     & \check & \check & --     & --     && \check & \check & \check \\
         ClearML          & \check & \check & \check & \check & --     && \check & \check & \check \\
         DVC              & \check & \check & \check & \check & --     && --     & \check & --     \\ 
-        Kedro            & --     & \check & \check & --     & --     && \check & \check & \check \\  
-        ZenML            & --     & --     & --     & --     & --     && --     & --     & --     \\ 
+        ZenML            & --     & \check & \check & --     & --     && \check & \check & \check \\  
+        Kedro            & --     & --     & --     & --     & --     && --     & --     & --     \\ 
         Rath             & --     & --     & --     & --     & \check && \check & --     & \check \\ 
         Apache Superset  & \check & --     & --     & \check & --     && --     & --     & \check \\ 
         Grafana          & \check & --     & --     & \check & --     && --     & --     & \check \\ 
