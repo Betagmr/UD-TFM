@@ -51,6 +51,34 @@ también se centren en aspectos enfocados a la IA y el aprendizaje
 automático, como por ejemplo guías sobre cómo solucionar problemas
 relacionados con el día a día de la empresa.
 
+\subsubsection{Documentación de componentes y plantillas}
+Todos los componentes y plantillas que forman parte del proyecto
+cuentan con su propia documentación asociada a un archivo Readme.md.
+La razón de utilizar un archivo de tipo Markdown es que es un formato
+sencillo y fácil de escribir, lo que facilita la creación de documentación
+por parte de los distintos integrantes del equipo. Además, Astro
+lee de forma nativa archivos Markdown, lo que permite cargar las
+diferentes páginas sin necesidad de escribir código propio de una
+página web.\medskip
+
+Aunque la documentación de los componentes y plantillas es bastante
+flexible y permite incluir secciones adicionales si fuera necesario,
+lo cierto es que por defecto incluye las siguientes secciones de forma
+automática:
+
+\begin{itemize}
+    \item \textbf{Descripción:} proporciona una descripción general del
+    componente o plantilla.
+    \item \textbf{Instalación:} explica cómo instalar el componente o plantilla
+    en un proyecto. Generalmente, se proporciona una único comando de consola que
+    instala el componente o genera la estructura de archivos de la plantilla. 
+    \item \textbf{Uso:} proporciona información sobre cómo utilizar el componente
+    o plantilla en un proyecto. Incluye ejemplos de uso.
+    \item \textbf{Tags:} lista las etiquetas que se han utilizado para indexar en
+    el sistema de búsqueda.
+\end{itemize}
+
+
 \subsubsection{Sistema de búsqueda y organización de documentación}
 El poder encontrar información de forma rápida y sencilla es crucial
 en un proyecto de estas características, ya que la documentación
@@ -95,4 +123,3 @@ entre los nombres de los diferentes archivos. Una vez hecho esto,
 se ejecuta el comando astro build y se sube la documentación a la
 plataforma de GitLab Pages.
 
-\subsubsection{Documentación de componentes y plantillas}

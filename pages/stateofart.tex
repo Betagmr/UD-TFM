@@ -1,4 +1,9 @@
 \section{Antecedentes y justificación}
+Esta sección se centra en recopilar las practicas y técnicas más relevantes en
+el contexto de este proyecto. Se describen las metodologías que se han utilizado
+para el diseño del marco de trabajo, así como las herramientas y tecnologías que
+han tenido un impacto significativo en el desarrollo del mismo.
+
 \subsection{Estado del arte}
 \subsubsection{Diseño Atómico}
 El diseño atómico es una metodología de diseño que se centra en la creación
@@ -37,7 +42,7 @@ A continuación, se describen brevemente cada una de las categorías:
     \item \textbf{Organismos:} Los organismos son la combinación de varias moléculas
     y átomos para formar una funcionalidad completa.
     \item \textbf{Plantillas:} Las plantillas son la combinación de varios Organismos
-    para dar forma a un contenido o funcionalidad completa.
+    para dar forma a un contenido.
     \item \textbf{Páginas:} Las páginas son la combinación de varias plantillas.
 \end{itemize}
 
@@ -56,5 +61,119 @@ sistema de componentes en el desarrollo de modelos de aprendizaje automático.
 Traeremos la filosofía del diseño atómico y la adaptaremos a nuestro contexto,
 con las particularidades y necesidades que requiere el desarrollo de modelos de
 aprendizaje automático. 
+
+\subsubsection{Machine Learning Operations (MLOps)}
+El desarrollo de modelos de aprendizaje automático es un proceso complejo que implica
+la recopilación de datos, la creación de modelos, la evaluación de los modelos y su
+puesta en producción. Cada una de estas etapas requiere de diferentes herramientas y
+prácticas, y es importante que estas herramientas y prácticas estén integradas de manera
+coherente para garantizar la eficacia del proceso. Los principios de MLOPs son una serie de prácticas y herramientas que se utilizan
+para gestionar el ciclo de vida de los modelos de aprendizaje automático. Como se muestra en la
+figura \ref{fig:mlops-workflow}, este enfoque busca aplicar las mejores tendencias dentro de la 
+ingeniería de software al desarrollo de modelos, con el objetivo de mejorar la eficiencia, la 
+calidad y la escalabilidad.\medskip
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{mlops-workflow.png}
+    \caption{Vista general del proyecto}\label{fig:mlops-workflow}
+\end{figure}
+
+
+Algunos de los principios clave de MLOps son:
+
+\begin{itemize}
+    \item \textbf{Automatización:} la automatización es esencial para mejorar la eficiencia del
+    desarrollo de modelos y prevenir errores. Esto implica automatizar tareas como la 
+    generación de datos, el despliegue de modelos, evaluación y su puesta en producción.
+    \item \textbf{Colaboración y reproducibilidad:} uno de los desafíos en el Aprendizaje Automático es lograr 
+    reproducir resultados de manera consistente, dada la naturaleza aleatoria de los algoritmos.
+    MLOps busca, en la medida de lo posible, garantizar cierta consistencia entre los resultados
+    obtenidos durante diferentes ejecuciones de un modelo para facilitar la colaboración entre
+    los miembros del equipo.
+    \item \textbf{Monitorización:} una vez que un modelo está en producción, es importante monitorizar
+    su rendimiento para garantizar su eficacia y detectar posibles problemas. La monitorización
+    permite crear alertas en caso de que el modelo no funcione correctamente y tomar medidas
+    para corregirlo como por ejemplo, actualizar el modelo con nuevos datos.
+    \item \textbf{Gestión de versiones:} controlar las versiones de los modelos y los datos es esencial
+    para garantizar la reproducibilidad y la trazabilidad de los modelos. La gestión de versiones
+    permite a los equipos comprender cómo ha evolucionado un modelo a lo largo del tiempo e incluso
+    retroceder a versiones anteriores fuera necesario.
+\end{itemize}
+
 \subsection{Antecedentes}
+
+\subsubsection{Estudio de plataformas MLOps}
+\begin{itemize}
+    \item \textbf{MLflow:} MLflow es una plataforma MLOPs de código abierto para la gestión del ciclo de vida de
+    los modelos. Ofrece una interfaz de usuario para el seguimiento de experimentos, la gestión de modelos 
+    y la implementación de modelos en diferentes entornos. MLflow es compatible con la mayor parte de librerías de aprendizaje 
+    automático, como TensorFlow o PyTorch. Uno de los puntos fuertes de MLflow es su gran comunidad, ya que es
+    una de las plataformas más utilizadas en la industria. Sin embargo, no ofrece funcionalidades relacionadas con
+    la gestión, evaluación o versionado de datasets ni con la exploración de los mismos. La dependencia sobre la
+    plataforma varía en función de la tarea que se quiera realizar, pero en general, es una plataforma que no
+    ata al usuario a su ella. La documentación se queda corta en cuestión de claridad y ejemplos, lo que puede
+    dificultar la adopción de la plataforma por parte de los miembros del equipo.
+    \item \textbf{ClearML:}Similar a MLflow, ClearML es una plataforma MLOps de código abierto que ofrece funcionalidades para la 
+    gestión de experimentos, pero con la ventaja de incluir herramientas para la gestión, evaluación y 
+    versionado de datasets. La dependencia sobre la plataforma es mínima, ya que con pocos cambios se pueden 
+    lanzar experimentos y adicionalmente permite el lanzamiento de pipelines, gestión de alertas, orquestación de modelos 
+    y generación de puntos de acceso para modelos ya desplegados. Aunque es compatible con muchas bibliotecas populares su comunidad 
+    es más limitada, lo que puede dificultar a la hora de encontrar soluciones a ciertas problemáticas.
+    La documentación es clara y ofrece ejemplos en formato tanto en formato de blog como de video, facilitando la 
+    comprensión. Sin embargo, carece de un sólido sistema de autenticación por defecto, lo que requiere una
+    implementación adicional para proteger correctamente la aplicación web.
+    \item \textbf{Data Version Controller (DVC):} DVC y DVC Studio son dos herramientas de código abierto que
+    están diseñadas para manejar grandes volúmenes de datos, modelos y experimentos. DVC
+    se centra en el versionado y almacenamiento de datasets, mientras que DVC Studio se centra en la
+    monitorización de experimentos, visualización de resultados y almacenamiento de modelos. Además, 
+    DVC Live proporciona integraciones con un número considerable de librerías de aprendizaje automático.
+    La documentación está bien estructurada aunque no es tan clara como la de ClearML, pero cuenta con una
+    comunidad bastante activa. En cuanto a los aspectos negativos de DVC, la principal desventaja es que
+    la curva de aprendizaje es bastante pronunciada, lo que dificulta su adopción. Otro punto en contra
+    es la dependencia gigantesca que tienen los proyectos que usan DVC, ya que se necesita de muchos archivos
+    de configuración, integraciones manuales dentro del código y un dominio completo de los comandos de la
+    herramienta para poder trabajar con ella.
+    \item \textbf{Kedro:} TODO:
+    \item \textbf{ZenML:} ZenMl es una plataforma de código abierto encargado de la orquestación de pipelines en
+    proyectos de aprendizaje automático. Ofrece una experiencia de desarrollo cómoda y modular, que facilita
+    la reutilización de código. Además, cuenta con integraciones para las platformas de almacenamiento
+    mas populares, como AWS y Google Cloud. A diferencia de ClearMl y MLflow, este no está enfocado en la
+    gestión de experimentos ya que no es una plataforma MLOps, aunque si que ofrece conexiones con esta última
+    para poder redireccionar nuestros experimentos. La documentación es clara y podemos encontrar diversos repositorios 
+    con ejemplos de uso o integración con otras herramientas. El problema de esta radica principalmente
+    en el hecho de que al no ser una plataforma MLOps, no ofrece funcionalidades relacionadas con la gestión
+    o versionado de datasets, lo que es un punto negativo para nuestro caso de uso. Otro de los problemas
+    es que las plataformas que integra no comparten las mismas credenciales dentro de su capa
+    gratuita, lo que dificulta en gran medida su uso. Además, dentro de la capa gratuita estas plataformas 
+    funcionan de forma independiente, lo que vuelve muy complicado el trabajo con ellas. Ademas, la funcionalidad 
+    de orquestación de pipelines también viene incluida en ClearML, por lo que no aporta ninguna funcionalidad 
+    adicional que no este cubierta.
+\end{itemize}
+
+\subsubsection{Estudio de herramientas de visualización de datos}
+\begin{itemize}
+    \item \textbf{Rath:} herramienta de exploración de datasets que permite una exploración semi-automática
+    de datasets. Muy fácil de utilizar, ya que cuenta con un modo copilot que te sugiere diferentes gráficos
+    y estadísticas en función de los datos que estés explorando. Además, no requiere de ninguna configuración
+    previa, ya que se puede utilizar directamente desde el navegador.
+    \item \textbf{Apache Superset:} Apache Superset es una plataforma de visualización de datos de código abierto 
+    que ofrece una amplia gama de características para explorar y visualizar datos de manera interactiva. Con una 
+    interfaz intuitiva y basada en web, Superset permite a los usuarios crear paneles de control, gráficos y tablas 
+    dinámicas con facilidad. Además, ofrece integraciones con diversas fuentes de datos y admite la creación de 
+    paneles de control en tiempo real. Una de las fortalezas de Apache Superset es su comunidad activa y en constante 
+    crecimiento, lo que garantiza un soporte sólido y una mejora continua de la plataforma. Sin embargo, la integración
+    con el resto de herramientas es limitada, ya que el propio Superset requiere de un formato de datos concreto para
+    poder subir los datos a la plataforma, lo que puede dificultar su integración y generar duplicidad en cuanto a los
+    datos almacenados, ya que se necesitaría una copia de los datos en el formato que requiere Superset. Nuestro objetivo
+    es que esta herramienta agilice el proceso de exploración de datos, por lo que no es una opción viable por el momento.
+    \item \textbf{Grafana:} Grafana es una plataforma de análisis y visualización de métricas de código abierto que 
+    se ha convertido en una opción popular para monitorear sistemas y aplicaciones. Con una amplia gama de complementos 
+    y paneles personalizables, Grafana permite a los usuarios crear cuadros de mando y gráficos altamente personalizados 
+    para visualizar datos de diferentes fuentes. Además, ofrece características avanzadas como alertas, anotaciones y 
+    exploración de datos en tiempo real. Grafana es altamente modular y extensible, lo que facilita su integración con 
+    diversas tecnologías y sistemas de monitoreo. El problema de Grafana es el mismo que el de Superset, ya que requiere
+    de un formato de datos concreto para poder subir los datos a la plataforma, lo que puede dificultar su integración y
+    generar duplicidad en cuanto a los datos almacenados. Además, de su curva de aprendizaje, que es bastante pronunciada.
+\end{itemize}
 \pagebreak
