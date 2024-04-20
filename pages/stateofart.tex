@@ -1,13 +1,65 @@
 \section{Antecedentes y justificación}
-Esta sección se centra en recopilar las practicas y técnicas más relevantes en
-el contexto de este proyecto. Se describen las metodologías que se han utilizado
-para el diseño del marco de trabajo, así como las herramientas y tecnologías que
-han tenido un impacto significativo en el desarrollo del mismo.
+Esta sección se centra en describir el ecosistema actual del desarrollo e investigación 
+de modelos de inteligencia artificial y justificar la necesidad de la creación de un
+estándar dentro de un equipo. Se presentan datos e información general sobre las 
+tecnologías más relevantes utilizadas en el proyecto, dando una visión general 
+de por qué se eligieron, teniendo en cuenta las últimas tendencias que están
+surgiendo en el ámbito del aprendizaje automático.
+
+\subsection{Justificación}
+Cada año, más empresas y organizaciones invierten recursos significativos en 
+proyectos de IA. Como se muestra en la figura \ref{fig:ai-investement},
+en 2021 la inversión global superó los 270 mill millones de dólares \cite{Letzing2024-nn},
+lo que supone un aumento del 40\% de la inversión con respecto al año anterior.
+Este crecimiento de la inversión busca aprovechar al máximo el potencial de la IA 
+y sacar provecho de su ventaja competitiva. Un ejemplo notable de este fenómeno es OpenAI, 
+una empresa que ha sido valorada en más de 80 mil millones de dólares \cite{noauthor_2024-uj} con el record de crecimiento 
+en el numero de usuarios más rápido de la historia \cite{Armenta2023-xt}. Todo esto
+gracias a su modelo de lenguaje GPT-3, que ha demostrado cómo una aplicación de 
+inteligencia artificial puede impactar significativamente en la vida de las personas.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{ai-investement.png}
+    \caption{Inversión global en IA en miles de millones \cite{Letzing2024-nn}.}
+    \label{fig:ai-investement}
+\end{figure}
+
+Nos encontramos en un momento en el que la demanda de equipos cualificados 
+que puedan hacer frente a los nuevos desafíos es mayor que nunca. La complejidad
+de los proyectos de IA también está en aumento, ya que las aplicaciones de IA
+se vuelven más sofisticadas, abarcan una gama más amplia de funciones, requieren
+un mayor número de datos y los modelos se vuelven cada vez más complejos. Esta
+situación a forzado a las empresas a buscar nuevas formas de gestionar sus proyectos
+que han llevado a la creación de nuevas metodologías, adaptadas a las necesidades
+a los nuevos retos que se presentan. Si bien es cierto que mucha información es
+compartida con la comunidad, existe un gran secretismo en torno a la forma de operar
+de las empresas más grandes, lo que dificulta la adopción de estas metodologías.
+Podemos resaltar positivamente el caso de Meta \cite{metaia}, que es el mayor 
+referente en cuanto contribución y apertura de sus desarrollos en IA.\medskip
+
+Por todo ello, es necesario realizar contribuciones que se centren en el como 
+se debería operar dentro de un equipo. Se requiere de una referencia clara sobre las 
+directrices que se deben aplicar para poder implementar un estándar tecnológico y
+operacional dentro de un grupo de trabajo, así como las herramientas, metodologías y buenas prácticas
+a seguir para hacer un uso eficiente de los recursos y obtener resultados de calidad.
+Este documento representa un estándar que se ha aplicado en base a unas necesidades
+concretas y, aunque no está pensado para poder ser adoptado de forma literal por otros equipos,
+se muestra el camino que se ha seguido desde la adopción de plataformas MLOps hasta la creación
+de un sistema de conocimiento para la reutilización de trabajo. La justificación de este
+documento es exponer el trabajo realizado y servir como referencia equipos que quieran implementar
+un estándar similar o busquen inspiración para crear el suyo propio.
 
 \subsection{Estado del arte}
+La sección de estado del arte se centra en recopilar información sobre las tendencias
+actuales dentro del ámbito del aprendizaje automático y la inteligencia artificial.
+Debido a la diversidad de ramas que abarca la creación de un estándar tecnológico y
+operacional, se han seleccionado aquellas que se consideran más relevantes o presentan
+un mayor peso en cuanto a la toma de decisiones.
+
 \subsubsection{Diseño Atómico}
 El diseño atómico es una metodología de diseño que se centra en la creación
-de sistemas de diseño modulares y reutilizables. La idea principal es dividir
+de sistemas modulares y reutilizables. La idea principal es dividir
 las diferentes funcionalidades de un sistemas en sus partes más fundamentales,
 de manera que cada una de estas partes pueda ser reutilizada en diferentes
 contextos. Este enfoque permite tener un mayor control sobre cada una de las
@@ -28,7 +80,7 @@ muestra la estructura tradicional del diseño atómico.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{atomic-design-process.png}
-    \caption{Estructura tradicional diseño Atómico}\label{fig:atomic-design}
+    \caption{Estructura tradicional diseño atómico.}\label{fig:atomic-design}
 \end{figure}
 
 A continuación, se describen brevemente cada una de las categorías:
@@ -76,7 +128,7 @@ calidad y la escalabilidad.\medskip
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{mlops-workflow.png}
-    \caption{Vista general del proyecto}\label{fig:mlops-workflow}
+    \caption{Ciclo de vida MLOps}\label{fig:mlops-workflow}
 \end{figure}
 
 
@@ -101,8 +153,6 @@ Algunos de los principios clave de MLOps son:
     retroceder a versiones anteriores fuera necesario.
 \end{itemize}
 
-\subsection{Antecedentes}
-
 \subsubsection{Estudio de plataformas MLOps}
 \begin{itemize}
     \item \textbf{MLflow:} MLflow es una plataforma MLOPs de código abierto para la gestión del ciclo de vida de
@@ -120,7 +170,7 @@ Algunos de los principios clave de MLOps son:
     lanzar experimentos y adicionalmente permite el lanzamiento de pipelines, gestión de alertas, orquestación de modelos 
     y generación de puntos de acceso para modelos ya desplegados. Aunque es compatible con muchas bibliotecas populares su comunidad 
     es más limitada, lo que puede dificultar a la hora de encontrar soluciones a ciertas problemáticas.
-    La documentación es clara y ofrece ejemplos en formato tanto en formato de blog como de video, facilitando la 
+    La documentación es clara y ofrece ejemplos en formato tanto en formato de blog como de video facilitando la 
     comprensión. Sin embargo, carece de un sólido sistema de autenticación por defecto, lo que requiere una
     implementación adicional para proteger correctamente la aplicación web.
     \item \textbf{Data Version Controller (DVC):} DVC y DVC Studio son dos herramientas de código abierto que
@@ -131,7 +181,7 @@ Algunos de los principios clave de MLOps son:
     La documentación está bien estructurada aunque no es tan clara como la de ClearML, pero cuenta con una
     comunidad bastante activa. En cuanto a los aspectos negativos de DVC, la principal desventaja es que
     la curva de aprendizaje es bastante pronunciada, lo que dificulta su adopción. Otro punto en contra
-    es la dependencia gigantesca que tienen los proyectos que usan DVC, ya que se necesita de muchos archivos
+    es la gran dependencia que tienen los proyectos que usan DVC, ya que se necesita de muchos archivos
     de configuración, integraciones manuales dentro del código y un dominio completo de los comandos de la
     herramienta para poder trabajar con ella.
     \item \textbf{Kedro:} TODO:
