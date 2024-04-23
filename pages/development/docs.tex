@@ -7,8 +7,8 @@ automática se debe a su facilidad de uso, ya que permite crear
 paginas de forma sencilla utilizando Markdown, lo que facilita la
 creación de documentos por los distintos integrantes del equipo.
 Ya existen proyectos que han utilizado Astro para la generación
-de documentación, como Microsoft con su proyecto Fluent UI que
-utiliza Astro.\medskip
+de documentación, como Microsoft con su proyecto Fluent UI 
+\cite{astroPagesHalf} que utiliza Astro.\medskip
 
 Concretamente, el proyecto usa Starlight, una plantilla de Astro que
 proporciona una estructura de documentación predefinida, lo que
@@ -90,20 +90,31 @@ que permite realizar búsquedas en base a palabras clave.\medskip
 El sistema que utiliza por detrás se llama Pagefind, el cual es gratuito 
 y de código abierto. Pagefind es un motor de búsqueda de documentos
 que entre sus características incluye no solo la búsqueda por palabras
-clave sino también el filtrado de resultados mediante etiquetas. Esta 
+clave sino también el filtrado de resultados mediante etiquetas, se puede observar
+un ejemplo en la figura \ref{fig:search-menu}. Esta 
 funcionalidad es clave y permiten encontrar la información de forma más precisa. 
 Para poder indexar los documentos, Pagefind necesita que estos cuenten con
 unas etiquetas especiales que le permitan identificar que cierto documento
 pertenece a una categoría en concreto. En este sentido, ciertas páginas
 de la documentación cuenta con una sección llamada \textit{Tags} en la que
-se incluyen las etiquetas correspondientes.
+se incluyen las etiquetas correspondientes.\medskip
 
-% TODO: Añadir imagen del sistema de búsqueda
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.85\textwidth]{search-menu.png}
+    \includegraphics[width=\textwidth]{search-menu.png}
     \caption{Sistema de búsqueda}\label{fig:search-menu}
 \end{figure}
+
+Aunque de momento el sistema de búsqueda funciona correctamente, se
+espera en un futuro poder cambiar el motor que utiliza Astro por defecto 
+a uno que permita búsquedas más enfocadas en la semántica
+de los documentos y no solo en base a palabras clave. Una alternativa que
+se están considerando podría ser Algolia \cite{algoliaWhatAlgolia},
+un motor impulsado por IA muy popular dentro del mercado. El
+problema de Algolia es que es un servicio de pago, por lo que se
+debería estudiar si merece la pena ese coste adicional o si se
+existen alternativas gratuitas que ofrezcan un servicio similar y
+sean mejores que Pagefind.
 
 \subsubsection{Construcción automática de documentación}
 Como se ha mencionado anteriormente, cada componente y plantilla 

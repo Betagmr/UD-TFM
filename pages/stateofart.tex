@@ -75,12 +75,12 @@ principales, que representan diferentes niveles de abstracción. Estas categorí
 son: átomos, moléculas, organismos, plantillas y páginas. Cada una de estas
 categorías representa un nivel de abstracción diferente, y se relaciona con
 las demás categorías de manera jerárquica. La figura \ref{fig:atomic-design}
-muestra la estructura tradicional del diseño atómico. 
+muestra la estructura conceptual del diseño atómico. 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{atomic-design-process.png}
-    \caption{Estructura tradicional diseño atómico.}\label{fig:atomic-design}
+    \caption{Estructura conceptual diseño atómico \cite{frost2016atomic}.}\label{fig:atomic-design}
 \end{figure}
 
 A continuación, se describen brevemente cada una de las categorías:
@@ -173,18 +173,18 @@ Algunos de los principios clave de MLOps son:
     La documentación es clara y ofrece ejemplos en formato tanto en formato de blog como de video facilitando la 
     comprensión. Sin embargo, carece de un sólido sistema de autenticación por defecto, lo que requiere una
     implementación adicional para proteger correctamente la aplicación web.
-    \item \textbf{Data Version Controller (DVC):} DVC y DVC Studio son dos herramientas de código abierto que
+    \item \textbf{Data Version Controller (DVC):} DVC es una herramienta de código abierto que
     están diseñadas para manejar grandes volúmenes de datos, modelos y experimentos. DVC
     se centra en el versionado y almacenamiento de datasets, mientras que DVC Studio se centra en la
-    monitorización de experimentos, visualización de resultados y almacenamiento de modelos. Además, 
-    DVC Live proporciona integraciones con un número considerable de librerías de aprendizaje automático.
-    La documentación está bien estructurada aunque no es tan clara como la de ClearML, pero cuenta con una
+    monitorización de experimentos, visualización de resultados y almacenamiento de modelos, pero a diferencia
+    de DVC esta es una herramienta de pago. DVC proporciona integraciones con un número considerable de librerías de 
+    aprendizaje automático. La documentación está bien estructurada aunque no es tan clara como la de ClearML, pero cuenta con una
     comunidad bastante activa. En cuanto a los aspectos negativos de DVC, la principal desventaja es que
     la curva de aprendizaje es bastante pronunciada, lo que dificulta su adopción. Otro punto en contra
-    es la gran dependencia que tienen los proyectos que usan DVC, ya que se necesita de muchos archivos
+    es la gran dependencia que tienen los proyectos que usan DVC, ya que se necesita de varios archivos
     de configuración, integraciones manuales dentro del código y un dominio completo de los comandos de la
-    herramienta para poder trabajar con ella.
-    \item \textbf{Kedro:} TODO:
+    herramienta para poder trabajar con ella. Además, funcionalidades clave como la visualización son funcionalidades
+    de pago en DVC Studio, lo que limita su uso en la capa gratuita.
     \item \textbf{ZenML:} ZenMl es una plataforma de código abierto encargado de la orquestación de pipelines en
     proyectos de aprendizaje automático. Ofrece una experiencia de desarrollo cómoda y modular, que facilita
     la reutilización de código. Además, cuenta con integraciones para las platformas de almacenamiento
@@ -199,6 +199,11 @@ Algunos de los principios clave de MLOps son:
     funcionan de forma independiente, lo que vuelve muy complicado el trabajo con ellas. Ademas, la funcionalidad 
     de orquestación de pipelines también viene incluida en ClearML, por lo que no aporta ninguna funcionalidad 
     adicional que no este cubierta.
+    \item \textbf{Kedro:} Al igual que ZenML, Kedro es una plataforma de código abierto que se centra en la
+    orquestación de pipelines en proyectos de aprendizaje automático. Otra diferencia respectiva a ZenML es
+    que Kedro no ofrece compatibilidad con ningún tipo de plataforma MLOPs, en cambio, trae su propia plataforma
+    e implementación de ciertas funcionalidades. Su herramienta de consola es configurable y compatible con
+    Cookiecutter, lo que facilita la creación de plantillas personalizadas. TODO:
 \end{itemize}
 
 \subsubsection{Estudio de herramientas de visualización de datos}
