@@ -4,13 +4,13 @@ así como el presupuesto necesario para llevarlo a cabo. Se utilizarán diagrama
 para facilitar la comprensión de los diferentes aspectos del proyecto.
 
 \subsection{Plan de recursos humanos}
-La clave para el éxito de cualquier proyecto radica en cómo se gestionan y utilizan 
-los recursos disponibles. Uno de los activos más vitales en cualquier proyecto es 
+Uno de los activos más vitales en cualquier proyecto es 
 el equipo humano. En este plan, se detallan las funciones y responsabilidades de 
 cada miembro del equipo, con el fin de fomentar una colaboración efectiva y alcanzar 
-los objetivos del proyecto.
+los objetivos del proyecto. Entre los perfiles involucrados en el proyecto se
+encuentran el director del proyecto, el director Tecnalia y el estudiante.
 
-\begin{itemize}
+\begin{enumerate}
     \item \textbf{Director del proyecto}
     \begin{itemize}
         \item Descripción: El director del proyecto es a efectos prácticos el 
@@ -34,21 +34,24 @@ los objetivos del proyecto.
     
     \item \textbf{Director Tecnalia}
     \begin{itemize}
-        \item Descripción: El director del proyecto es a efectos prácticos el 
-        encargado de supervisar que el proyecto siga la normativa de la universidad y la memoria sea correcta.
-        Este perfil es ocupado por el tutor universitario asignado al proyecto.
+        \item Descripción: El director Tecnalia es el encargado de supervisar que el 
+        proyecto se alinee con las necesidades de la empresa y aportar su experiencia 
+        en el desarrollo de sistemas de IA. En este perfil se incluyen dos directores,
+        uno de ellos enfocado en el desarrollo del sistema y otro en la parte de pruebas
+        y validación.
         \item Responsabilidades:
         \begin{itemize}
+            \item Recolección de requisitos y definición de objetivos.
             \item Asegurar que el desarrollo del proyecto se alinee con las necesidades de la empresa.
             \item Proporcionar apoyo en la investigación.
             \item Supervisar las actividades del proyecto.
             \item Ofrecer feedback constante sobre el desarrollo del proyecto.
             \item Ayudar al estudiante proporcionándole recursos para las pruebas del sistema.
         \end{itemize}
-        \item Integrantes: Dos miembros del equipo.
         \item Disponibilidad:
         \begin{itemize}
             \item Horario laboral estándar, con flexibilidad para reuniones con el estudiante.
+            \item Disponibilidad para resolver dudas via correo electrónico.
         \end{itemize}
     \end{itemize}
 
@@ -64,27 +67,29 @@ los objetivos del proyecto.
             \item Realizar pruebas del sistema.
             \item Presentar avances periódicos al equipo de tutores.
         \end{itemize}
-        \item Integrantes: Dos miembros del equipo.
         \item Disponibilidad:
         \begin{itemize}
             \item Horario laboral estándar, con flexibilidad para reuniones con el estudiante.
         \end{itemize}
     \end{itemize}
-\end{itemize}
+\end{enumerate}
 
 \subsection{Programa de trabajo}
-La siguiente sección detallará el programa de trabajo seguido en el proyecto,
-incluyendo las diferentes tareas realizadas con su duración planificada y real,
+La siguiente sección detallará el plan de trabajo seguido en el proyecto,
+incluyendo las diferentes tareas generales realizadas con su duración planificada y real,
 junto con el diagrama de Gantt del proyecto. Las tareas del proyecto se han
-dividido en tres fases distintas. La primera fase incluye la formación
-necesarias para llevar a cabo el proyecto, así como la investigación inicial y
-la definición de los objetivos. La segunda fase incluye la implementación de
-las diferentes partes del proyecto, mientras que la tercera fase incluye la
-experimentación, el análisis de resultados y la documentación final.
+dividido en tres fases distintas. La primera fase incluye las tareas necesarias
+para el desarrollo del MVP del proyecto, que incluye la creación de un sistema
+funcional y su respectiva presentación al equipo de trabajo. La segunda fase 
+incluye la implementación de las diferentes diferentes plataformas y automatizaciones
+necesarias para garantizar la seguridad y escalabilidad del sistema. La tercera
+fase se basa en probar el sistema con diferentes problemas de series temporales y
+recaudar información sobre los resultados, contenido relevante para el sistema de
+conocimiento y la documentación final del proyecto.
 
 \subsubsection{Fase 1: Desarrollo del MVP}
 Esta fase está formada por una serie de tareas que se deben completar para
-la creación del mínimo producto viable. Las tareas incluidas en esta fase son
+la creación del producto mínimo viable. Las tareas incluidas en esta fase son
 aquellas indispensable para realizar una prueba de concepto y valorar la viabilidad
 técnica del proyecto. Las tareas incluidas en esta fase son las siguientes:
 
@@ -97,8 +102,10 @@ técnica del proyecto. Las tareas incluidas en esta fase son las siguientes:
     ser utilizada la herramienta.
     \item \textbf{Tarea 1.4:} Desarrollo del sistema de componentes y plantillas.
     \item \textbf{Tarea 1.5:} Despliegue básico de ClearMl y configuración de
+    \item \textbf{Tarea 1.6:} Implantación de empaquetado automático de los
+    paquetes y subida a un repositorio de artefactos.
     los experimentos.
-    \item \textbf{Tarea 1.6:} Presentación del MVP y validación de la viabilidad.
+    \item \textbf{Tarea 1.7:} Presentación del MVP y validación de la viabilidad.
 \end{itemize}
 
 \subsubsection{Fase 2: Integración de nuevas plataformas, securizacion y despliegue}
@@ -113,8 +120,10 @@ las siguientes:
     un proxy inverso con Nginx y Keycloak.
     \item \textbf{Tarea 2.3:} Despliegue de la infraestructura de forma automática
     utilizando GitLab CI/CD.
-    \item \textbf{Tarea 2.4:} automatización de la creación de componentes y
+    \item \textbf{Tarea 2.4:} Automatización de la creación de componentes y
     plantillas proporcionando una plantilla base para cada caso.
+    \item \textbf{Tarea 2.5:} Creación de la documentación técnica y de usuario.
+    \item \textbf{Tarea 2.6:} Lanzamiento de pruebas unitarias de los componentes.
 \end{itemize}
 
 \subsubsection{Fase 3: Experimentación, pruebas y documentación}
@@ -126,6 +135,12 @@ ser aplicado por otros investigadores. Las tareas incluidas en esta fase son
 las siguientes:
 
 \begin{itemize}
+    \item \textbf{Tarea 3.1:} Prueba del sistema para un problema de forecasting.
+    \item \textbf{Tarea 3.2:} Prueba del sistema para un problema de clasificación.
+    \item \textbf{Tarea 3.3:} Prueba del sistema para un problema de detection de anomalías.
+    \item \textbf{Tarea 3.4:} Implantación del sistema en el entorno de trabajo del equipo.
+    \item \textbf{Tarea 3.5:} Encuesta de satisfacción y feedback de los resultados.
+    \item \textbf{Tarea 3.6:} Redacción de la memoria del proyecto.
 \end{itemize}
 
 \subsubsection{Diagrama de Gantt}
@@ -136,6 +151,39 @@ color azul para representar la fase 1, el color verde para la fase 2 y el color
 morado para la fase 3. Se ha respetado cuidadosamente el tiempo de cada tarea y
 el proyecto no ha sufrido ningún retraso durante su desarrollo.
 
+\begin{figure}
+    \centering
+    \includegraphics[angle=90, width=\textwidth, height=\textheight, keepaspectratio]{gantt.png}
+    \caption{Diagrama de planificación del proyecto.}\label{fig:gantt-planification}
+\end{figure}
+
+
+%% TODO: ADD TABLE FOR THE DATA
+% Outline Level,ID,Name,Start,Finish,Duration
+% 1,1,"Fase 1",2023-11-16,2024-01-26,52 day
+% 2,2,"Tarea 1.1",2023-11-16,2023-11-20,3 day
+% 2,3,"Tarea 1.2",2023-11-20,2023-11-22,3 day
+% 2,4,"Tarea 1.3",2023-11-22,2023-11-24,3 day
+% 2,5,"Tarea 1.4",2023-11-24,2023-12-21,20 day
+% 2,6,"Tarea 1.5",2023-12-11,2023-12-22,10 day
+% 2,9,"Tarea 1.6",2024-01-09,2024-01-19,9 day
+% 2,20,"Tarea 1.7",2024-01-18,2024-01-26,7 day
+% 1,7,"Fase 2",2024-01-26,2024-04-08,52 day,100
+% 2,8,"Tarea 2.1",2024-01-26,2024-01-30,3 day,100
+% 2,10,"Tarea 2.2",2024-01-30,2024-02-12,10 day,100
+% 2,11,"Tarea 2.3",2024-02-12,2024-02-16,5 day,100
+% 2,12,"Tarea 2.4",2024-02-16,2024-03-29,31 day,100
+% 2,13,"Tarea 2.5",2024-02-16,2024-04-03,34 day,100
+% 2,14,"Tarea 2.6",2024-03-29,2024-04-08,7 day,100
+% 1,15,"Fase 3",2024-04-08,2024-06-14,50 day,100
+% 2,16,"Tarea 3.1",2024-04-08,2024-04-16,7 day,100
+% 2,17,"Tarea 3.2",2024-04-16,2024-04-24,7 day,100
+% 2,18,"Tarea 3.3",2024-04-24,2024-05-02,7 day,100
+% 2,19,"Tarea 3.4",2024-05-02,2024-05-22,15 day,100
+% 2,21,"Tarea 3.5",2024-06-03,2024-06-07,5 day,100
+% 2,22,"Tarea 3.6",2024-04-08,2024-06-14,50 day,100
+
+\pagebreak
 \subsection{Presupuesto}
 La siguiente sección detallará el presupuesto necesario para llevar a cabo el
 proyecto, incluyendo los diferentes recursos necesarios y su coste. El
