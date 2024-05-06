@@ -173,7 +173,6 @@ entregar nuevas funcionalidades al cliente de manera más ágil. MLOps es una ex
 DevOps que ha surgido muy recientemente y, por lo tanto, existen pocos estudios que 
 aborden el tema \cite{kreuzberger2022mlops}\cite{recupito2022multivocal}.\medskip
 
-
 Principalmente existen dos formas para implementar MLOps en una organización, uno es
 a través de los sistemas cloud que ofrecen servicios MLOps como Azure ML \cite{microsoft2023azureml}, 
 AWS Sagemaker \cite{aws_sagemaker} o Google Cloud Vertex AI \cite{google2023vertexai}. El otro es a través del despliegue de una plataforma open source
@@ -184,26 +183,62 @@ la implementación de una plataforma open source requiere de un mayor esfuerzo p
 se recompensa con una mayor flexibilidad y control sobre la infraestructura.
 
 \subsubsection{Problemas de replicabilidad}
-La crisis de replicabilidad es un fenómeno donde los resultados de los estudios científicos 
-a menudo no pueden replicarse con nuevos datos \cite{puetz2024replication}, se ha convertido 
-en un problema destacado en numerosos campos científicos. Esta crisis se ha enfatizado particularmente 
-en disciplinas como la psicología, la salud y la medicina, donde hallazgos incorrectos 
-podrían tener consecuencias graves.\medskip
+La crisis de replicabilidad es un fenómeno crítico en la comunidad científica,  
+donde los resultados de los estudios a menudo no pueden replicarse con nuevos datos \cite{puetz2024replication}.
+Este problema es muy destacado en numerosos campos científicos, que se han enfatizado particularmente 
+en disciplinas como la psicología, la salud y la medicina \cite{puetz2024replication}\cite{Baker_2016}, donde hallazgos incorrectos 
+podrían tener consecuencias graves. Durante los últimos años, la crisis de replicabilidad ha
+sido objeto de debate dentro de la rama de la inteligencia artificial, donde la falta de
+transparencia, la complejidad de los modelos y la imposibilidad de replicar los resultados
+han sido identificados como problemas clave.
 
-Una serie de estudios y encuestas subrayan la gravedad de la situación \cite{readytensor}. 
+La confusión se ve incrementada por el uso variado de términos clave como reproducibilidad, 
+replicabilidad y repetibilidad, \cite{readytensor} dificultando los esfuerzos para abordar estos problemas de 
+manera efectiva. Se definen los diferentes términos de la siguiente manera:
+\begin{itemize}
+    \item \textbf{Repetibilidad:} se centra en la consistencia de los resultados de la investigación cuando el equipo 
+    original re-ejecuta su experimento bajo condiciones inalteradas. 
+    \item \textbf {Reproducibilidad:} se logra cuando investigadores independientes validan los hallazgos del 
+    experimento original empleando el documentado original. Esta validación puede ser directa, utilizando 
+    los datos y el código originales, o independiente, a través de la reimplementación del experimento, 
+    probando así la fiabilidad de los resultados en diferentes equipos.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{crisis-survey.png}
+    \caption{Encuesta a 1500 investigador sobre la reproducibilidad en la ciencia}\label{fig:crisis-survey}
+\end{figure}
+
+Una serie de estudios y encuestas subrayan la gravedad de la situación \cite{Baker_2016}.
+Como se muestra en la figura \ref{fig:crisis-survey}, una encuesta realizada a 1500 investigadores
+encontró que el 50\% de ellos afirman que que hay una crisis significativa y un 40\% que hay
+una crisis moderada, dejando solo un 10\% que no ve una crisis en la replicabilidad de los estudios.
 Existen multitud de casos donde los intentos de volver a ejecutar experimentos dan como resultado 
-a una amplia desviación, incluso bajo condiciones idénticas. Factores como la falta de información
-sobre detalles experimentales y la aleatoriedad contribuyen a estos desafíos, enfatizando 
+a una amplia desviación, incluso bajo condiciones idénticas\ref{fig:crisis-survey}.
+Los propios investigadores tienen dificultades para reproducir sus propios experimentos.
+La figura \ref{fig:self-reproduce} nos da una idea de lo frecuente que es este problema,
+donde en el caso de la física e ingeniería, el 50\% de los encuestados han tenido problemas
+reproduciendo sus experimentos, lo que se ve reflejado en que el 70\% de ellos haya tenido
+problemas al intentar reproducir los experimentos de otros investigadores.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{self-reproduce.png}
+    \caption{Encuesta a 1500 investigador sobre la reproducibilidad en la ciencia}\label{fig:self-reproduce}
+\end{figure}
+
+Estos problemas se consideran como los principales causantes como se puede ver en la figura \ref{fig:repro-factor}.
+Factores como la falta de información sobre detalles experimentales y los tiempos de publicación, enfatizando 
 la necesidad urgente de un enfoque más sistemático y transparente. Sin contar los problemas
-directamente relacionados con el desarrollo como son la procedencia y calidad de los datos, la 
+directamente relacionados con el desarrollo, como son la procedencia y calidad de los datos, la 
 elección del algoritmo, el hardware utilizado para su entrenamiento, el preprocesamiento de 
-los datos, entre otros.\medskip
+los datos, entre otros. 
 
-
-La confusión se ve exacerbada por el uso variado de términos clave como reproducibilidad, 
-replicabilidad y repetibilidad, dificultando los esfuerzos para abordar estos problemas de 
-manera efectiva.
-
-
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{repro-factor.png}
+    \caption{Encuesta a 1500 investigador sobre la reproducibilidad en la ciencia}\label{fig:repro-factor}
+\end{figure}
 
 \pagebreak
