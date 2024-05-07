@@ -4,7 +4,53 @@ ya está listo para comenzar a trabajar en proyectos. En esta subsección
 se describen los procesos que se siguen para el desarrollo de un
 proyecto desde cero, así como las directrices generales para
 garantizar la calidad y la reproducibilidad del mismo. Para garantizar 
-que  
+que esta metodología es funcional y de verdad aporta una mejora en la
+se han realizado dos proyectos para cada una de las dos áreas de
+trabajo de las series temporales, \textit{forecasting} y \textit{clasificación}
+y \textit{detección de anomalías}.
+
+\subsubsection{Flujo de trabajo}
+El flujo de trabajo que se sigue para el desarrollo de un proyecto
+es el siguiente:
+\begin{enumerate}
+    \item \textbf{Creación del proyecto:} para comenzar un proyecto, el
+    investigador deberá revisar dentro de la documentación del equipo
+    si existe alguna plantilla que se ajuste a sus necesidades y, en caso
+    de que esta se adapte a lo que busca, podrá crear un nuevo proyecto
+    a partir de esta plantilla. En caso de que no exista una plantilla
+    que específica para ese caso de uso, se da la alternativa de utilizar
+    una plantilla de otro caso de uso ya que puede ser que ciertas configuraciones
+    específicas de librerías le sean de utilidad para no partir de cero.
+    Si no se cumplen ninguno de los dos casos anteriores, se presenta una
+    plantilla genérica que se puede utilizar para cualquier proyecto. En casos
+    excepcionales, se puede crear un proyecto desde cero pero debe seguir los
+    estándares de calidad definidos en su respectiva sección y ser perfectamente
+    reproducible.
+    \item \textbf{Control de versiones:} una vez que el proyecto ha sido creado,
+    el investigador deberá subir el proyecto a un repositorio de control de versiones,
+    en este caso se utiliza Git-Lab. El siguiente paso es utilizar las funciones de 
+    ClearML para versionar los datasets que se requieran para el desarrollo del proyecto.
+    No existe una imposición sobre como gestionar las ramas de git, cada investigador
+    puede decidir como adaptarlo dependiendo del proyecto, equipo o el número de integrantes.
+    Las directrices generales son la utilización de la rama \textit{main} para versiones
+    estables del modelo, es decir un entrenamiento e inferencia funcional, y la rama 
+    \textit{dev} para versiones en desarrollo.
+    \item \textbf{Desarrollo y experimentación:} para garantizar el buen desarrollo del proyecto, se
+    recomienda mantener el histórico de resultados de los experimentos que se realicen
+    en el proyecto. Por defecto, el proyecto ya viene configurado para que se guarden
+    los resultados de los experimentos en ClearML, a si que se recomienda eliminar 
+    aquellos que hayan fallado o que sean irrelevantes con el objetivo de poder
+    lanzar nuevamente esos experimentos en un futuro. Se recomienda seguir
+    las indicaciones de los \textit{linters} y \textit{formatters} que se han configurado
+    para garantizar la consistencia y claridad del código, aunque se puede desactivar
+    para casos específicos como es el caso de errores de tipado. El uso del catálogo
+    de componentes es opcional, pero es de gran utilidad para agilizar ciertas tareas
+    repetitivas.
+    \item \textbf{Aportación al sistema de conocimiento:} una vez que el proyecto
+    ha sido finalizado, se recomienda aportar al sistema de conocimiento del equipo
+    para que otros miembros puedan beneficiarse de los resultados obtenidos. Si
+    el no existía una plantilla específica para ese caso de uso 
+\end{enumerate}
 
 % Hablar aquí de las tres aportaciones que se han hecho Forecasting, 
 \subsubsection{Puesta en practica de la metodología}
