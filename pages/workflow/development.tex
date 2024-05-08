@@ -5,9 +5,11 @@ se describen los procesos que se siguen para el desarrollo de un
 proyecto desde cero, así como las directrices generales para
 garantizar la calidad y la reproducibilidad del mismo. Para garantizar 
 que esta metodología es funcional y de verdad aporta una mejora en la
-se han realizado dos proyectos para cada una de las dos áreas de
+se han realizado dos proyectos para cada una de las áreas de
 trabajo de las series temporales, \textit{forecasting} y \textit{clasificación}
-y \textit{detección de anomalías}.
+y \textit{detección de anomalías}. Por último, se ha hecho una plantilla
+adicional de automl para utilizar una serie de componentes dentro de 
+un proyecto de \textit{forecasting}.
 
 \subsubsection{Flujo de trabajo}
 El flujo de trabajo que se sigue para el desarrollo de un proyecto
@@ -48,9 +50,17 @@ es el siguiente:
     repetitivas.
     \item \textbf{Aportación al sistema de conocimiento:} una vez que el proyecto
     ha sido finalizado, se recomienda aportar al sistema de conocimiento del equipo
-    para que otros miembros puedan beneficiarse de los resultados obtenidos. Si
-    el no existía una plantilla específica para ese caso de uso 
+    para que otros miembros puedan beneficiarse del nuevo conocimiento. Si
+    no existía una plantilla específica para ese caso de uso, lo ideal es crear
+    una nueva plantilla para esa especificación ya que es mucho más sencillo
+    y requiere menos esfuerzo que crear un componente. En caso de que ya hayamos
+    usado una plantilla, también se podrá crear otra si la solución que
+    se ha encontrado es significativamente diferente a la original. Por último,
+    si no se cumplen ninguno de los dos casos anteriores, y hay funcionalidades
+    que se pueden reutilizar en otros proyectos sería recomendable crear un
+    componente.
 \end{enumerate}
+
 
 % Hablar aquí de las tres aportaciones que se han hecho Forecasting, 
 \subsubsection{Puesta en practica de la metodología}
