@@ -72,7 +72,7 @@ dentro de diferentes tipos de proyectos. Los datasets utilizados se eligieron si
 pertenecer a la sección de "Industria y movilidad", correspondiente al área de trabajo donde 
 se quiere aplicar dicho marco, y de estar relacionados con el campo 
 de las series temporales. Estos proyectos se han basado en datasets extraídos de la plataforma Kaggle, 
-ya que es una plataforma que ofrece una gran variedad de datasets que no requieren un registro previo para su descarga.
+ya que es una plataforma que ofrece una gran variedad de datasets que no requieren un registro previo para su descarga.\medskip
 
 Para considerar un proyecto como terminado, se requiere que el modelo sea capaz de realizar inferencias 
 sobre nuevos datos con cierta precisión. Además, se espera que pueda generar gráficos que muestren los 
@@ -89,7 +89,60 @@ Implica el análisis de datos históricos para identificar patrones y tendencias
 a predecir el comportamiento futuro. Este tipo de proyectos pueden abordar preguntas como la 
 demanda futura de productos, la evolución de la demanda en un mercado, entre otros aspectos. 
 El objetivo principal es proporcionar información útil para la toma de decisiones, permitiendo a 
-las organizaciones anticiparse a cambios y optimizar recursos.
+las organizaciones anticiparse a cambios y optimizar recursos.\medskip
+
+A continuación, se detallan las características de los siguientes proyectos:
+\begin{itemize}
+    \item \textbf{Proyecto 1:} en este proyecto nuestro objetivo es predecir 
+    la temperatura para un día especifico dentro de una zona determinada. 
+     El nombre del dataset es \textit{Daily Climate Temperature Data}
+    \cite{Daily_Climate}. Este dataset contiene información sobre la temperatura
+    de la ciudad de Delhi, India desde 2013 hasta 2017. El dataset cuenta con
+    variables como temperatura media, la humedad, la velocidad del viento, entre otras.
+    La calidad de los datos es buena, no hay valores nulos y las variables están
+    en un formato adecuado para su uso.
+    \item \textbf{Proyecto 2:} en el segundo proyecto, el objetivo es predecir
+    el consumo de energía eléctrica en una zona determinada. El nombre del dataset
+    es \textit{Hourly Energy Consumption} \cite{Mulla_2018}. Este dataset contiene
+    información sobre el consumo de energía eléctrica en la ciudad de Nueva York desde
+    2002 hasta 2018. El dataset cuenta exclusivamente con la fecha y la cantidad de energía
+    consumida, por lo que es ligeramente más sencillo que el anterior.
+\end{itemize}
+
+Para el primer proyecto, no se disponía de ninguna plantilla específica, por lo que se 
+decidió comenzar el desarrollo desde cero. Con la intención de reutilizar el máximo
+número de código en futuros proyectos, se ha planteado el desarrollo desde un punto
+de vista modular, donde cada funcionalidad esta separada en un archivo diferente.
+Todas estas funcionalidades se importan y utilizan en el archivo de entrenamiento
+principal llamado \textit{train.py}. Entre las funcionalidades que se han desarrollado
+podemos encontrar diferentes tipos: procesamiento, visualización, métricas, etc. A continuación,
+se detallan mas concretamente cada una de ellas:
+
+\begin{itemize}
+    \item \textbf{add\_time\_features (Procesamiento):} esta funcionalidad se encarga de añadir
+    características temporales a un DataFrame de Pandas. A partir de la fecha se calcula
+    el día de la semana, el mes, el año, la estación, entre otras.
+    \item \textbf{mean\_abs\_percentage\_error (Métrica):} calcula el error porcentual medio
+    absoluto entre dos valores. Utilizada para evaluar el rendimiento del modelo y al no
+    ser una métrica nativa de Sklearn, se ha tenido que implementar.
+    \item \textbf{compare\_time\_series (Visualización):} recibe un DataFrame con n columnas,
+    una para cada serie temporal, y crea una gráfica comparativa de todas ellas. También
+    se puede especificar un rango de fechas para visualizar solo un periodo concreto.
+    \item \textbf{show\_feature\_importance (Visualización):} Recibe un array de importancia
+    de características y un array con los nombres de las características. Crea un gráfico
+    de barras con la importancia de cada característica.
+\end{itemize}
+
+Con estos funcionalidades y utilizando algunas propias de sklearn, como el split
+de los datos y XGBoost como modelo, se ha conseguido un modelo que es capaz de predecir
+la temperatura con un error medio absoluto porcentual del 9.5\%. Este proyecto ha tenido
+una duración aproximada de 3 horas y media. Una vez finalizado, se ha realizado una
+plantilla basada en este proyecto para futuros proyectos de forecasting donde se necesite
+xgboost como modelo. Esta plantilla asi como los componentes relacionados se detalla más
+adelante en la sección de \textit{contribución al sistema de conocimiento}.\medskip
+
+Para el segundo proyecto, se ha utilizado la plantilla de forecasting que se ha creado
+para el primer proyecto. 
 
 \subsubsection{Proyectos de clasificación}
 Un proyecto de clasificación de series temporales implica el desarrollo de modelos para 
