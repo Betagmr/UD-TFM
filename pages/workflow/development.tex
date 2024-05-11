@@ -141,8 +141,31 @@ plantilla basada en este proyecto para futuros proyectos de forecasting donde se
 xgboost como modelo. Esta plantilla asi como los componentes relacionados se detalla más
 adelante en la sección de \textit{contribución al sistema de conocimiento}.\medskip
 
-Para el segundo proyecto, se ha utilizado la plantilla de forecasting que se ha creado
-para el primer proyecto. 
+Para el segundo proyecto, se ha utilizado la plantilla de forecasting creada
+a partir del primer proyecto. Las modificaciones realizadas han sido mínimas,
+ya que el proyecto es muy similar al anterior. Se ha cambiado la lectura de
+datos para adaptarla al nuevo dataset y se han implementado algunas funcionalidades
+adicionales para la extracción de características ya que el dataset no cuenta con
+muchos datos relevantes. Antes de comenzar con la implementación de características,
+utilizando la funcionalidad \textit{add\_time\_features}, el modelo a obtenido un error
+medio absoluto porcentual del 15.5\%. Tras la implementación de nuevas características
+que se pueden ver a continuación, el error ha disminuido hasta el 11.5\%:
+
+\begin{itemize}
+    \item \textbf{add\_lags (Procesamiento):} añade valores pasados de una serie temporal
+    como características adicionales llamados lags. Se puede especificar el número de lags
+    y el periodo de tiempo que se quiere utilizar.
+    \item \textbf{add\_holidays (Procesamiento):} añade una columna al DataFrame que indica
+    si el día es festivo o no. Esta función recibe un calendario con los días festivos
+    y crear una columna con valores booleanos. Para este proyecto se ha utilizado el calendario
+    de festivos de Nueva York.
+\end{itemize}
+
+Este proyecto ha tenido una duración aproximada de 1 hora y 40 minutos. Una vez finalizado,
+se ha actualizado la plantilla de forecasting con nuevas funcionalidades y extraído cierta
+lógica de la plantilla a componentes para facilitar la reutilización de código. Hemos visto
+una mejora en cuanto a la velocidad de desarrollo ya que el tiempo desde la creación del proyecto
+hasta la finalización ha sido reducido a menos de la mitad. 
 
 \subsubsection{Proyectos de clasificación}
 Un proyecto de clasificación de series temporales implica el desarrollo de modelos para 
