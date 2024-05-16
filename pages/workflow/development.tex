@@ -172,13 +172,48 @@ Un proyecto de clasificación de series temporales implica el desarrollo de mode
 categorizar o etiquetar datos temporales en diferentes categorías. La clasificación de 
 series temporales implica generalmente la extracción de características relevantes 
 de las series temporales y el objetivo es identificar y asignar correctamente una 
-etiqueta a cada serie temporal.
+etiqueta a cada serie temporal.\medskip
 
 Para los proyecto de clasificación contamos con la siguiente temáticas.
 \begin{itemize}
-    \item \textbf{Proyecto 1:} clasificación de la estación en base al consumo de energía eléctrica. 
-    \item \textbf{Proyecto 2:}
+    \item \textbf{Proyecto 1:} clasificación de la estación en base al consumo de energía eléctrica.
+    Aquí se ha utilizado el dataset \textit{Daily Energy Consumption} \cite{Daily_Energy} al igual
+    que en el proyecto de forecasting. De por si este dataset no cuenta con la variable estación,
+    por lo que parte de la tarea es la de identificar la estación en base a la fecha.
+    \item \textbf{Proyecto 2:} 
 \end{itemize}
+
+Siguiendo la misma metodología que en los proyectos de forecasting, se ha comenzado
+el desarrollo del primer proyecto pero esta vez partiendo de la plantilla de forecasting,
+ya que viene configurada con todas las utilidades necesarias y solo se necesita cambiar
+aspectos puntuales para adaptarla a un problema de clasificación. Como ya hemos mencionado
+en la descripción del proyecto, nuestro dataset no cuenta con la variable estación, por lo
+que tendremos que añadirla, agruparlas en ventanas temporales y hacer las respectivas modificaciones
+para que pueda ser interpretado por el modelo.\medskip
+
+A continuación, se detallan la lista de modificaciones y funcionalidades que se han llevado a cabo:
+
+\begin{itemize}
+    \item \textbf{add\_time\_features (Procesamiento):} añade una nueva funcionalidad que
+    consiste en una aportar de una columna adicional al DataFrame que indica
+    la estación en la que se encuentra una fecha en concreto. Esta se representa con un número entero
+    que va del 0 al 3, siendo 0 invierno, 1 primavera, 2 verano y 3 otoño.
+    \item \textbf{get\_window (Procesamiento):} realiza una agrupación de los datos en ventanas
+    temporales. Se puede especificar el tamaño de la ventana y el periodo de tiempo que se quiere
+    utilizar. En este caso, se ha agrupado los datos en ventanas de 10 días.
+    \item \textbf{cross\_validation (Métrica):} realiza una validación cruzada de los datos
+    para evaluar el rendimiento del modelo. Se puede especificar el número de splits y el tamaño
+    de los splits. 
+    \item \textbf{display\_roc\_curve (Visualización):} recibe un array con las etiquetas reales
+    y otro con las predicciones del modelo. Crea una curva ROC que muestra la relación entre
+    la tasa de verdaderos positivos y la tasa de falsos positivos. Este gráfico sirve para
+    las diferentes clases de un modelo de clasificación.
+    \item \textbf{modificación del modelo:} se ha cambiado el modelo de xgboost regressor a un modelo de
+    clasificación, en concreto se ha utilizado un xgboost classifier. 
+    \item \textbf{modificación de la métrica:} se ha cambiado la métrica de error medio absoluto porcentual
+    por la de precisión.
+\end{itemize}
+
 
 \subsubsection{Proyectos de detección de anomalías}
 Un proyecto de detección de anomalías se enfoca en identificar patrones inusuales o 
@@ -202,14 +237,14 @@ para automatizar el proceso de selección, entrenamiento y ajuste de modelos de
 machine learning. Con la intención de mejorar el rendimiento de los modelos y
 explorar que tan útil puede ser esta herramienta en el desarrollo de proyectos
 de series temporales, vamos a reutilizar el dataset del proyecto 1 de forecasting
-para realizar una plantilla de automl enfocada en el forecasting.
+para realizar una plantilla de automl enfocada en el forecasting.\medskip
 
 El AutoML se encarga de probar una variedad de modelos y configuraciones 
 para encontrar la combinación óptima que maximice la precisión de nuestras 
 predicciones, lo que potencialmente nos permitirá obtener resultados más precisos 
 y robustos en comparación con nuestro modelo inicial. La idea es crear una plantilla
 que reutilice el contenido previo y con la mínima intervención del usuario, sea capaz
-de probar diferentes modelos de forecasting de manera automática.
+de probar diferentes modelos de forecasting de manera automática.\medskip
 
 La arquitectura de la plantilla en AutoMl se basa en la utilización del patrón
 de diseño de estrategia. Este patrón de diseño permite definir una familia de algoritmos,
@@ -217,7 +252,7 @@ encapsular cada uno de ellos y hacerlos intercambiables. En este caso, estos alg
 recibirán la lista de modelos con sus diferentes hiperparámetros y los resultados de las
 iteraciones anteriores. Gracias a esto, las diferentes estrategias podrán realizar la
 búsqueda de una manera inteligente. La plantilla base es muy simple y cuenta con dos estrategias 
-y siete modelos pero la idea es que en un futuro pueda ser ampliada.
+y siete modelos pero la idea es que en un futuro pueda ser ampliada.\medskip
 
 La lista de modelos que esta plantilla soporta es la siguiente: \textit{LinearRegression, 
 DecisionTreeRegressor, RandomForestRegressor, XGBRegressor, LGBMRegressor, CatBoostRegressor
@@ -238,3 +273,7 @@ y Neural Network}. Por otro lado, las estrategias que se han implementado son la
     utiliza es el error medio absoluto porcentual.
 \end{itemize}
 
+Después de lanzar este proceso sobre el dataset de forecasting, se ha obtenido
+un error medio absoluto porcentual del 8.3\% con el modelo XGBRegressor. Esta proceso
+ha tenido una duración aproximada de 1 hora y 20 minutos y ha supuesto una mejora de
+1.2 puntos porcentuales en comparación con el modelo base. 
