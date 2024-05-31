@@ -15,8 +15,9 @@ Este crecimiento de la inversión busca aprovechar al máximo el potencial de la
 y sacar provecho de su ventaja competitiva. Un ejemplo notable de este fenómeno es OpenAI, 
 una empresa que ha sido valorada en más de 80 mil millones de dólares \cite{noauthor_2024-uj} con el record de crecimiento 
 en el numero de usuarios más rápido de la historia \cite{Armenta2023-xt}. Todo esto
-gracias a su modelo de lenguaje GPT-3, que ha demostrado cómo una aplicación de 
-inteligencia artificial puede impactar significativamente en la vida de las personas.
+gracias a su modelo de lenguaje GPT-3 y sus respectivas versiones GPT-4, GPT4-turbo y GPT4-o, 
+que han demostrado cómo una aplicación de inteligencia artificial puede llegar a
+impactar significativamente en la vida de las personas.
 
 \begin{figure}[ht]
     \centering
@@ -25,12 +26,12 @@ inteligencia artificial puede impactar significativamente en la vida de las pers
     \label{fig:ai-investement}
 \end{figure}
 
-Nos encontramos en un momento en el que la demanda de equipos cualificados 
+La demanda de equipos cualificados en el desarrollo de modelos de IA 
 que puedan hacer frente a los nuevos desafíos es mayor que nunca. La complejidad
-de los proyectos de IA también está en aumento, ya que las aplicaciones de IA
+de los proyectos de IA está en aumento, ya que las aplicaciones de IA
 se vuelven más sofisticadas, abarcan una gama más amplia de funciones, requieren
 un mayor número de datos y los modelos se vuelven cada vez más complejos. Esta
-situación a forzado a las empresas a buscar nuevas formas de gestionar sus proyectos
+situación ha forzado a las empresas a buscar nuevas formas de gestionar sus proyectos
 que han llevado a la creación de nuevas metodologías, adaptadas a las necesidades
 a los nuevos retos que se presentan. Si bien es cierto que mucha información es
 compartida con la comunidad, existe un gran secretismo en torno a la forma de operar
@@ -79,7 +80,7 @@ principales, que representan diferentes niveles de abstracción. Estas categorí
 son: átomos, moléculas, or\-ga\-nis\-mos, plantillas y páginas. Cada una de estas
 categorías representa un nivel de abstracción diferente, y se relaciona con
 las demás categorías de manera jerárquica. La figura \ref{fig:atomic-design}
-muestra la estructura conceptual del diseño atómico. 
+muestra la estructura conceptual del diseño atómico.\medskip
 
 \begin{figure}[ht]
     \centering
@@ -132,7 +133,7 @@ calidad y la escalabilidad.\medskip
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{mlops-workflow.png}
-    \caption{Ciclo de vida MLOps}\label{fig:mlops-workflow}
+    \caption{Ciclo de vida MLOps \cite{Merritt_2020}.}\label{fig:mlops-workflow}
 \end{figure}
 
 
@@ -142,7 +143,7 @@ Algunos de los principios clave de MLOps son:
     \item \textbf{Automatización:} la automatización es esencial para mejorar la eficiencia del
     desarrollo de modelos y prevenir errores. Esto implica automatizar tareas como la 
     generación de datos, el despliegue de modelos, evaluación y su puesta en producción.
-    \item \textbf{Colaboración y reproducibilidad:} uno de los desafíos en el Aprendizaje Automático es lograr 
+    \item \textbf{Colaboración y reproducibilidad:} uno de los desafíos en el aprendizaje automático es lograr 
     reproducir resultados de manera consistente, dada la naturaleza aleatoria de los algoritmos.
     MLOps busca, en la medida de lo posible, garantizar cierta consistencia entre los resultados
     obtenidos durante diferentes ejecuciones de un modelo para facilitar la colaboración entre
@@ -158,7 +159,7 @@ Algunos de los principios clave de MLOps son:
 \end{itemize}
 
 \subsection{Estado del arte}
-La sección de estado del arte se centra en recopilar información sobre las tendencias
+La sección de estado del arte se centra en estudiar y analizar las tendencias
 actuales dentro del ámbito del aprendizaje automático y la inteligencia artificial.
 Debido a la diversidad de ramas que abarca la creación de un estándar tecnológico y
 operacional, se han seleccionado aquellas que se consideran más relevantes o presentan
@@ -276,17 +277,21 @@ Los principales fallos relacionados con malas prácticas de código son los sigu
     de manera inconsciente \cite{galhotra2017fairness}. Además, es necesario de conocimientos
     avanzados de tratamiento ya que muchas veces la práctica común de eliminar ciertos datos
     puede no ser suficiente para reducir el sesgo \cite{kamishima2012fairness}.
-    \item \textbf{Uso excesivo de recursos durante el entrenamiento:} El uso ineficiente 
-    de recursos computacionales durante el entrenamiento de modelos puede llevar a un gasto 
-    innecesario de tiempo y energía. La optimización de algoritmos y la implementación de 
-    técnicas de programación eficiente son esenciales para minimizar estos costos.
-    \item \textbf{Fallos en entornos de producción:} Los errores que no se detectan durante 
+    \item \textbf{Uso excesivo de recursos:} El uso ineficiente 
+    de recursos computacionales durante el entrenamiento y despliegue de modelos puede llevar a un gasto 
+    innecesario de tiempo y energía \cite{Jun2010Comparative}. La optimización de algoritmos y la implementación de 
+    técnicas de programación eficiente son esenciales para minimizar estos costos. Algunas de
+    las prácticas que más impacto tienen en la eficiencia de los modelos son el uso de librearías
+    basadas en C \cite{1182968}, la compilación de modelos mediante JIT \cite{Aycock2003Brief}, el empleo de técnicas de cacheo en
+    momentos críticos \cite{lruCache}, entre otros. Estas practicas pueden suponer un aumento de la velocidad de
+    ejecución de un x2 en el peor de los casos y un x4 de media \cite{Jun2010Comparative}. 
+    \item \textbf{Errores en producción:} Los errores que no se detectan durante 
     la fase de desarrollo pueden manifestarse en entornos de producción, afectando la fiabilidad 
     y el rendimiento del sistema. La implementación de un sistema robusto de pruebas y monitoreo 
     continuo puede ayudar a identificar y solucionar estos problemas antes de que impacten a los 
     usuarios finales.
 \end{itemize}
  
-
+% vocales con tilde -> á é í ó ú
 
 \pagebreak
