@@ -242,9 +242,9 @@ los datos, entre otros.
     \caption{Factores que contribuyen a la irrepoducibilidad \cite{Baker_2016}}\label{fig:repro-factor}
 \end{figure}
 
-Aunque la crisis de un problema complejo y multifacético, existen
+Aunque la reproducibilidad es un problema complejo y multifacético, existen
 algunas medidas que pueden tomarse para abordarlo. Algunas de estas medidas que encontramos
-en al literatura son un mejor supervisión, mejora del proceso de validación, incentivar
+en al literatura son una mejor supervisión, mejora del proceso de validación, incentivar
 buenas practicas de desarrollo, entre otras. 
 
 \subsubsection{Calidad del software y buenas prácticas}
@@ -289,9 +289,13 @@ Los principales fallos relacionados con malas prácticas de código son los sigu
     la fase de desarrollo pueden manifestarse en entornos de producción, afectando la fiabilidad 
     y el rendimiento del sistema. La implementación de un sistema robusto de pruebas y monitoreo 
     continuo puede ayudar a identificar y solucionar estos problemas antes de que impacten a los 
-    usuarios finales.
-\end{itemize}
- 
-% vocales con tilde -> á é í ó ú
+    usuarios finales. Algunas de las practicas recomendables se basan el uso de librearías de validación como
+    Pydantic \cite{pydantic}, que permiten validar los datos de entrada en tiempo real,
+    la implementación de tests unitarios mediante Pytest \cite{Pytest} y la monitorización
+    de los modelos en producción mediante herramientas como Prometheus \cite{prometheus} y Grafana \cite{grafana}.
 
+\end{itemize}
+
+% Vocales con acento -> áéíóú
+ 
 \pagebreak
