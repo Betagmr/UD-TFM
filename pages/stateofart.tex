@@ -51,12 +51,8 @@ de un sistema de conocimiento para la reutilización de trabajo. La justificaci�
 documento es exponer el trabajo realizado y servir como referencia equipos que quieran implementar
 un estándar similar o busquen inspiración para crear el suyo propio.
  
-%% Antecedentes -> Contenido general
-%% Estado del arte -> Contribuciones de otros equipos
-%% Referencias sobre replicabilidad 
-
 \subsection{Antecedentes}
-En la sección de antecedentes, se profundiza en aquellos conceptos esenciales que son 
+En la sección de antecedentes, se profundiza en aquellos conceptos que son 
 indispensables para entender el alcance y las contribuciones de este trabajo, así como 
 para situarlo dentro de un marco conceptual adecuado. Se abordan aspectos fundamentales 
 que no solo proporcionan contexto, sino que también establecen las bases teóricas y 
@@ -73,7 +69,8 @@ Originalmente, el diseño atómico ha sido aplicado en el diseño de interfaces
 de usuario, pero su filosofía puede ser aplicada a cualquier sistema de diseño
 modular. En el contexto de este proyecto, el diseño atómico se aplicará al
 diseño de un sistema de componentes para el desarrollo de modelos de aprendizaje
-automático.\medskip
+automático. Este es un factor novedoso ya que el uso dentro de los desarrollo
+de modelos de IA no es muy extendido.\medskip
 
 Dentro del diseño atómico, los componentes se dividen en cinco categorías
 principales, que representan diferentes niveles de abstracción. Estas categorías
@@ -111,13 +108,11 @@ ver multitud de ejemplos de diseño atómico en grandes empresas y que nosotros 
 a diario, como por ejemplo en la creación de sistemas de diseño Microsoft Fluent
 Design o Google Material Design entre otros.\medskip
 
-Aunque el diseño atómico se ha aplicado tradicionalmente a la creación de interfaces
-de usuario, su filosofía puede ser aplicada a cualquier sistema de diseño modular.
 En el contexto de este proyecto, el diseño atómico se aplicará para la creación de un
 sistema de componentes en el desarrollo de modelos de aprendizaje automático.
 Traeremos la filosofía del diseño atómico y la adaptaremos a nuestro contexto,
 con las particularidades y necesidades que requiere el desarrollo de modelos de
-aprendizaje automático. 
+aprendizaje automático.
 
 \subsubsection{Machine Learning Operations (MLOps)}
 El desarrollo de modelos de aprendizaje automático es un proceso complejo que implica
@@ -136,8 +131,7 @@ calidad y la escalabilidad.\medskip
     \caption{Ciclo de vida MLOps \cite{Merritt_2020}.}\label{fig:mlops-workflow}
 \end{figure}
 
-
-Algunos de los principios clave de MLOps son:
+Algunos de los principios claves de MLOps son:
 
 \begin{itemize}
     \item \textbf{Automatización:} la automatización es esencial para mejorar la eficiencia del
@@ -196,11 +190,12 @@ han sido identificados como problemas clave.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{crisis-survey.png}
-    \caption{Recreación gráfico crisis de reproducibilidad en la ciencia \cite{Baker_2016}}\label{fig:crisis-survey}
+    \caption{Recreación gráfico crisis de reproducibilidad en la ciencia \cite{Baker_2016}.}
+    \label{fig:crisis-survey}
 \end{figure}
 
 La confusión se ve incrementada por el uso variado de términos clave como reproducibilidad, 
-replicabilidad y repetibilidad, \cite{readytensor} dificultando los esfuerzos para abordar estos problemas de 
+replicabilidad y repetibilidad \cite{readytensor},  dificultando los esfuerzos para abordar estos problemas de 
 manera efectiva. Se definen los diferentes términos de la siguiente manera:
 \begin{itemize}
     \item \textbf{Repetibilidad:} se centra en la consistencia de los resultados de la investigación cuando el equipo 
@@ -216,7 +211,7 @@ Como se muestra en la figura \ref{fig:crisis-survey}, una encuesta realizada a 1
 encontró que el 50\% de ellos afirman que que hay una crisis significativa y un 40\% que hay
 una crisis moderada, dejando solo un 10\% que no ve una crisis en la replicabilidad de los estudios.
 Existen multitud de casos donde los intentos de volver a ejecutar experimentos dan como resultado 
-a una amplia desviación, incluso bajo condiciones idénticas\ref{fig:crisis-survey}.
+a una amplia desviación, incluso bajo condiciones idénticas como se puede observar en la figura \ref{fig:crisis-survey}.
 Los propios investigadores tienen dificultades para reproducir sus propios experimentos.
 La figura \ref{fig:self-reproduce} nos da una idea de lo frecuente que es este problema,
 donde en el caso de la física e ingeniería, el 50\% de los encuestados han tenido problemas
@@ -226,7 +221,8 @@ problemas al intentar reproducir los experimentos de otros investigadores.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{self-reproduce.png}
-    \caption{Problemas con la reproducibilidad por disciplina \cite{Baker_2016}}\label{fig:self-reproduce}
+    \caption{Problemas con la reproducibilidad por disciplina \cite{Baker_2016}.}
+    \label{fig:self-reproduce}
 \end{figure}
 
 Estos problemas se consideran como los principales causantes como se puede ver en la figura \ref{fig:repro-factor}.
@@ -239,7 +235,8 @@ los datos, entre otros.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{repro-factor.png}
-    \caption{Factores que contribuyen a la irrepoducibilidad \cite{Baker_2016}}\label{fig:repro-factor}
+    \caption{Factores que contribuyen a la irrepoducibilidad \cite{Baker_2016}.}
+    \label{fig:repro-factor}
 \end{figure}
 
 Aunque la reproducibilidad es un problema complejo y multifacético, existen
@@ -284,7 +281,7 @@ Los principales fallos relacionados con malas prácticas de código son los sigu
     las prácticas que más impacto tienen en la eficiencia de los modelos son el uso de librearías
     basadas en C \cite{1182968}, la compilación de modelos mediante JIT \cite{Aycock2003Brief}, el empleo de técnicas de cacheo en
     momentos críticos \cite{lruCache}, entre otros. Estas practicas pueden suponer un aumento de la velocidad de
-    ejecución de un x2 en el peor de los casos y un x4 de media \cite{Jun2010Comparative}. 
+    ejecución de un x2 en el peor de los casos y un x4 de termino media \cite{Jun2010Comparative}. 
     \item \textbf{Errores en producción:} Los errores que no se detectan durante 
     la fase de desarrollo pueden manifestarse en entornos de producción, afectando la fiabilidad 
     y el rendimiento del sistema. La implementación de un sistema robusto de pruebas y monitoreo 
@@ -296,6 +293,4 @@ Los principales fallos relacionados con malas prácticas de código son los sigu
 
 \end{itemize}
 
-% Vocales con acento -> áéíóú
- 
 \pagebreak
