@@ -10,14 +10,35 @@ de este proyecto, se ha realizado una prueba piloto con un grupo de integrantes
 de Tecnalia. Estos han estado probando la herramienta durante un periodo de tiempo
 de dos semanas, y han proporcionado feedback sobre su experiencia a través de
 la siguiente encuesta de satisfacción. Entre los participantes podemos encontrar
-dos tipos de perfiles: investigadores e ingenieros de software. 
+dos tipos de perfiles: investigadores e ingenieros de software.
 
 \subsection{Trabajo a futuro}
 A continuación, se presentan las siguientes propuestas de mejora y ampliación
 del proyecto que podrían ser implementadas en futuras iteraciones:
 
 \begin{itemize}
-    \item \textbf{Adaptación a visión por computador:} Actualmente, la herramienta
+    \item \textbf{Adaptación del sistema a visión por computador:} Actualmente, la infraestructura 
     está enfocada en problemas basados en series temporales, pero se podría ampliar
-    su alcance para incluir problemas de visión por computador. Esto es especialmente
+    su alcance para incluir problemas de visión por computador. Se podría implementar
+    no solo funcionalidades de preprocesamiento de imágenes, sino también incluir
+    plataformas de etiquetado de imágenes populares como Cvat \cite{CVAT} o incluso conectar el
+    sistema de versionado de datasets con herramientas como FiftyOne \cite{FiftyOne}.
+    \item \textbf{Integración de ClearML con las gráficas de la empresa:} Para 
+    optimizar el uso de recursos de cómputo, se propone conectar ClearML con las 
+    gráficas (GPUs) de la empresa. Esta integración permitirá gestionar y monitorear las 
+    tareas de procesamiento de manera eficiente, asegurando una distribución adecuada de las 
+    cargas de trabajo. ClearML facilitará la asignación dinámica de recursos, mejorando 
+    la eficiencia del procesamiento y reduciendo tiempos de espera. Maximizar la utilización de 
+    los recursos de cómputo, se podría implementar un sistema de colas que divida las tareas 
+    según su prioridad y requerimientos de recursos. Esto incluiría la creación de diferentes 
+    colas para tareas de alta prioridad, tareas de procesamiento intensivo y tareas de 
+    mantenimiento. ClearML gestionaría estas colas, asignando las tareas a las GPUs 
+    disponibles y asegurando un uso equilibrado y eficiente de los recursos.
+    \item \textbf{Monitoreo y análisis de rendimiento:} Implementar herramientas de monitoreo 
+    que proporcionen métricas detalladas sobre el uso de los recursos, el rendimiento de las 
+    tareas y la eficiencia del sistema en general. Estas herramientas permitirían identificar 
+    cuellos de botella, optimizar la asignación de recursos y planificar mejoras futuras 
+    basadas en datos concretos. Además, se podría implementar un sistema de alertas que
+    notifique sobre posibles problemas o anomalías en el rendimiento del sistema, permitiendo
+    una respuesta rápida y eficaz ante situaciones críticas.
 \end{itemize}
