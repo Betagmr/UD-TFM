@@ -1,8 +1,9 @@
 \subsection{Contribución al sistema de conocimiento}
 Esta sección describe las contribuciones realizadas al sistema de conocimiento
 durante los diferentes desarrollos realizados bajo el contexto del proyecto. 
-Se presentan los componentes y plantillas que han sido almacenados con 
-una pequeña previsualización de su comportamiento y funcionalidad. 
+Se presentan los componentes y plantillas que han sido almacenados una vez
+terminado el proceso de validación y se han considerado útiles para futuros
+proyectos.
 
 \subsubsection{Plantillas}
 \begin{table}[h!]
@@ -25,3 +26,42 @@ una pequeña previsualización de su comportamiento y funcionalidad.
 \end{table}
 
 \subsubsection{Componentes}
+En esta subsección se presentan los componentes dibididos por categorías.
+Además, se incluye una breve descripción de cada uno de ellos junto a su funcionalidad.
+
+\subsubsubsection{Procesamiento}
+\begin{itemize}
+    \item \textbf{add\_time\_features:} Añade características temporales a un conjunto de datos
+    de series temporales. Se pueden añadir características como el día de la semana, el mes, el año,
+    la hora, entre otros. Es necesario que el argumento de entrada sea una serie temporal con la
+    columna de fecha como índice.
+    \item \textbf{add\_lags:} Añade retrasos a un conjunto de datos de series temporales. Se pueden
+    añadir retrasos de cualquier longitud y se puede especificar si se desea eliminar las filas con
+    valores nulos. Es necesario que el argumento de entrada sea una serie temporal con la columna de
+    fecha como índice.
+\end{itemize}
+
+\subsubsubsection{Metricas}
+
+\subsubsubsection{Visualización}
+\begin{itemize}
+    \item \textbf{show\_time\_series\_compare:} Permite comprar el resutaldo de dos series tempolales,
+    mostrando un gráfico con ambas series. Además, se puede especificar el rango de fechas a mostrar.
+    No es necesario que las series tengan la misma longitud, mientras que utilicen la columna de fecha
+    como índice.
+    \item \textbf{show\_feature\_importance:} Muestra un gráfico de barras con la importancia de las
+    características de un modelo de aprendizaje automático. Se puede enviar como parámetro conjunto 
+    de valores con sus respectias etiquetas y el propio componente se encarga de realizar el gráfico
+    de manera descendente en funcion a la relevancia de las características.
+    \item \textbf{show\_roc\_curve:} Muestra la curva ROC de un modelo de clasificación. Se puede
+    enviar como parámetro el conjunto de valores reales y predichos y el componente se encarga de
+    realizar el gráfico.
+    \item \textbf{show\_time\_series\_outlier:} Este componente recive como paramentros de entrada
+    una serie temporal y una lista de outliers. Devuelve un gráfico de la serie temporal con los
+    outliers marcados. 
+\end{itemize}
+
+\subsubsubsection{Utils}
+\begin{itemize}
+    \item \textbf{seed\_all:}
+\end{itemize}    
