@@ -261,4 +261,30 @@ con la licencia de GitHub Pro por ser estudiante.
     \label{tab:total-budget}
 \end{table}
 
+\subsection{Mantenimiento Futuro}
+La siguiente sección estima el coste de mantener el sistema durante un año, teniendo 
+en cuenta los recursos humanos, hardware y software necesarios para su operación continua.
+Para este caso se ha considerado dos perfiles de recursos humanos, un desarrollador MLOPs
+y un director de proyecto. 
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}[ht]{l|c|c|c|c}
+        \textbf{Recurso}           & \textbf{Coste Unidad} & \textbf{Cantidad} & \textbf{Frecuencia} & \textbf{Precio Total Anual} \\
+        \hline
+        \multicolumn{5}{c}{\textbf{Recursos Humanos}} \\
+        \hline
+        Director de Proyecto        & 90\euro/h             & 2h/mes            & 12 meses           & 2.160\euro \\
+        Desarrollador MLOPs         & 90\euro/h             & 10h/mes           & 12 meses           & 10.800\euro \\
+        \hline
+        \multicolumn{5}{c}{\textbf{Hardware}} \\
+        \hline
+        Servidor de produccion       & 0.2\euro              & 720h/mes         & 12 meses           & 1728\euro   \\
+        Servidor de desarrollo       & 0.1\euro              & 15h/mes          & 12 meses           & 432\euro   \\
+        \multicolumn{4}{r|}{\textbf{Total Anual}} & 21.890\euro \\
+    \end{tabular}
+    \caption{Presupuesto futuro anual para el mantenimiento del sistema}
+    \label{tab:future-budget}
+\end{table}
+
 \pagebreak
