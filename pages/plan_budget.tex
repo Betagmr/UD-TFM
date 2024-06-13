@@ -154,7 +154,8 @@ el proyecto no ha sufrido ningún retraso durante su desarrollo.
 \begin{figure}
     \centering
     \includegraphics[angle=90, width=\textwidth, height=\textheight, keepaspectratio]{gantt.png}
-    \caption{Diagrama de planificación del proyecto.}\label{fig:gantt-planification}
+    \caption{Diagrama de planificación del proyecto.}
+    \label{fig:gantt-planification}
 \end{figure}
 
 \pagebreak
@@ -210,14 +211,14 @@ coste total de cada perfil.
 \begin{table}[ht]
     \centering
     \begin{tabular}[ht]{l|c|c|c}
-        \textbf{Perfil}       & \textbf{Coste/Hora} & \textbf{Horas Invertidas} & \textbf{Precio Total} \\
+        \textbf{Perfil}       & \textbf{Coste por Unidad} & \textbf{Horas Invertidas} & \textbf{Precio Total} \\
         \hline
-        Director del proyecto & 40\euro             & 20h                       & 800\euro              \\
-        Director Tecnalia 1   & 90\euro             & 60h                       & 5.400\euro            \\
-        Director Tecnalia 2   & 90\euro             & 20h                       & 1.800\euro            \\
-        Estudiante            & 6.5\euro            & 540h                      & 3.500\euro            \\
+        Director del proyecto & 40\euro/h             & 20h                       & 800\euro              \\
+        Director Tecnalia 1   & 90\euro/h             & 60h                       & 5.400\euro            \\
+        Director Tecnalia 2   & 90\euro/h             & 20h                       & 1.800\euro            \\
+        Estudiante            & 6.5\euro/h            & 540h                      & 3.500\euro            \\
         \hline
-        Total                 & 17.95\euro           & 640h                      & 11.500\euro           \\
+        Total                 & 17.95\euro/h           & 640h                      & 11.500\euro           \\
     \end{tabular}
     \caption{Presupuesto de recursos humanos}\label{tab:huma-resources}
 \end{table}
@@ -245,46 +246,49 @@ en su mayoría, a excepción de la licencia de GitHub Copilot que tiene un coste
 de 10\euro/mes. Aun así, se ha utilizado la versión gratuita que viene incluida
 con la licencia de GitHub Pro por ser estudiante.
 
-\subsubsection{Total}
-\begin{table}
-    \centering
-    \begin{tabular}[ht]{l|r}
-        \textbf{Recurso} & \textbf{Precio Total} \\
-        \hline
-        Recursos humanos & 14.000\euro           \\
-        Hardware         & 740\euro              \\
-        Software         & 0\euro                \\
-        \hline
-        Total            & 14.740\euro           \\
-    \end{tabular}
-    \caption{Presupuesto general}
-    \label{tab:total-budget}
-\end{table}
-
-\subsection{Mantenimiento Futuro}
+\subsubsection{Mantenimiento Futuro}
 La siguiente sección estima el coste de mantener el sistema durante un año, teniendo 
 en cuenta los recursos humanos, hardware y software necesarios para su operación continua.
 Para este caso se ha considerado dos perfiles de recursos humanos, un desarrollador MLOPs
 y un director de proyecto. 
 
-\begin{table}[ht]
+\begin{table}[h]
     \centering
-    \begin{tabular}[ht]{l|c|c|c|c}
+    \begin{tabular}[H]{l|c|c|c|c}
         \textbf{Recurso}           & \textbf{Coste Unidad} & \textbf{Cantidad} & \textbf{Frecuencia} & \textbf{Precio Total Anual} \\
-        \hline
-        \multicolumn{5}{c}{\textbf{Recursos Humanos}} \\
         \hline
         Director de Proyecto        & 90\euro/h             & 2h/mes            & 12 meses           & 2.160\euro \\
         Desarrollador MLOPs         & 90\euro/h             & 10h/mes           & 12 meses           & 10.800\euro \\
-        \hline
-        \multicolumn{5}{c}{\textbf{Hardware}} \\
-        \hline
-        Servidor de produccion       & 0.2\euro              & 720h/mes         & 12 meses           & 1728\euro   \\
+        Servidor de produccion       & 0.2\euro              & 720h/mes         & 12 meses           & 1.728\euro   \\
         Servidor de desarrollo       & 0.1\euro              & 15h/mes          & 12 meses           & 432\euro   \\
-        \multicolumn{4}{r|}{\textbf{Total Anual}} & 21.890\euro \\
+        \hline
+        \multicolumn{4}{r|}{Total Anual} & 15.111\euro \\
     \end{tabular}
     \caption{Presupuesto futuro anual para el mantenimiento del sistema}
     \label{tab:future-budget}
 \end{table}
+
+\subsubsection{Total}
+A continuación se muestra el presupuesto general del proyecto, incluyendo el
+coste total de los recursos humanos, hardware y software necesarios para llevar
+a cabo el desarrollo.
+
+\begin{table}
+    \centering
+    \begin{tabular}[H]{l|r}
+        \textbf{Recurso} & \textbf{Precio Total} \\
+        \hline
+        Recursos humanos & 11.500\euro           \\
+        Hardware         & 740\euro              \\
+        Software         & 0\euro                \\
+        \hline
+        Total            & 12.240\euro           \\
+    \end{tabular}
+    \caption{Presupuesto general}
+    \label{tab:total-budget}
+\end{table}
+
+\break
+
 
 \pagebreak
