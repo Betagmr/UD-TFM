@@ -33,7 +33,7 @@ se vuelven más sofisticadas, abarcan una gama más amplia de funciones, requier
 un mayor número de datos y los modelos se vuelven cada vez más complejos. Esta
 situación ha forzado a las empresas a buscar nuevas formas de gestionar sus proyectos
 que han llevado a la creación de nuevas metodologías, adaptadas a las necesidades
-a los nuevos retos que se presentan. Si bien es cierto que mucha información es
+de los nuevos retos que se presentan. Si bien es cierto que mucha información es
 compartida con la comunidad, existe un gran secretismo en torno a la forma de operar
 de las empresas más grandes, lo que dificulta la adopción de estas metodologías.
 Podemos resaltar positivamente el caso de Meta \cite{metaia}, que es el mayor 
@@ -48,7 +48,7 @@ Este documento representa un estándar que se ha aplicado en base a unas necesid
 concretas y, aunque no está pensado para poder ser adoptado de forma literal por otros equipos,
 se muestra el camino que se ha seguido desde la adopción de plataformas MLOps hasta la creación
 de un sistema de conocimiento para la reutilización de trabajo. La justificación de este
-documento es exponer el trabajo realizado y servir como referencia equipos que quieran implementar
+documento es exponer el trabajo realizado y servir como referencia a equipos que quieran implementar
 un estándar similar o busquen inspiración para crear el suyo propio.
  
 \subsection{Antecedentes}
@@ -149,7 +149,7 @@ Algunos de los principios claves de MLOps son:
     \item \textbf{Gestión de versiones:} controlar las versiones de los modelos y los datos es esencial
     para garantizar la reproducibilidad y la trazabilidad de los modelos. La gestión de versiones
     permite a los equipos comprender cómo ha evolucionado un modelo a lo largo del tiempo e incluso
-    retroceder a versiones anteriores fuera necesario.
+    retroceder a versiones anteriores si fuera necesario.
 \end{itemize}
 
 \subsection{Estado del arte}
@@ -169,7 +169,7 @@ DevOps que ha surgido muy recientemente y, por lo tanto, existen pocos estudios 
 aborden el tema \cite{kreuzberger2022mlops}\cite{recupito2022multivocal}.\medskip
 
 Principalmente existen dos formas para implementar MLOps en una organización, uno es
-a través de los sistemas cloud que ofrecen servicios MLOps como Azure ML \cite{microsoft2023azureml}, 
+a través de los sistema cloud que ofrecen servicios MLOps como Azure ML \cite{microsoft2023azureml}, 
 AWS Sagemaker \cite{aws_sagemaker} o Google Cloud Vertex AI \cite{google2023vertexai}. El otro es a través del despliegue de una plataforma open source
 como MLFlow dentro de la infraestructura propia. Las principales diferencias entre ambas
 opciones son el coste y la flexibilidad, ya que los servicios cloud ofrecen una mayor
@@ -241,7 +241,7 @@ los datos, entre otros.
 
 Aunque la reproducibilidad es un problema complejo y multifacético, existen
 algunas medidas que pueden tomarse para abordarlo. Algunas de estas medidas que encontramos
-en al literatura son una mejor supervisión, mejora del proceso de validación, incentivar
+en la literatura son una mejor supervisión, mejora del proceso de validación, incentivar
 buenas practicas de desarrollo, entre otras. 
 
 \subsubsection{Calidad del software y buenas prácticas}
@@ -253,11 +253,11 @@ mejorar la calidad del software producido. Se han encontrado evidencias \cite{At
 que sugieren que la detección y resolución temprana de problemas mejora significativamente a mayor sea la
 cantidad y calidad de las pruebas realizadas. Este tipo de prácticas son especialmente importantes
 ya que aseguran que el software desempeñe correctamente la función para la que fue diseñado y
-permite tener un control mas en profundidad del mismo.\medskip
+permite tener un control más en profundidad del mismo.\medskip
 
 Dentro del campo del aprendizaje automático, la calidad del software es un aspecto crítico 
 que puede afectar significativamente el rendimiento de los modelos. Pese a que estos sistemas
-son más complejos y difíciles de depurar, debido a que muchos los modelos son en su mayoría
+son más complejos y difíciles de depurar, debido a que muchos de los modelos son en su mayoría
 complejos en cuanto a explicabilidad, una mala gestión del código puede llevar a errores
 de diferente índole. Identificar y comprender estos fallos es crucial para mejorar la calidad y fiabilidad de 
 los sistemas de IA.\medskip
@@ -267,7 +267,7 @@ Los principales fallos relacionados con malas prácticas de código son los sigu
 \begin{itemize}
     \item \textbf{Introducción de sesgos}: la proliferación de tecnologías 
     de minería de datos y la acumulación de datos sociales han llevado a su uso en 
-    decisiones cruciales que afectan la vida de las personas\cite{kamishima2012fairness}. Este tipo de datos son
+    decisiones cruciales que afectan la vida de las personas \cite{kamishima2012fairness}. Este tipo de datos son
     muy complejos ya que la mayoría de veces carecen de consistencia, están entrelazados
     y ramificados, y son muy sensibles a los cambios. Es muy sencillo cometer errores en cuanto
     a la recolección y tratamiento de los datos, lo que puede llevar a la introducción de sesgos
@@ -278,15 +278,15 @@ Los principales fallos relacionados con malas prácticas de código son los sigu
     de recursos computacionales durante el entrenamiento y despliegue de modelos puede llevar a un gasto 
     innecesario de tiempo y energía \cite{Jun2010Comparative}. La optimización de algoritmos y la implementación de 
     técnicas de programación eficiente son esenciales para minimizar estos costos. Algunas de
-    las prácticas que más impacto tienen en la eficiencia de los modelos son el uso de librearías
+    las prácticas que más impacto tienen en la eficiencia de los modelos son el uso de librerías
     basadas en C \cite{1182968}, la compilación de modelos mediante JIT \cite{Aycock2003Brief}, el empleo de técnicas de cacheo en
-    momentos críticos \cite{lruCache}, entre otros. Estas practicas pueden suponer un aumento de la velocidad de
-    ejecución de un x2 en el peor de los casos y un x4 de termino media \cite{Jun2010Comparative}. 
+    momentos críticos \cite{lruCache}, entre otros. Estas practicas pueden suponer un aumento del doble de la velocidad de
+    ejecución en el peor de los casos y un cuádruple término media \cite{Jun2010Comparative}.
     \item \textbf{Errores en producción:} Los errores que no se detectan durante 
     la fase de desarrollo pueden manifestarse en entornos de producción, afectando la fiabilidad 
     y el rendimiento del sistema. La implementación de un sistema robusto de pruebas y monitoreo 
     continuo puede ayudar a identificar y solucionar estos problemas antes de que impacten a los 
-    usuarios finales. Algunas de las practicas recomendables se basan el uso de librearías de validación como
+    usuarios finales. Algunas de las practicas recomendables se basan en el uso de librerías de validación como
     Pydantic \cite{pydantic}, que permiten validar los datos de entrada en tiempo real,
     la implementación de tests unitarios mediante Pytest \cite{Pytest} y la monitorización
     de los modelos en producción mediante herramientas como Prometheus \cite{prometheus} y Grafana \cite{grafana}.
