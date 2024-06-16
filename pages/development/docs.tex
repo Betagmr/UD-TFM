@@ -2,13 +2,13 @@
 La documentación juega un papel crucial en este proyecto, ya 
 que proporciona una guía detallada sobre cómo utilizar los distintos 
 componentes y plantillas disponibles. En este contexto, la adopción 
-de Astro como herramienta para la generación de documentación
+de Astro \cite{Astro} como herramienta para la generación de documentación
 automática se debe a su facilidad de uso, ya que permite crear
-paginas de forma sencilla utilizando Markdown, lo que facilita la
+páginas de forma sencilla utilizando Markdown, lo que facilita la
 creación de documentos por los distintos integrantes del equipo.
 Ya existen proyectos que han utilizado Astro para la generación
 de documentación, como Microsoft con su proyecto Fluent UI 
-\cite{astroPagesHalf} que utiliza Astro.\medskip
+\cite{astroPagesHalf}.\medskip
 
 Concretamente, el proyecto usa Starlight, una plantilla de Astro que
 proporciona una estructura de documentación predefinida, lo que
@@ -33,7 +33,7 @@ elementos de forma interactiva y dinámica.\medskip
 En este momento, la documentación incluye las siguientes guías:
 \begin{itemize}
     \item \textbf{Guía de introducción:} proporciona una visión general del
-    proyecto y que partes lo componen.
+    proyecto y qué partes lo componen.
     \item \textbf{Guía de instalación:} explica cómo instalar las diferentes 
     herramientas en local y conseguir acceso a los servicios. 
     \item \textbf{Guía de plantillas y componentes:} proporciona información detallada sobre cómo
@@ -70,7 +70,7 @@ automática:
     \item \textbf{Descripción:} proporciona una descripción general del
     componente o plantilla.
     \item \textbf{Instalación:} explica cómo instalar el componente o plantilla
-    en un proyecto. Generalmente, se proporciona una único comando de consola que
+    en un proyecto. Generalmente, se proporciona un único comando de consola que
     instala el componente o genera la estructura de archivos de la plantilla. 
     \item \textbf{Uso:} proporciona información sobre cómo utilizar el componente
     o plantilla en un proyecto. Incluye ejemplos de uso.
@@ -82,24 +82,24 @@ automática:
 \subsubsection{Sistema de búsqueda y organización de documentación}
 El poder encontrar información de forma rápida y sencilla es crucial
 en un proyecto de estas características, ya que la documentación
-puede llegar a crecer significativamente y ser difícil encontrar
-la información necesaria. Una de las ventajas de Astro con Starlight
-es que proporciona de forma automatizada un sistema de búsqueda 
-que permite realizar búsquedas en base a palabras clave.\medskip
+puede llegar a crecer significativamente dificulta encontrar
+la información relevante. Una de las ventajas de Astro con Starlight
+es que proporciona de forma automatizada un sistema que permite realizar 
+búsquedas en base a palabras clave.\medskip
 
-El sistema que utiliza por detrás se llama Pagefind, el cual es gratuito 
+El sistema que utiliza por detrás se llama Pagefind \cite{Pagefind}, el cual es gratuito 
 y de código abierto. Pagefind es un motor de búsqueda de documentos
 que entre sus características incluye no solo la búsqueda por palabras
 clave sino también el filtrado de resultados mediante etiquetas, se puede observar
 un ejemplo en la figura \ref{fig:search-menu}. Esta 
-funcionalidad es clave y permiten encontrar la información de forma más precisa. 
+funcionalidad es clave y permite encontrar la información de forma más precisa. 
 Para poder indexar los documentos, Pagefind necesita que estos cuenten con
 unas etiquetas especiales que le permitan identificar que cierto documento
 pertenece a una categoría en concreto. En este sentido, ciertas páginas
 de la documentación cuenta con una sección llamada \textit{Tags} en la que
 se incluyen las etiquetas correspondientes.\medskip
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{search-menu.png}
     \caption{Sistema de búsqueda}\label{fig:search-menu}
@@ -126,7 +126,7 @@ elementos de cada componente se encuentran en un mismo lugar y no
 es necesario buscar en diferentes carpetas para encontrar la
 información necesaria.\medskip
 
-Esto pese a ser una ventaja, también genera un problema a la hora de
+Esto, pese a ser una ventaja, también genera un problema a la hora de
 generar la documentación, ya que es necesario un sistema que sea
 capaz de recorrer todas las carpetas, extraer los archivos Readme.md
 y Readme.mdx de cada una de ellas y generar la respectiva página

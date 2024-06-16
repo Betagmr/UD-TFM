@@ -8,17 +8,24 @@ proyectos.
 \subsubsection{Plantillas}
 \begin{table}[h!]
     \centering
-    \begin{tabular}{| m{4cm} | m{5cm} | m{3cm} |}
+    \begin{tabular}{| m{4cm} | m{8cm} |}
       \hline
-      \textbf{Nombre de la Plantilla} & \textbf{Descripción} & \textbf{Tags} \\ 
+      \textbf{Nombre de la Plantilla} & \textbf{Descripción} \\ 
       \hline
-      Plantilla de Factura & Plantilla para crear facturas detalladas & Factura, Contabilidad \\ 
+      Plantilla Básica & Configuración de infraestructura y herramientas de desarrollo.
+      Crea una estructura de carpetas con varios archivos básicos. \\ 
       \hline
-      Plantilla de Currículum & Plantilla para elaborar un CV profesional & CV, Trabajo, Profesional \\ 
+      XGBoost Forecasting & Adaptación de la plantilla básica a problemas de forecasting.
+      Incorpora un bucle de entrenamiento que permite aplicar un modelo de forecasting sobre un dataset.\\ 
       \hline
-      Plantilla de Informe & Plantilla para redactar informes ejecutivos & Informe, Ejecutivo \\ 
+      XGBoost Classification & Modificación de la plantilla de forecasting pero incorporando un modelo
+      de clasificación.\\ 
       \hline
-      Plantilla de Agenda & Plantilla para organizar reuniones y eventos & Agenda, Organización \\ 
+      Sktime Classification & Plantilla de  \\ 
+      \hline
+      Detección de Anomalías & Plantilla de \\ 
+      \hline
+      AutoML Forecasting & Plantilla de \\ 
       \hline
     \end{tabular}
     \caption{Tabla de plantillas}
@@ -67,10 +74,16 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
     \item \textbf{show\_roc\_curve:} Muestra la curva ROC de un modelo de clasificación. Se puede
     enviar como parámetro el conjunto de valores reales y predichos y el componente se encarga de
     realizar el gráfico.
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.8\textwidth]{rocc_component.png}
+        \caption{Previsualización del componente show\_roc\_curve}
+        \label{fig:roc_curve}
+    \end{figure}
     \item \textbf{show\_time\_series\_outlier:} Este componente recibe como parámetros de entrada
     una serie temporal y una lista de outliers. Devuelve un gráfico de la serie temporal con los
     outliers marcados. 
-    \begin{figure}[ht]
+    \begin{figure}[!h]
         \centering
         \includegraphics[width=0.8\textwidth]{outlier_component.png}
         \caption{Previsualización del componente show\_time\_series\_outlier}

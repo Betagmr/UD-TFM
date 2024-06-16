@@ -4,26 +4,35 @@ Se profundizará en los diferentes aspectos del diseño, la implementación y la
 prueba de los sistemas y componentes desarrollados. Además, se describirán las
 herramientas y tecnologías utilizadas, así como los procesos y metodologías
 empleadas para el desarrollo del proyecto. A continuación, se muestra una vista general de los diferentes elementos
-que conforman la estructura del marco de trabajo.
+que conforman la estructura del marco de trabajo. la Figura \ref{fig:general-vision} muestra como las diferentes
+partes del proyectos se integran con los nuevos desarrollos que se realizan dentro de la empresa.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{general-vision.png}
-    \caption{Vista general del proyecto}\label{fig:general-vision}
+    \includegraphics[width=\textwidth]{general-vision-2.png}
+    \caption{Vista general del proyecto}
+    \label{fig:general-vision}
 \end{figure}
 
-Dentro de la estructura general del proyecto, se pueden identificar tres elementos
-principales: la infraestructura y herramientas, el catálogo de componentes y la
-documentación del proyecto. Cada uno de estos elementos se encarga de aspectos
-diferentes dentro del ecosistema del proyecto, y se relacionan entre sí para formar
-un sistema completo. La idea principal es que la infraestructura sea complementaria
-al desarrollo, estando al alcance de los investigadores de una forma sencilla. El catálogo
+Dentro de la estructura general del proyecto, se pueden identificar varios elementos
+que conforman el proyecto: la infraestructura y herramientas, el catálogo de componentes y 
+plantillas, la documentación del proyecto y el repositorio de artefactos. Cada uno de estos elementos 
+se encarga de aspectos diferentes dentro del ecosistema del proyecto, y se relacionan entre sí para formar
+un sistema completo. \medskip
+
+La idea principal es que la infraestructura sea complementaria
+al desarrollo, estando a la disposición de los investigadores de una forma sencilla. El catálogo
 de componentes y plantillas se encarga de proporcionar una base sólida sobre la que
 construir los diferentes proyectos, automatizando la creación de proyectos siguiendo 
-las mejores prácticas y proporcionando una base sólida sobre la que construir. Por último,
-la documentación del proyecto se encarga de proporcionar una guía clara y detallada
-sobre el uso de las herramientas y componentes, así como de los procesos y metodologías
-empleadas en el desarrollo del proyecto.
+las mejores prácticas y proporcionando una base sólida sobre la que construir. Estos
+componentes y plantillas se construyen de forma modular y se empaquetan dentro de
+JFrog Artifactory \cite{Artifactory}, un repositorio de artefactos que se encarga de almacenar y distribuir
+los diferentes paquetes de código. Por último, la documentación del proyecto se encarga de 
+proporcionar una guía clara y detallada sobre el uso de las herramientas y componentes, así 
+como de los procesos y metodologías empleadas en el desarrollo del proyecto. Esta documentación
+está desarrollada utilizando Astro \cite{Astro} y se almacena en el repositorio donde se encuentran los
+componentes y plantillas. \medskip
+
 
 \input{pages/development/infraestructure.tex}
 \input{pages/development/componets.tex}

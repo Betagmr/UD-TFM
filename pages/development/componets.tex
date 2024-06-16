@@ -1,4 +1,4 @@
-\subsection{Catalogo de componentes}
+\subsection{Catálogo de componentes}
 El catalogo de componentes y plantillas es una herramienta de gestión
 de conocimiento que permite a los integrantes de un equipo compartir,
 reutilizar y colaborar en la creación de estándares para una mayor
@@ -19,8 +19,8 @@ específicas, como el preprocesamiento de datos, la selección de
 características, la evaluación de modelos, entre otros.\medskip
 
 Como se ha mencionado anteriormente, los componentes se dividen
-a su vez en multitud de categorías (atómicos, moleculares, organismos, plantillas, etc.)
-esta división tiene sentido dentro de su concepción original pero,
+a su vez en multitud de categorías (atómicos, moleculares, organismos, plantillas, etc.).
+Esta división tiene sentido dentro de su concepción original pero,
 en el caso de los modelos de IA, la división de los componentes se puede hacer
 de una forma más sencilla, ya que en el caso de la investigación en IA, una
 abstracción más sencilla puede ser más útil para los investigadores. Es por
@@ -72,28 +72,10 @@ a ser muy grande y contar con un nivel de anidamiento muy profundo. Para evitar 
 problema, se ha decidido tomar una estructura de carpetas basada en 
 \textit{Screaming architecture}, una arquitectura de software que busca anteponer la
 lógica de negocio sobre las partes técnicas del sistema. En este caso, nuestra lógica de
-negocio se relaciona en torno a el problema que se busca resolver, es decir los diferentes 
+negocio se relaciona en torno al problema que se busca resolver, es decir los diferentes 
 conjuntos de problemas de las series temporales.\medskip
 
-La figura \ref{fig:screaming-arch} muestra un ejemplo simplificado de la estructura
-de carpetas del proyecto. Por cada uno de los diferentes problemas, se ha creado una 
-carpeta principal, que a su vez contiene diferentes subcarpetas que agrupan los 
-diferentes componentes dentro de cada una de las temáticas (procesamiento, modelo, métricas). 
-En caso de que se necesite añadir un nuevo componente, simplemente se crea una nueva
-carpeta dentro de la temática correspondiente. Por ejemplo, tomando la temática preprocesamiento de datos
-dentro de clasificación, se buscaría la carpeta \textit{Data-Processing} dentro
-\textit{TimeSeries-Classification} y en caso de no existir, se crearía una nueva carpeta, y dentro de ella 
-se añadiría el nuevo componente. \medskip
-
-Lo que se consigue con este enfoque es que cada uno de los diferentes problemas cuente con una 
-estructura similar pero que a su vez tengan la posibilidad de incluir temáticas propia. En la
-figura \ref{fig:screaming-arch} se puede ver como cada uno de los problemas cuenta con componentes
-de procesamiento de datos, pero que a su vez, hay algunos de ellos que cuentan con componentes
-específicos de modelos o métricas. Esto se puede deber a que cada uno de los problemas tiene
-una necesidades específicas o que no se han encontrado componentes que se puedan reutilizar
-en este momento.
-
-\begin{figure}[ht]
+\begin{figure}[!h]
     \dirtree{%
         .1 /components.
         .2 /TimeSeries-Forecasting.
@@ -117,6 +99,24 @@ en este momento.
     \label{fig:screaming-arch}
 \end{figure}
 
+La figura \ref{fig:screaming-arch} muestra un ejemplo simplificado de la estructura
+de carpetas del proyecto. Por cada uno de los diferentes problemas, se ha creado una 
+carpeta principal, que a su vez contiene diferentes subcarpetas que agrupan los 
+diferentes componentes dentro de cada una de las temáticas (procesamiento, modelo, métricas). 
+En caso de que se necesite añadir un nuevo componente, simplemente se crea una nueva
+carpeta dentro de la temática correspondiente. Por ejemplo, tomando la temática \textit{preprocesamiento de datos}
+dentro de clasificación, se buscaría la carpeta \textit{Data-Processing} dentro de la sección
+\textit{TimeSeries-Classification} y en caso de no existir, se crearía una nueva , y dentro de ella 
+se añadiría el nuevo componente. \medskip
+
+Lo que se consigue con este enfoque es que cada uno de los diferentes problemas cuente con una 
+estructura similar pero que a su vez tengan la posibilidad de incluir temáticas propia. En la
+figura \ref{fig:screaming-arch} se puede ver como cada uno de los problemas cuenta con componentes
+de procesamiento de datos, pero que a su vez, hay algunos de ellos que cuentan con componentes
+específicos de modelos o métricas. Esto se puede deber a que cada uno de los problemas tiene
+una necesidades específicas o que no se han encontrado componentes que se puedan reutilizar
+en este momento.\medskip
+
 \subsubsection{Empaquetado de componentes}
 La idea de los componentes es que sean fácilmente integrables en cualquier
 proyecto de una forma sencilla. Para ello, se ha decidido empaquetar cada
@@ -133,16 +133,20 @@ hereden del mismo nombre de paquete, para que se puedan utilizar de una forma
 transparente a la hora de importarlos en un proyecto. Es decir, si tenemos por
 ejemplo un componentes de ingesta de datos llamado \textit{get\_data} y otro de 
 visualización que imprime una gráfica llamado \textit{show\_graph}, la forma de 
-importarlo en un proyecto sería la siguiente:
+importarlo en un proyecto real sería la que se muestra en la figura \ref{fig:import-components}.
 
-\begin{verbatim}
-    $ pip install stac-show-graph stac-get-data
+\begin{figure}[!h]
+    \begin{lstlisting}[language=Python]
+        $ pip install stac-show-graph stac-get-data
 
-    >>> from stac.visualization.show_graph import show_graph
-    >>> from stac.data_ingestion.get_data import get_data
-    >>> data = get_data()
-    >>> show_graph(data)
-\end{verbatim}
+        >>> from stac.visualization.show_graph import show_graph
+        >>> from stac.data_ingestion.get_data import get_data
+        >>> data = get_data()
+        >>> show_graph(data)
+    \end{lstlisting}
+    \caption{Ejemplo de importación de componentes.}
+    \label{fig:import-components}
+\end{figure}
 
 Para conseguir este efecto es necesario comprender como funciona el empaquetado
 de librerías en Python. En Python, un paquete es una carpeta que contiene, por lo menos,
@@ -153,11 +157,11 @@ si queremos que todos nuestros componentes se importen desde \textit{stac}, es n
 el código de cada uno se encuentre dentro de una carpeta llamada \textit{stac}, que a su vez
 contenga una carpeta con el nombre de la categoría del componente sin ningún \textit{\_\_init\_\_.py} 
 en su interior, ya que no queremos que se comporte como un paquete sino como una ruta.
-Dentro de esta, ya si se crear una carpeta con el nombre del componente y dentro de esta
-se añadirá el código del componente. En la figura \ref{fig:min-package} se puede ver 
-como es el contenido de cada componente y la estructura de carpetas que se debe seguir.
+Dentro de esta, si se crear una carpeta con el nombre del componente y se añadirá el código 
+del componente. En la figura \ref{fig:min-package} se puede ver 
+como es el contenido de cada componente y la estructura de carpetas que se debe seguir.\medskip 
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \dirtree{%
         .1 /component-name.
         .2 pyproject.toml.
@@ -172,9 +176,10 @@ Esta estructura se tiene que repetir para cada uno de los componentes que se qui
 añadir al repositorio. No obstante, y aprovechando que cada componente está separada
 en un proyecto independiente, se pueden añadir más utilidades como tests, documentación
 o ejemplos de uso. Como estamos utilizando poetry para gestionar las dependencias, y
-las configuraciones globales del proyecto, también se van a añadir sus archivos correspondientes.\medskip
+las configuraciones globales del proyecto, también se van a añadir sus archivos 
+correspondientes.\medskip
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \dirtree{%
         .1 /component-name.
         .2 README.md.
@@ -195,8 +200,8 @@ sencillo posible. Es muy importante que la estructura sea la descrita para optim
 la experiencia de desarrollo de los integrantes del equipo.
 
 \subsubsection{Sistema de plantillas}
-La herramienta que hemos utilizado para la creación de plantillas es Cookiecutter.
-Cookiecutter es una utilidad para la generación de proyectos que te permite inicializar
+La herramienta que hemos utilizado para la creación de plantillas es Cookiecutter \cite{Cookiecutter}.
+Cookie\-cutter es una utilidad para la generación de proyectos que te permite inicializar
 un proyecto a partir de plantillas predefinidas. Funciona siguiendo un principio 
 básico: en lugar de empezar un nuevo proyecto desde cero y tener que configurar 
 todo manualmente, puedes usar una plantilla predefinida que ya incluya la estructura 
@@ -227,52 +232,65 @@ una plantilla puede ser muy útil:
     proceso de creación de nuevas plantillas. 
 \end{itemize}
 
-La razón por la elección de Cookiecutter es por su facilidad de uso, ya que
-al utilizar el sistema de plantillas Jinja2, se pueden añadir variables a los
+La razón de la elección de Cookiecutter es por su facilidad de uso, ya que
+al utilizar el sistema de plantillas Jinja2 \cite{Jinja}, se pueden añadir variables a los
 archivos de la plantilla que se sustituirán por valores concretos al inicializar
 el proyecto. Este sistema de plantillas es muy conocido especialmente ente los
 desarrolladores de Python, ya que es ampliamente utilizado por otros frameworks
-como Django. Además, Cookiecutter cuenta con una gran cantidad de plantillas
+web como Django. Además, Cookiecutter cuenta con una gran cantidad de plantillas
 predefinidas que se pueden utilizar de forma gratuita, lo que puede ser muy útil
 a la hora de incorporar las primeras plantillas al repositorio.\medskip
 
 Estas plantillas se almacenan de la misma forma que podemos ver en la figura
 \ref{fig:screaming-arch} pero sustituyendo los componentes por las plantillas.
 En principio, la estructura de las plantillas puede variar en gran medida entre
-ellas, ya que cada una de ella busca resolver un problema específico. No obstante,
+ellas, ya que cada una de ellas busca resolver un problema específico. No obstante,
 hay una serie de directrices obligatorias que se deben seguir para garantizar el
 correcto funcionamiento de las plantillas:
 
 \begin{itemize}
     \item \textbf{Automatización de instalación y lanzamiento:} todas las plantillas
-    deben contar con un makefile que permita la instalación de las dependencias y
+    deben contar con un \textit{Makefile} que permita la instalación de las dependencias y
     el lanzamiento de la aplicación de forma sencilla. Por convención, el comando
     de instalación se llamará \textit{make install} y el de lanzamiento \textit{make train}.
     Es muy importante que estos comandos estén presentes en todas las plantillas para
     garantizar que con solo dos comandos y sin necesidad de consultar la documentación
-    especifica de cada plantilla se pueda poner en marcha el proyecto en concreto.
+    específica de cada plantilla se pueda poner en marcha el proyecto en concreto.
+    \item \textbf{Documentación:} todas las plantillas deben contar con una documentación
+    clara y detallada sobre el uso de la plantilla. Esta documentación se debe almacenar
+    en un archivo \textit{README.md} en la raíz de la plantilla y debe contener una descripción
+    general de la plantilla, disponer del comando de descargo para token de acceso y ssh,
+    un listado de los archivos que se generan y un listado de las etiquetas que se han
+    utilizado para indexar en el sistema de búsqueda.
 \end{itemize}
 
 \subsubsection{Integración continua y despliegue continuo}
 Dentro de equipos de trabajo donde hay un número elevado de integrantes, es
 importante no solo tener una buena organización del código, sino también
-contar con un sistema de CI/CD que asegure los diferentes procesos. En nuestro
-caso es especialmente critico ya que los componentes son utilizados por
-diferentes personas en diferentes proyectos, por lo que un fallo en uno de
+contar con un sistema de CI/CD que asegure los diferentes procesos. En este
+caso es especialmente crítico ya que los componentes son utilizados por
+diferentes investigadores en diferentes proyectos, por lo que un fallo en uno de
 los componentes puede afectar a un gran número de proyectos.\medskip
 
 Para la implementación se ha utilizado GitLab CI, con una distribución de 
-tres fases: \textit{test}, \textit{docs} y \textit{deploy}. En la fase de test
-se ejecutan los test de cada uno de los componentes, en la fase de docs se
-extraen todos los archivos de documentación y se genera una pagina web estática
-con toda la documentación del proyecto, y en la fase de deploy hace una comprobación
-de que paquetes es necesario desplegar y en caso de que haya cambios, se despliegan
-las nuevas versiones de los paquetes, aclarar que se mantienen las versiones anteriores
-para evitar problemas de compatibilidad.\medskip
+tres fases: 
+\begin{itemize}
+    \item \textbf{test:} en esta fase se ejecutan los test de cada uno de los componentes
+    para comprobar que no hay errores en el código. En caso de que haya errores, se
+    notifica y se detiene el proceso. Estos test funcionan mediante el uso de Pytest \cite{Pytest},
+    una librería de Python que permite la creación de test unitarios de una forma sencilla.
+    \item \textbf{docs:} en esta fase se extraen todos los archivos de documentación que están 
+    conformados por los \textit{README.md} y \textit{README.mdx} de las carpetas de componentes. 
+    Una vez extraído se genera una página web estática con toda la documentación del proyecto.
+    \item \textbf{deploy:} en esta fase se comprueba que paquetes es necesario desplegar y en caso
+    de que haya cambios, se despliegan las nuevas versiones de los paquetes. Estas versiones se despliegan
+    bajo una nuevo versión lo que se mantienen los paquetes anteriores para evitar problemas de compatibilidad.
+\end{itemize}
 
-Estas fases se ejecutan en diferentes momentos, al estar la rama principal bloqueada
+
+Estas fases se ejecutan en diferentes momentos, y al estar la rama principal bloqueada
 por defecto, es necesario crear una rama con las nuevas funcionalidades y/o modificaciones
-y hacer una petición de merge a la rama principal. En este momento se ejecutan las fases
+y hacer una petición de \textit{merge} a la rama principal. En este momento se ejecutan las fases
 de test y docs, para comprobar que no hay errores en el código y que la documentación
 se puede generar correctamente, aunque esta última no se despliega hasta que se haya
 aceptado la petición de merge. En caso de que se acepte la petición de merge, se ejecuta
