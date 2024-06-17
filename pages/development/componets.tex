@@ -279,7 +279,7 @@ tres fases:
     para comprobar que no hay errores en el código. En caso de que haya errores, se
     notifica y se detiene el proceso. Estos test funcionan mediante el uso de Pytest \cite{Pytest},
     una librería de Python que permite la creación de test unitarios de una forma sencilla.
-    \item \textbf{docs:} en esta fase se extraen todos los archivos de documentación que están 
+    \item \textbf{pages:} en esta fase se extraen todos los archivos de documentación que están 
     conformados por los \textit{README.md} y \textit{README.mdx} de las carpetas de componentes. 
     Una vez extraído se genera una página web estática con toda la documentación del proyecto.
     \item \textbf{deploy:} en esta fase se comprueba que paquetes es necesario desplegar y en caso
@@ -297,3 +297,10 @@ aceptado la petición de merge. En caso de que se acepte la petición de merge, 
 la fase de deploy. Existen usuarios que excepcionalmente pueden realizar modificaciones
 sobre la rama principal, pero solo en caso de que sea necesario y no como una práctica
 habitual. 
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{component_pipe.png}
+    \caption{Ejecución de una \textit{pipeline} completa.}
+    \label{fig:component-pipeline}
+\end{figure}

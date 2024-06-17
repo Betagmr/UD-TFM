@@ -21,11 +21,14 @@ proyectos.
       XGBoost Classification & Modificación de la plantilla de forecasting pero incorporando un modelo
       de clasificación.\\ 
       \hline
-      Sktime Classification & Plantilla de  \\ 
+      Sktime Classification & Plantilla que utiliza las funcionalidades de la librería 
+      Sktime para hacer una clasificación en un problema de series temporales \\ 
       \hline
-      Detección de Anomalías & Plantilla de \\ 
+      Detección de Anomalías & Plantilla base para la detección de anomalías 
+      utilizando técnicas de clustering para detectar patrones anómalos.\\ 
       \hline
-      AutoML Forecasting & Plantilla de \\ 
+      AutoML Forecasting &  Plantilla que automatiza la prueba de modelos 
+      de forecasting y realiza una búsqueda eficiente de hiperparámetros.\\ 
       \hline
     \end{tabular}
     \caption{Tabla de plantillas}
@@ -46,6 +49,10 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
     añadir retrasos de cualquier longitud y se puede especificar si se desea eliminar las filas con
     valores nulos. Es necesario que el argumento de entrada sea una serie temporal con la columna de
     fecha como índice.
+    \item \textbf{add\_hollidays:} El componente toma como entrada un DataFrame y un objeto 
+    calendario (por defecto, utiliza el calendario de los Estados Unidos) y 
+    añade una columna adicional denominada \textit{holiday} que indica si la fecha es un día festivo
+    o no.
 \end{itemize}
 
 
@@ -55,7 +62,7 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
     mostrando un gráfico con ambas series. Además, se puede especificar el rango de fechas a mostrar.
     No es necesario que las series tengan la misma longitud, mientras que utilicen la columna de fecha
     como índice.
-    \begin{figure}[ht]
+    \begin{figure}[!h]
         \centering
         \includegraphics[width=0.8\textwidth]{compare_predictions.png}
         \caption{Previsualización del componente show\_time\_series\_compare}
@@ -65,20 +72,11 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
     características de un modelo de aprendizaje automático. Se puede enviar como parámetro conjunto 
     de valores con sus respectivas etiquetas y el propio componente se encarga de realizar el gráfico
     de manera descendente en función a la relevancia de las características.
-    \begin{figure}[ht]
+    \begin{figure}[!h]
         \centering
-        \includegraphics[width=0.8\textwidth]{feature_importance.png}
+        \includegraphics[width=0.6\textwidth]{feature_importance.png}
         \caption{Previsualización del componente show\_feature\_importance}
         \label{fig:feature_importance}
-    \end{figure}
-    \item \textbf{show\_roc\_curve:} Muestra la curva ROC de un modelo de clasificación. Se puede
-    enviar como parámetro el conjunto de valores reales y predichos y el componente se encarga de
-    realizar el gráfico.
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.8\textwidth]{rocc_component.png}
-        \caption{Previsualización del componente show\_roc\_curve}
-        \label{fig:roc_curve}
     \end{figure}
     \item \textbf{show\_time\_series\_outlier:} Este componente recibe como parámetros de entrada
     una serie temporal y una lista de outliers. Devuelve un gráfico de la serie temporal con los
@@ -89,8 +87,16 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
         \caption{Previsualización del componente show\_time\_series\_outlier}
         \label{fig:outlier_component}
     \end{figure}
+    \item \textbf{show\_roc\_curve:} Muestra la curva ROC de un modelo de clasificación. Se puede
+    enviar como parámetro el conjunto de valores reales y predichos y el componente se encarga de
+    realizar el gráfico.
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{rocc_component.png}
+        \caption{Previsualización del componente show\_roc\_curve}
+        \label{fig:roc_curve}
+    \end{figure}
 \end{itemize}
-
 
 \paragraph{Componentes de utilidad}
 \begin{itemize}
@@ -100,4 +106,11 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
     \item \textbf{get\_logger:} Devulve un objeto de tipo logger que se puede utilizar para
     imprimir mensajes en la consola en un formato específico. El formato del logger sigue la
     siguiente sintaxis \textit{\%(asctime)s - \%(levelname)s - \%(module)s - \%(message)s} 
-\end{itemize}    
+\end{itemize} 
+
+\paragraph{Componentes de métricas}
+\begin{itemize}
+    \item \textbf{mean\_absolute\_percentage\_error:} Error medio absoluto porcentual (MAPE) 
+    calcula el error porcentual absoluto medio entre dos conjuntos de valores, la primera 
+    entrada son los valores reales y la segunda son los valores predichos.
+\end{itemize}

@@ -245,28 +245,35 @@ desviaciones significativas de esos patrones. Podemos encontrar el siguiente pro
     hasta 2018.
 \end{itemize}
 
-% .
-% ├── components
-% │   ├── data
-% │   │   ├── __init__.py
-% │   │   ├── process_data.py
-% │   │   └── read_dataset.py
-% │   ├── model
-% │   │   ├── __init__.py
-% │   │   └── isolation_forest.py
-% │   └── visualization
-% │       ├── __init__.py
-% │       └── show_outliers.py
-% ├── __init__.py
-% ├── settings
-% │   ├── __init__.py
-% │   ├── metadata.py
-% │   └── train_params.py
-% ├── train.py
-% └── utils
-%     ├── __init__.py
-%     └── logger.py
+Se ha desarrollado un módulo específico para la lectura y el procesamiento de datos. 
+El módulo de lectura se encuentra en el archivo read\_dataset.py, mientras que el 
+procesamiento de datos se realiza en process\_data.py. Este último incluye 
+funcionalidades como la eliminación de valores nulos, la normalización de datos 
+y la creación de nuevas características temporales. Para la detección de anomalías, 
+se ha implementado el algoritmo Isolation Forest, adecuado para identificar puntos 
+de datos que son escasos y diferentes respecto al resto. Este modelo se encuentra 
+en el archivo isolation\_forest.py. Además, se ha desarrollado una funcionalidad 
+para la visualización de resultados en show\_outliers.py, que permite mostrar las 
+anomalías detectadas en un gráfico, diferenciando claramente entre los datos 
+normales y las anomalías.
 
+\begin{itemize}
+    \item \textbf{process\_data (Procesamiento de datos):} Realiza el procesamiento 
+    inicial de los datos, incluyendo la limpieza, normalización y creación de 
+    características adicionales necesarias para el modelo.
+    \item \textbf{isolation\_forest (Modelo):} Implementa el algoritmo Isolation 
+    Forest para la detección de anomalías, configurando los parámetros necesarios 
+    para optimizar la detección en el contexto del tráfico de coches.
+    \item \textbf{show\_outliers (Visualización):} Crea gráficos que muestran las 
+    anomalías detectadas, facilitando la interpretación de los resultados por parte 
+    de los usuarios finales.
+\end{itemize}
+    
+La duración aproximada del proyecto ha sido de 2 horas y 30 minutos, incluyendo la 
+implementación de todas las funcionalidades descritas y la validación del modelo. 
+Este proyecto ha servido como base para la creación de una plantilla reutilizable 
+para futuros proyectos de detección de anomalías, facilitando el desarrollo y 
+optimización de nuevos modelos en este ámbito.
 
 \subsubsection{Proyectos de automl}
 AutoML, o aprendizaje automático automático, es un enfoque que utiliza algoritmos 
