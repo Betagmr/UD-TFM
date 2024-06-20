@@ -33,9 +33,9 @@ otros factores como el tiempo en la creación de nuevas plantillas o componentes
     \hline
     Estación SKTime & 0h 30min & 0 & Si \\
     \hline
-    Anomalías Taxi & 140 & 0 & No \\
+    Anomalías Taxi & 140 & 2 & No \\
     \hline
-    Temperatura AutoML & 1h 20min & 0 & Si \\
+    Temperatura AutoML & 1h 20min & 1 & Si \\
     \hline
     \end{tabular}
     \caption{Comparación de tiempos de desarrollo de proyectos}
@@ -50,16 +50,19 @@ las usaron. Esto sugiere que las plantillas mejora eficientemente y puede ser
 recomendado para futuros desarrollos para minimizar el tiempo invertido en proyectos.\medskip
 
 Otro de los aspectos a destacar es que ha medida que se incorporan nuevos componentes 
-al sistema de conocimiento cada vez es más complicado encontrar nuevos componentes
-que 
+al sistema de conocimiento cada vez es más complicado encontrar nuevos que aporten
+valor al sistema. Este fenómeno se puede deber a que las necesidades de los proyectos
+son bastante similares y los componentes que se han creado hasta ahora cubren la mayoría
+de los casos de uso. Por otro lado, es posible que a medida que se vayan incorporando
+nuevos miembros al sistema, estos aporten nuevas ideas que permitan la creación de nuevo
+conocimiento que no se había contemplado hasta ahora.
 
 \subsubsection{Feedback de los usuarios}
 Para poder llevar a cabo un análisis de los resultados de la aplicación
 de este proyecto, se ha realizado una prueba piloto con un grupo de integrantes
 de Tecnalia. Estos han estado probando la herramienta durante un periodo de tiempo
 de dos semanas, y han proporcionado feedback sobre su experiencia a través de
-la siguiente encuesta de satisfacción. Entre los participantes podemos encontrar
-dos tipos de perfiles: investigadores e ingenieros de software.
+la siguiente encuesta de satisfacción. 
 
 \subsection{Trabajo a futuro}
 A continuación, se presentan las siguientes propuestas de mejora y ampliación
@@ -72,18 +75,17 @@ del proyecto que podrían ser implementadas en futuras iteraciones:
     no solo funcionalidades de preprocesamiento de imágenes, sino también incluir
     plataformas de etiquetado de imágenes populares como Cvat \cite{CVAT} o incluso conectar el
     sistema de versionado de datasets con herramientas como FiftyOne \cite{FiftyOne}.
-    \item \textbf{Integración de ClearML con las gráficas de la empresa:} Para 
+    \item \textbf{Integración de ClearML con las tarjetas gráficas de la empresa:} Para 
     optimizar el uso de recursos de cómputo, se propone conectar ClearML con las 
     gráficas (GPUs) de la empresa. Esta integración permitirá gestionar y monitorear las 
     tareas de procesamiento de manera eficiente, asegurando una distribución adecuada de las 
     cargas de trabajo. ClearML facilitará la asignación dinámica de recursos, mejorando 
-    la eficiencia del procesamiento y reduciendo tiempos de espera. Maximizar la utilización de 
-    los recursos de cómputo, se podría implementar un sistema de colas que divida las tareas 
-    según su prioridad y requerimientos de recursos. Esto incluiría la creación de diferentes 
-    colas para tareas de alta prioridad, tareas de procesamiento intensivo y tareas de 
-    mantenimiento. ClearML gestionaría estas colas, asignando las tareas a las GPUs 
-    disponibles y asegurando un uso equilibrado y eficiente de los recursos.
-    \item \textbf{Monitoreo y análisis de rendimiento:} Implementar herramientas de monitoreo 
+    la eficiencia del procesamiento y reduciendo tiempos de espera. Se podría implementar un 
+    sistema de colas que divida las tareas según su prioridad y requerimientos de recursos. 
+    Esto incluiría la creación de diferentes colas para tareas de alta prioridad, 
+    tareas de procesamiento intensivo y tareas de mantenimiento. ClearML gestionaría estas colas, 
+    asignando las tareas a las GPUs disponibles y asegurando un uso equilibrado y eficiente de los recursos.
+    \item \textbf{Monitorización y análisis de rendimiento:} Implementar herramientas de monitorización 
     que proporcionen métricas detalladas sobre el uso de los recursos, el rendimiento de las 
     tareas y la eficiencia del sistema en general. Estas herramientas permitirían identificar 
     cuellos de botella, optimizar la asignación de recursos y planificar mejoras futuras 

@@ -108,10 +108,10 @@ muestra un análisis detallado de las plataformas evaluadas y las funcionalidade
     herramienta para poder trabajar con ella. Además, funcionalidades clave como la visualización son funcionalidades
     de pago en DVC Studio, lo que limita su uso en la capa gratuita.
     
-    \item \textbf{ZenML:} ZenMl \cite{Zenml} es una plataforma de código abierto encargado de la orquestación de \textit{pipelines} en
+    \item \textbf{ZenML:} ZenML \cite{Zenml} es una plataforma de código abierto encargado de la orquestación de \textit{pipelines} en
     proyectos de aprendizaje automático. Ofrece una experiencia de desarrollo cómoda y modular, que facilita
     la reutilización de código. Además, cuenta con integraciones para las plataformas de almacenamiento
-    más populares, como AWS y Google Cloud. A diferencia de ClearMl y MLFlow, este no está enfocado en la
+    más populares, como AWS y Google Cloud. A diferencia de ClearML y MLFlow, este no está enfocado en la
     gestión de experimentos ya que no es una plataforma MLOps, aunque sí que ofrece conexiones con esta última
     para poder redireccionar nuestros experimentos. La documentación es clara y podemos encontrar diversos repositorios 
     con ejemplos de uso o integración con otras herramientas. El problema de esta radica principalmente
@@ -206,8 +206,8 @@ utilizar Keycloak para autenticar a los usuarios y garantizar la seguridad
 y la privacidad de los datos. La figura \ref{fig:internal-server} muestra
 cómo se ha integrado Keycloak en la infraestructura, así como las conexiones
 entre los diferentes servicios y el proxy inverso. En el momento actual, se
-ha implementado un sistema de autenticación básico, pero se espera que en el
-futuro este sistema se sincronice con el sistema de autenticación de Tecnalia
+ha implementado un sistema de autenticación básico, pero en el futura podrá 
+sincronizarse con el sistema de autenticación de Tecnalia
 para una mayor comodidad por parte de los usuarios.
 
 \subsubsection{Despligue Automatizado}
@@ -218,9 +218,10 @@ permite definir un conjunto de pasos que se ejecutarán cada vez que se
 realice un cambio en el repositorio, lo que facilita el despliegue de
 aplicaciones y la gestión de la infraestructura.\medskip
 
-Para poder utilizar GitLab CI, es necesario primero definir un \textit{runner}, que
+Para poder utilizar GitLab CI, es necesario primero definir un \textit{runner}, este
 es un agente que se encarga de ejecutar los pasos definidos en el archivo
-de configuración. En este caso, el \textit{runner} se ha desplegado en el servidor
+de configuración. En este caso, el \textit{runner} se ha desplegado en una máquina
+virtual de la empresa, 
 lo que permite ejecutar los diferentes flujos en el mismo entorno. Además,
 otro aspecto a tener en cuenta es que por seguridad, se ha configurado el
 sistema con variables de entorno que enmascaran las credenciales de acceso

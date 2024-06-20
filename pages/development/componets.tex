@@ -5,9 +5,9 @@ reutilizar y colaborar en la creación de estándares para una mayor
 eficiencia en el desarrollo de modelos de IA. Los componentes son
 elementos que representan pequeñas funcionalidades dentro de un
 proyecto que pueden ser reutilizados de una forma sencilla. Las plantillas 
-por otro lado son estructuras más complejas que agrupan varios componentes, 
-configuraciones y reglas de negocio para crear un modelo dentro de una 
-temática específica por cada una de ellas. A todos estos elementos los hemos
+por otro lado son estructuras más complejas. Estas pueden agrupar varios componentes, 
+configuraciones y reglas de negocio. Ademas, cada una de ellas están organizadas dentro de una 
+temática específica. A todos estos elementos los hemos
 denominado bajo el nombre de STAC (Simple Tecnalia AI Components).\medskip
 
 \subsubsection{Adaptación del diseño atómico}
@@ -23,7 +23,9 @@ a su vez en multitud de categorías (atómicos, moleculares, organismos, plantil
 Esta división tiene sentido dentro de su concepción original pero,
 en el caso de los modelos de IA, la división de los componentes se puede hacer
 de una forma más sencilla, ya que en el caso de la investigación en IA, una
-abstracción más sencilla puede ser más útil para los investigadores. Es por
+abstracción más sencilla puede ser más útil para los investigadores. 
+Esta abstracción permitiría reducir la complejidad de los componentes y
+facilitar su reutilización en diferentes proyectos. Es por
 ello que se propone una división de los componentes en tres categorías:
 
 \begin{itemize}
@@ -70,10 +72,10 @@ complejidad que puede acarrear la organización de las diferentes carpetas, ya
 que al tener todo en un solo lugar, la cantidad de archivos puede llegar
 a ser muy grande y contar con un nivel de anidamiento muy profundo. Para evitar este
 problema, se ha decidido tomar una estructura de carpetas basada en 
-\textit{Screaming architecture}, una arquitectura de software que busca anteponer la
+\textit{Screaming Architecture} \cite{Screaming}, una arquitectura de software que busca anteponer la
 lógica de negocio sobre las partes técnicas del sistema. En este caso, nuestra lógica de
-negocio se relaciona en torno al problema que se busca resolver, es decir los diferentes 
-conjuntos de problemas de las series temporales.\medskip
+negocio se relaciona en torno al problema que se busca resolver, es decir, los diferentes 
+tipos de problemas de series temporales.\medskip
 
 \begin{figure}[!h]
     \dirtree{%
@@ -157,7 +159,7 @@ si queremos que todos nuestros componentes se importen desde \textit{stac}, es n
 el código de cada uno se encuentre dentro de una carpeta llamada \textit{stac}, que a su vez
 contenga una carpeta con el nombre de la categoría del componente sin ningún \textit{\_\_init\_\_.py} 
 en su interior, ya que no queremos que se comporte como un paquete sino como una ruta.
-Dentro de esta, si se crear una carpeta con el nombre del componente y se añadirá el código 
+Dentro de esta, se crear una carpeta con el nombre del componente y se añadirá el código 
 del componente. En la figura \ref{fig:min-package} se puede ver 
 como es el contenido de cada componente y la estructura de carpetas que se debe seguir.\medskip 
 
@@ -195,7 +197,7 @@ correspondientes.\medskip
 \end{figure}
 
 Este empaquetado puede parecer tedioso si se tiene que hacer manualmente, pero en
-futuras secciones veremos como se puede automatizar este proceso para que sea lo más
+futuras secciones veremos como se ha automatizado este proceso para que sea lo más
 sencillo posible. Es muy importante que la estructura sea la descrita para optimizar
 la experiencia de desarrollo de los integrantes del equipo.
 
@@ -207,6 +209,15 @@ básico: en lugar de empezar un nuevo proyecto desde cero y tener que configurar
 todo manualmente, puedes usar una plantilla predefinida que ya incluya la estructura 
 de directorios, archivos básicos, configuraciones iniciales, y cualquier otro 
 componente necesario para tu proyecto.\medskip
+
+La razón de la elección de Cookiecutter es por su facilidad de uso, ya que
+al utilizar el sistema de plantillas Jinja2 \cite{Jinja}, se pueden añadir variables a los
+archivos de la plantilla que se sustituirán por valores concretos al inicializar
+el proyecto. Este sistema de plantillas es muy conocido especialmente ente los
+desarrolladores de Python, ya que es ampliamente utilizado por otros frameworks
+web como Django. Además, Cookiecutter cuenta con una gran cantidad de plantillas
+predefinidas que se pueden utilizar de forma gratuita, lo que puede ser muy útil
+a la hora de incorporar las primeras plantillas al repositorio.\medskip
 
 Esto es especialmente útil en entornos donde necesitas crear múltiples proyectos 
 con una estructura similar donde puede haber proyectos con requisitos comunes, 
@@ -223,23 +234,15 @@ una plantilla puede ser muy útil:
     \item \textbf{Creación de nuevos componentes:} en caso de que se quiera añadir
     un nuevo componente al repositorio, se puede utilizar una plantilla que contenga
     la estructura de carpetas y los archivos necesarios para empaquetar el componente.
-    Como hemos mencionado anteriormente, esto puede ser especialmente engorroso si no
-    se tiene una plantilla que te ayude a automatizar el proceso.
+    Como hemos mencionado anteriormente, la automatización es un aspecto clave para 
+    incentivar las contribuciones.
     \item \textbf{Creación de nuevas plantillas:} la estructura base de las plantillas
     al igual que los componentes es fácilmente reutilizable, ya que ciertos archivos de
-    configuración o de documentación se pueden reutilizar en diferentes plantillas. Por
-    lo que se pueden crear plantillas que contengan estos archivos y asi automatizar el
-    proceso de creación de nuevas plantillas. 
+    configuración o de documentación pueden ser compartidos entre diferentes plantillas. Por
+    lo que se pueden crear nuevas que contengan estos archivos y asi automatizar el
+    proceso de creación. 
 \end{itemize}
 
-La razón de la elección de Cookiecutter es por su facilidad de uso, ya que
-al utilizar el sistema de plantillas Jinja2 \cite{Jinja}, se pueden añadir variables a los
-archivos de la plantilla que se sustituirán por valores concretos al inicializar
-el proyecto. Este sistema de plantillas es muy conocido especialmente ente los
-desarrolladores de Python, ya que es ampliamente utilizado por otros frameworks
-web como Django. Además, Cookiecutter cuenta con una gran cantidad de plantillas
-predefinidas que se pueden utilizar de forma gratuita, lo que puede ser muy útil
-a la hora de incorporar las primeras plantillas al repositorio.\medskip
 
 Estas plantillas se almacenan de la misma forma que podemos ver en la figura
 \ref{fig:screaming-arch} pero sustituyendo los componentes por las plantillas.
@@ -255,7 +258,7 @@ correcto funcionamiento de las plantillas:
     de instalación se llamará \textit{make install} y el de lanzamiento \textit{make train}.
     Es muy importante que estos comandos estén presentes en todas las plantillas para
     garantizar que con solo dos comandos y sin necesidad de consultar la documentación
-    específica de cada plantilla se pueda poner en marcha el proyecto en concreto.
+    específica de cada plantilla se pueda poner en marcha el proyecto.
     \item \textbf{Documentación:} todas las plantillas deben contar con una documentación
     clara y detallada sobre el uso de la plantilla. Esta documentación se debe almacenar
     en un archivo \textit{README.md} en la raíz de la plantilla y debe contener una descripción

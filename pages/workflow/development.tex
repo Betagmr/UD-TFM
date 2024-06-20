@@ -1,10 +1,10 @@
 \subsection{Desarrollo dentro de proyectos}
 Una vez que un nuevo miembro ha superado el periodo de integración,
-ya está listo para comenzar a trabajar en proyectos. En esta subsección
+está preparado para comenzar a trabajar en proyectos. En esta subsección
 se describen los procesos que se siguen para el desarrollo de un
 proyecto desde cero, así como las directrices generales para
 garantizar la calidad y la reproducibilidad del mismo. Para garantizar 
-que esta metodología es funcional y de verdad aporta una mejora en la
+que esta metodología es funcional y aporta una mejora en la
 se han realizado dos proyectos para cada una de las áreas de
 trabajo de las series temporales, \textit{forecasting} y \textit{clasificación}
 y \textit{detección de anomalías}. Por último, se ha hecho una plantilla
@@ -64,13 +64,13 @@ es el siguiente:
 % Hablar aquí de las tres aportaciones que se han hecho Forecasting, 
 \subsubsection{Puesta en practica de la metodología}
 En este apartado se describe la experiencia de desarrollo de
-los proyectos de \textit{forecasting} y \textit{clasificación} y \textit{detección de anomalías}.
+los proyectos de \textit{forecasting}, \textit{clasificación} y \textit{detección de anomalías}.
 Esta sección no pretende centrarse en los resultados obtenidos por parte de los modelos, sino
 más bien llevar a cabo una reflexión sobre la aplicabilidad del marco de trabajo
-dentro de diferentes tipos de proyectos. Los datasets utilizados se eligieron siguiendo el criterio de 
-pertenecer a la sección de "Industria y movilidad", correspondiente al área de trabajo donde 
+dentro de diferentes tipos de proyectos. Los datasets utilizados se eligieron considerando que el proyecto se ha realizado junto a la plataforma \textit{Factory Learning} de Tecnalia,
+que se especializa en el trabajo sobre series temporales, correspondiente al área de trabajo donde 
 se quiere aplicar dicho marco, y de estar relacionados con el campo 
-de las series temporales. Estos proyectos se han basado en datasets extraídos de la plataforma Kaggle, 
+de las series temporales. Estos proyectos se han basado en datasets extraídos de la plataforma Kaggle \cite{Kaggle}, 
 ya que es una plataforma que ofrece una gran variedad de datasets que no requieren un registro previo para su descarga.\medskip
 
 Para considerar un proyecto como terminado, se requiere que el modelo sea capaz de realizar inferencias 
@@ -162,7 +162,7 @@ que se pueden ver a continuación, el error ha disminuido hasta el 11.5\%:
 
 Este proyecto ha tenido una duración aproximada de 1 hora y 40 minutos. Una vez finalizado,
 se ha actualizado la plantilla de forecasting con nuevas funcionalidades y extraído cierta
-lógica de la plantilla a componentes para facilitar la reutilización de código. Hemos visto
+lógica de la plantilla a componentes para facilitar la reutilización de código. Hemos observado 
 una mejora en cuanto a la velocidad de desarrollo ya que el tiempo desde la creación del proyecto
 hasta la finalización ha sido reducido a menos de la mitad.
 
@@ -181,8 +181,8 @@ Para los proyecto de clasificación contamos con la siguiente temáticas.
     que en el proyecto de forecasting. De por si este dataset no cuenta con la variable estación,
     por lo que parte de la tarea es la de identificar la estación en base a la fecha.
     \item \textbf{Proyecto 2:} en el segundo proyecto se ha utilizado el mismo dataset pero se ha
-    cambiado las herramientas utilizadas. En este caso, se va a utilizar una librería 
-    llamada Sktime que es una librería especializada en series temporales.
+    cambiado las herramientas utilizadas. En este caso, se va a utilizar la librería 
+    Sktime \cite{Sktime} que esta especializada en series temporales.
 \end{itemize}
 
 Siguiendo la misma metodología que en los proyectos de forecasting, se ha comenzado
@@ -246,9 +246,7 @@ desviaciones significativas de esos patrones. Podemos encontrar el siguiente pro
 \end{itemize}
 
 Se ha desarrollado un módulo específico para la lectura y el procesamiento de datos. 
-El módulo de lectura se encuentra en el archivo read\_dataset.py, mientras que el 
-procesamiento de datos se realiza en process\_data.py. Este último incluye 
-funcionalidades como la eliminación de valores nulos, la normalización de datos 
+Este último incluye funcionalidades como la eliminación de valores nulos, la normalización de datos 
 y la creación de nuevas características temporales. Para la detección de anomalías, 
 se ha implementado el algoritmo Isolation Forest, adecuado para identificar puntos 
 de datos que son escasos y diferentes respecto al resto. Este modelo se encuentra 
@@ -290,7 +288,7 @@ y robustos en comparación con nuestro modelo inicial. La idea es crear una plan
 que reutilice el contenido previo y con la mínima intervención del usuario, sea capaz
 de probar diferentes modelos de forecasting de manera automática.\medskip
 
-La arquitectura de la plantilla en AutoMl se basa en la utilización del patrón
+La arquitectura de la plantilla en AutoML se basa en la utilización del patrón
 de diseño de estrategia. Este patrón de diseño permite definir una familia de algoritmos,
 encapsular cada uno de ellos y hacerlos intercambiables. En este caso, estos algoritmos
 recibirán la lista de modelos con sus diferentes hiperparámetros y los resultados de las
@@ -309,7 +307,7 @@ y Neural Network}. Por otro lado, las estrategias que se han implementado son la
     Esta serie de hiperparámetros por defecto se han seleccionado de manera que sean
     los que mejor se suelen ajustar a la mayoría de los casos. Cada modelo tiene una
     lista diferente de hiperparámetros.
-    \item \textbf{Optimización mediante Optuna:} una vez que se ha probado todos los modelos
+    \item \textbf{Optimización mediante Optuna \cite{Optuna}:} una vez que se ha probado todos los modelos
     con los hiperparámetros por defecto, se seleccionan los tres mejores modelos de esa lista
     de resultados y se realiza una optimización de hiperparámetros mediante Optuna. Optuna
     es una librería de optimización de hiperparámetros que se encarga de encontrar la combinación
