@@ -5,217 +5,53 @@ Además, se presentan ideas o propuestas que podrían ser utilizadas o implement
 en el futuro para mejorar o ampliar el alcance del proyecto.
 
 \subsection{Conclusiones}
-La sección está estructurada en dos partes principales. Primero, se discuten los 
-resultados basados en la experiencia directa, evaluando cómo el nuevo stack ha 
-reducido los tiempos de desarrollo. Posteriormente, se presentan las opiniones 
-y feedback de otros miembros del equipo que han probado y utilizado este stack, 
-proporcionando una visión más amplia y diversa sobre su efectividad y beneficios.
+Una vez finalizado el proyecto, se presentan las siguientes conclusiones en 
+base a los resultados obtenidos y analizados durante el desarrollo del mismo.
+Estas representan los cuatro aspectos clave del proyecto: reducción del tiempo de desarrollo, 
+mejora de la productividad, reutilización del conocimiento y colaboración. Estas conclusiones 
+reflejan los beneficios tangibles que el marco tecnológico propuesto aporta a los 
+equipos y sus proyectos.\medskip
 
-\subsubsection{Resultados basados en los desarrollos}
-Para evaluar la efectividad del stack tecnológico desarrollado, se realizaron 
-varios proyectos de comparando el tiempo necesario para completarlos 
-desde cero versus utilizando plantillas y componentes reutilizables. A continuación, 
-se presenta una tabla con los tiempos. La tabla \ref{tabla:result-time-scores} 
-muestra unicamente el tiempo de desarrollo de los proyectos, sin tener en cuenta
-otros factores como el tiempo en la creación de nuevas plantillas o componentes.
+La implementación ha demostrado ser eficaz en la reducción significativa del tiempo 
+de de\-sarro\-llo. Al automatizar tareas repetitivas y procesos manuales, se liberan 
+recursos y se acelera el progreso de los proyectos. La adopción de metodologías 
+ágiles y MLOps permite responder rápidamente a los cambios del entorno empresarial, 
+proporcionando una ventaja competitiva crucial en cuanto a tiempo se refiere. La 
+integración de plataformas como ClearML y Rath facilita la gestión y 
+monitorización de experimentos, lo que reduce el tiempo dedicado a la configuración 
+y gestión manual de estos procesos.\medskip
 
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{|l|c|c|c|}
-    \hline
-    \textbf{Proyecto} & \textbf{Tiempo} & \textbf{Nuevos componentes} & \textbf{Utiliza plantilla} \\
-    \hline
-    Predicción Temperatura & 3h 30min & 5 & No \\
-    \hline
-    Consumo Energético & 1h 40min & 1 & Si \\
-    \hline
-    Clasificación Estación & 2h 00min & 2 & No \\
-    \hline
-    Estación SKTime & 0h 30min & 0 & Si \\
-    \hline
-    Anomalías Taxi & 140 & 2 & No \\
-    \hline
-    Temperatura AutoML & 1h 20min & 1 & Si \\
-    \hline
-    \end{tabular}
-    \caption{Comparación de tiempos de desarrollo de proyectos}
-    \label{tabla:result-time-scores}
-\end{table}
+La mejora de la productividad es uno de los beneficios más destacados de la 
+implementación del marco tecnológico. La automatización de tareas y la 
+estandarización de procesos permiten a los equipos centrarse en actividades 
+de mayor valor añadido. Además, el uso de herramientas de colaboración y la 
+integración de sistemas de gestión del conocimiento aseguran que la información 
+se comparta y reutilice de manera efectiva. Esto no solo incrementa la eficiencia 
+operativa, sino que también mejora la calidad del trabajo, ya que los investigadores 
+pueden dedicar más tiempo a la innovación y menos a tareas repetitivas.\medskip
 
-La utilización de plantillas y componentes reutilizables dentro del nuevo 
-marco tecnológico ha demostrado reducir significativamente los tiempos de 
-desarrollo de los proyectos. Los proyectos que usaron plantillas, 
-presentaron tiempos de desarrollo más bajos en comparación con aquellos que no 
-las usaron. Esto sugiere que las plantillas mejora eficientemente y puede ser 
-recomendado para futuros desarrollos para minimizar el tiempo invertido en proyectos.\medskip
+El diseño de un sistema de componentes reutilizables y plantillas base para 
+proyectos específicos facilita la reutilización del conocimiento adquirido. 
+La creación de un catálogo de componentes esenciales y la documentación exhaustiva 
+del proyecto aseguran que las mejores prácticas y soluciones previas se 
+puedan aplicar en futuros proyectos. Este enfoque modular y estandarizado no 
+solo ahorra tiempo, sino que también mejora la coherencia y calidad de los 
+desarrollos, permitiendo a los equipos construir sobre trabajos anteriores 
+de manera más eficiente.\medskip
 
-Otro de los aspectos a destacar es que ha medida que se incorporan nuevos componentes 
-al sistema de conocimiento cada vez es más complicado encontrar nuevos que aporten
-valor al sistema. Este fenómeno se puede deber a que las necesidades de los proyectos
-son bastante similares y los componentes que se han creado hasta ahora cubren la mayoría
-de los casos de uso. Por otro lado, es posible que a medida que se vayan incorporando
-nuevos miembros al sistema, estos aporten nuevas ideas que permitan la creación de nuevo
-conocimiento que no se había contemplado hasta ahora.\medskip
+La adopción de un marco común y la integración de herramientas colaborativas 
+son fundamentales para mejorar la cooperación entre los miembros del equipo. 
+La estandarización de procesos y la implementación de sistemas de autenticación 
+y seguridad, como Keycloak, garantizan un entorno seguro y accesible para todos 
+los miembros del equipo. Además, la encuesta de satisfacción realizada a los
+miembros del equipo ha sido acogida de manera positiva, lo que sugiere que
+existe un interés y una aceptación generalizada del nuevo marco tecnológico.\medskip
 
-Por último, se ha observado que el uso de técnicas de AutoML ha permitido mejorar
-la precisión de los modelos de \textit{forecasting}. Esto se debe a la capacidad de
-probar no solo diferentes tipos de algoritmos de \textit{Machine Learning} sino también el uso
-de distintas combinaciones de hiperparámetros. 
-
-\subsubsection{Feedback de los usuarios}
-Para poder llevar a cabo un análisis de los resultados de la aplicación
-de este proyecto, se ha realizado una prueba piloto con un grupo de integrantes
-de Tecnalia. Estos han estado probando la herramienta durante un periodo de tiempo
-de dos semanas, y han proporcionado feedback sobre su experiencia a través de
-la siguiente encuesta de satisfacción.
-
-\begin{itemize}
-    \item \textbf{¿La documentación te resultó intuitiva?} 
-    
-    Esta pregunta busca entender la facilidad de uso y claridad de la documentación proporcionada 
-    con la herramienta. La documentación es crucial para que los usuarios puedan 
-    aprender a utilizar la herramienta de manera efectiva y rápida, sin tener que 
-    buscar ayuda externa constantemente. La figura \ref{fig:sur_1} muestra que el 
-    60\% de los encuestados consideran 
-    la documentación muy intuitiva, mientras que el 40\% la encuentra 
-    mayormente intuitiva. No hubo respuestas indicando que la documentación es 
-    confusa. Estos resultados son positivos y sugieren que la documentación es 
-    en gran medida clara y fácil de usar se señala que hay áreas que podrían mejorarse. 
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.65\textwidth]{sur_1.png}
-        \caption{Resultado documentación de la herramienta.}
-        \label{fig:sur_1}
-    \end{figure}
-    
-    \item \textbf{¿Qué funcionalidad te ha parecido más útil?} 
-    
-    Se busca identificar cuál de las funcionalidades ofrecidas por la 
-    herramienta ha sido la más valorada por los usuarios. Se refire a 
-    elementos concretos como los componentes, las plantillas y la gestión de
-    experimentos y datasets con ClearML. 
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{sur_2.png}
-        \caption{Resultado funcionalidades más valoradas.}
-        \label{fig:sur_2}
-    \end{figure}
-
-    Los resultados indican que las funcionalidades más valoradas por los usuarios son 
-    plantillas y componentes, cada una con un 40\% de preferencia, mientras que 
-    ClearML es considerada útil por el 20\% de los encuestados. Esto sugiere que, aunque todas 
-    las funcionalidades tienen su utilidad, las plantillas y componentes son percibidas 
-    como las más valiosas.
-
-    \item \textbf{¿Si tuvieras que contribuir a la documentación, que te gustaría aportar?}
-    
-    Con esta pregunta se busca entender qué tipo de contribuciones estarían dispuestos
-    a hacer los usuarios de la herramienta. Se refiere a la creación de plantillas,
-    componentes, entradas de blog, o si por el contrario, no están interesados en contribuir.
-    Los resultados indican que el 60\% de los encuestados están dispuestos a contribuir 
-    a la documentación mediante la creación de plantillas o componentes. 
-    Mientras que otro 40\% no se ven contribuyendo a la documentación y nadie está interesado 
-    en contribuir con entradas de blog. Esto sugiere que, aunque hay interés en la creación 
-    de plantillas, un porcentaje significativo de usuarios no está dispuesto a contribuir 
-    en absoluto. Sería útil investigar las razones detrás de esta falta de interés en 
-    contribuir y buscar formas de incentivar la participación, especialmente en áreas como 
-    entradas de blog, que pueden ser muy útiles.
-    
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{sur_3.png}
-        \caption{Resultado contribución a la documentación.}
-        \label{fig:sur_3}
-    \end{figure}
-
-
-    \item \textbf{¿Cuánto tiempo al mes podrías dedicar a contribuir?}
-
-    Con la siguiente cushion se busca medir el compromiso potencial de los usuarios con la 
-    herramienta. Se refiere al tiempo que los usuarios estarían dispuestos a invertir 
-    en contribuir con feedback, desarrollo, documentación, o cualquier otra 
-    forma de colaboración.
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{sur_4.png}
-        \caption{Resultado tiempo dedicado a contribuir.}
-        \label{fig:sur_4}
-    \end{figure}
-
-    Los resultados indican que el 40\% de los encuestados están dispuestos a dedicar menos 
-    de 30 minutos al mes para contribuir, y otro 40\% está dispuesto a dedicar entre 30 
-    minutos y 1 hora. Un 20\% de los encuestados podría dedicar entre 1 y 3 horas, 
-    mientras que ninguno está dispuesto a dedicar más de 3 horas. Esto sugiere que la 
-    mayoría de los usuarios tienen un tiempo limitado para contribuir y es importante 
-    tener en cuenta este factor al diseñar oportunidades de contribución.
-    
-    \item \textbf{¿Has utilizado anteriormente alguna plataforma MLOPs?}
-
-    Se investiga el nivel de experiencia previa de los usuarios con plataformas 
-    similares de MLOps. Saber si los usuarios tienen experiencia previa ayuda 
-    a contextualizar sus respuestas y expectativas. Los resultados indican que el 60\% de 
-    los encuestados creen que la herramienta agiliza mucho su trabajo, mientras que el 40\% no 
-    la ha utilizado pero le gustaría incorporarla. Estos resultados son muy positivos y sugieren una 
-    percepción general favorable de la herramienta. Para aquellos interesados 
-    en incorporarla, sería beneficioso proporcionar recursos y apoyo para facilitar 
-    su adopción, asegurando así una integración exitosa y mejorando aún más la 
-    eficiencia del trabajo.
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{sur_5.png}
-        \caption{Previsualización del componente show\_time\_series\_compare}
-        \label{fig:sur_5}
-    \end{figure}
-
-    \item \textbf{¿Qué te parece la gestión de datasets de ClearML?} 
-    
-    Esta pregunta está 
-    enfocada en recoger opiniones sobre una funcionalidad específica de la 
-    herramienta, en este caso, la gestión de datasets que ofrece ClearML. 
-    Se busca entender cómo los usuarios perciben esta funcionalidad en términos 
-    de usabilidad.
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{sur_6.png}
-        \caption{Previsualización del componente show\_time\_series\_compare}
-        \label{fig:sur_6}
-    \end{figure}
-
-    Los resultados indican que el 60\% de los encuestados encuentran la herramienta 
-    útil pero complicada, mientras que el 40\% tablen la encuentra útil pero la considera 
-    sencilla. Estos resultados sugieren que, aunque la herramienta tiene un valor 
-    percibido positivo, su complejidad puede ser una barrera para su uso efectivo. 
-
-    \item \textbf{¿Qué te parece la gestión de experimentos de ClearML?}
-
-    Similar a la pregunta anterior, esta está diseñada para obtener opiniones 
-    sobre otra funcionalidad específica: la gestión de experimentos. Se busca 
-    evaluar cómo los usuarios perciben la capacidad de la herramienta para 
-    gestionar y monitorizar experimentos de machine learning.
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{sur_7.png}
-        \caption{Previsualización del componente show\_time\_series\_compare}
-        \label{fig:sur_7}
-    \end{figure}
-
-    Los resultados indican que el 80\% de los encuestados les gusta mucho la 
-    herramienta y la encuentran sencilla de usar, mientras que el 20\% la encuentra 
-    útil pero complicada. No hubo respuestas indicando que no les gusta la herramienta, 
-    ya sea que la encuentren sencilla o complicada. Estos resultados son muy positivos y 
-    sugieren que la gran mayoría de los usuarios están satisfechos con la herramienta y 
-    la consideran fácil de usar. Sin embargo, todavía hay un pequeño porcentaje que 
-    encuentra la herramienta complicada, por lo que sería beneficioso identificar 
-    las áreas específicas que pueden ser simplificadas para mejorar la experiencia de 
-    todos los usuarios.
-
-\end{itemize}
+En conclusion, en base a los resultados obtenidos y analizados durante el desarrollo
+del proyecto, se puede afirmar que la implementación del marco tecnológico propuesto
+ha sido exitosa. Los beneficios tangibles obtenidos son muy positivos y sugieren que
+el uso de este marco tecnológico puede mejorar significativamente la eficiencia y
+productividad de los equipos.
 
 \subsection{Trabajo a futuro}
 A continuación, se presentan las siguientes propuestas de mejora y ampliación

@@ -1,5 +1,5 @@
 \subsection{Contribución al sistema de conocimiento}
-Esta sección describe las contribuciones realizadas al sistema de conocimiento
+Se describen las contribuciones realizadas al sistema de conocimiento
 durante los diferentes desarrollos realizados bajo el contexto del proyecto. 
 Se presentan los componentes y plantillas que han sido almacenados una vez
 terminado el proceso de validación y se han considerado útiles para futuros
@@ -114,3 +114,51 @@ Además, se incluye una breve descripción de cada uno de ellos junto a su funci
     calcula el error porcentual absoluto medio entre dos conjuntos de valores, la primera 
     entrada son los valores reales y la segunda son los valores predichos.
 \end{itemize}
+
+\subsubsection{Resultados basados en los desarrollos}
+A continuación, se presenta una tabla con la recopilación de los tiempos. La tabla \ref{tabla:result-time-scores} 
+muestra unicamente el tiempo de desarrollo de los proyectos, sin tener en cuenta
+otros factores como el tiempo en la creación de nuevas plantillas o componentes.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Proyecto} & \textbf{Tiempo} & \textbf{Nuevos componentes} & \textbf{Utiliza plantilla} \\
+    \hline
+    Predicción Temperatura & 3h 30min & 5 & No \\
+    \hline
+    Consumo Energético & 1h 40min & 1 & Si \\
+    \hline
+    Clasificación Estación & 2h 00min & 2 & No \\
+    \hline
+    Estación SKTime & 0h 30min & 0 & Si \\
+    \hline
+    Anomalías Taxi & 2h 30min& 2 & No \\
+    \hline
+    Temperatura AutoML & 1h 20min & 1 & Si \\
+    \hline
+    \end{tabular}
+    \caption{Comparación de tiempos de desarrollo de proyectos}
+    \label{tabla:result-time-scores}
+\end{table}
+
+La utilización de plantillas y componentes reutilizables dentro del nuevo 
+marco tecnológico ha demostrado reducir significativamente los tiempos de 
+desarrollo de los proyectos. Los proyectos que usaron plantillas, 
+presentaron tiempos de desarrollo más bajos en comparación con aquellos que no 
+las usaron. Esto sugiere que las plantillas mejora eficientemente y puede ser 
+recomendado para futuros desarrollos para minimizar el tiempo invertido en proyectos.\medskip
+
+Otro de los aspectos a destacar es que ha medida que se incorporan nuevos componentes 
+al sistema de conocimiento cada vez es más complicado encontrar nuevos que aporten
+valor al sistema. Este fenómeno se puede deber a que las necesidades de los proyectos
+son bastante similares y los componentes que se han creado hasta ahora cubren la mayoría
+de los casos de uso. Por otro lado, es posible que a medida que se vayan incorporando
+nuevos miembros al sistema, estos aporten nuevas ideas que permitan la creación de nuevo
+conocimiento que no se había contemplado hasta ahora.\medskip
+
+Por último, se ha observado que el uso de técnicas de AutoML ha permitido mejorar
+la precisión de los modelos de \textit{forecasting}. Esto se debe a la capacidad de
+probar no solo diferentes tipos de algoritmos de \textit{Machine Learning} sino también el uso
+de distintas combinaciones de hiperparámetros. 
